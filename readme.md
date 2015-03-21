@@ -2,7 +2,7 @@
 
 ![alt tag](http://www.paulwinex.ru/wp-content/uploads/2015/03/mse_git.png)
 
-## [Go to tutorials](http://www.paulwinex.ru/multi-script-editor-v2-0/)
+## [Go to site](http://www.paulwinex.ru/multi-script-editor-v2-0/)
 
 Этот скрипт является Python редактором, который можно запустить как standalone приложение или встроить в другое приложение.
 Главное условие интеграции – возможность скриптинга на Python. Был сделан для работы с Python в CG пакетах.
