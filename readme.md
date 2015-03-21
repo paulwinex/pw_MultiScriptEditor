@@ -4,32 +4,49 @@
 
 ### Standalone
     
-    - install Python 2.7
-    - install PySide
-    - use run.cmd ot run.sh to start
+  - install Python 2.7
+  - install PySide
+  - use run.cmd ot run.sh to start
 
-### Houdini
+### Houdini 13
     
-    - download [hqt.py](http://github.com/paulwinex/hqt )
-Код для Houdini:
-import sys
+  - download [hqt.py](http://github.com/paulwinex/hqt )
+  - create new tool on shelf
 
-p = 'путь к модулю'
-if not p in sys.path:
-    sys.path.append(p)
-import pw_scriptEditor
-reload(pw_scriptEditor)
-pw_scriptEditor.showHoudini()
+>p = 'path/to/mulriscripteditor_modile'
+>\# example c:/houdini/python/lib
+>if not p in sys.path:
+>    sys.path.append(p)
+>import pw_scriptEditor
+>reload(pw_scriptEditor)
+>pw_scriptEditor.showHoudini(ontop=1)
 
-4. Для запуска в майке код:
+  
+### Houdini 14
 
-import sys
-p = 'путь к модулю'
-if not p in sys.path:
-    sys.path.append(p)
-import pw_scriptEditor
-reload(pw_scriptEditor)
-pw_scriptEditor.showMaya()
+  - download [hqt.py](http://github.com/paulwinex/hqt )
+  - create new tool on shelf
 
-5. Код для Nuke:
-в разработке...
+
+>import sys
+>p = 'path/to/mulriscripteditor_modile'
+>\# example c:/houdini/python/lib
+>if not p in sys.path:
+>    sys.path.append(p)
+>import pw_scriptEditor
+>reload(pw_scriptEditor)
+>pw_scriptEditor.showHoudini(name='Multi Script Editor',replacePyPanel=1, hideTitleMenu=0)
+
+### Maya
+
+>import sys
+>p = 'path/to/mulriscripteditor_modile'
+>\# example c:/houdini/python/lib
+>if not p in sys.path:
+>    sys.path.append(p)
+>import pw_scriptEditor
+>reload(pw_scriptEditor)
+>pw_scriptEditor.showMaya()
+
+### Nuke
+
