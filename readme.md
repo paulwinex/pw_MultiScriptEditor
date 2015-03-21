@@ -44,7 +44,6 @@ for path in paths:
     if not path in sys.path:
         sys.path.append(path)
 import pw_multiScriptEditor
-reload(pw_multiScriptEditor)
 pw_multiScriptEditor.showHoudini(ontop=1)
 ```
   
@@ -60,7 +59,6 @@ path = 'path/to/MultiScriptEditor_module'
 if not path in sys.path:
     sys.path.append(path)
 import pw_multiScriptEditor
-reload(pw_multiScriptEditor)
 pw_multiScriptEditor.showHoudini(name='Multi Script Editor',replacePyPanel=1, hideTitleMenu=0)
 ```
 
@@ -77,7 +75,6 @@ path = 'path/to/MultiScriptEditor_module'
 if not path in sys.path:
     sys.path.append(path)
 import pw_multiScriptEditor
-reload(pw_multiScriptEditor)
 pw_multiScriptEditor.showMaya()
 ```
 
