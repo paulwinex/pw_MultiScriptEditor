@@ -4,24 +4,24 @@
 
 ## [Go to site](http://www.paulwinex.ru/multi-script-editor-v2-0/)
 
-Этот скрипт является Python редактором, который можно запустить как standalone приложение или встроить в другое приложение.
-Главное условие интеграции – возможность скриптинга на Python. Был сделан для работы с Python в CG пакетах.
+This is a Python editor, which can be run as a standalone application or embedded in another application.
+The main purpose for integration - the ability to script in Python.
 
-### Основные возможности
+### Key features
 
-  - сохранение и восстановление вкладок и кода в них
-  - интерактивное выполнение выделенного кода по нажатию Ctrl+Enter
-  - настройка цветовой темы редактора кода
-  - автодополнение кода (модуль [jedi](https://github.com/davidhalter/jedi))
+  - Preserve and load of tabs and code in them
+  - Interactive performance of the selected code by pressing Ctrl + Enter
+  - Adjust the color theme of the code editor
+  - Code completion (module [jedi](https://github.com/davidhalter/jedi))
 
-### Существующие модули интеграции
+### Existing integration modules
 
-  - Houdini 13 и 14 (используется модуль [hqt.py](http://github.com/paulwinex/hqt ))
+  - Houdini 13 and 14 (using [hqt.py](http://github.com/paulwinex/hqt ) module)
   - Nuke 9
   - Maya 2014
     
-При необходимости вы можете сделать свой модуль интеграции используя имеющиеся в качестве примера. 
-Основное условие – в программе должен использоваться Python 2.7.
+If necessary, you can extend this to make your own integration module.
+The main pre condition - Should be used Python 2.7.
  
 # How to install
 

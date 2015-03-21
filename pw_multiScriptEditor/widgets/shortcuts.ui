@@ -169,6 +169,23 @@
        </property>
       </widget>
      </item>
+     <item row="9" column="0">
+      <widget class="QLabel" name="label_19">
+       <property name="text">
+        <string>Scroll Code Left-Right</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="1">
+      <widget class="QLabel" name="label_20">
+       <property name="text">
+        <string>ALT + MouseWheel</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </item>
   </layout>

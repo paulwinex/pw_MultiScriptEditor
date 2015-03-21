@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'D:\Dropbox\Dropbox\pw_prefs\RnD\tools\pw_scriptEditor\pw_multiScriptEditor\widgets\shortcuts.ui'
 #
-# Created: Sat Mar 21 14:44:18 2015
+# Created: Sat Mar 21 16:12:58 2015
 #      by: pyside-uic 0.2.15 running on PySide 1.2.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -80,6 +80,13 @@ class Ui_Dialog(object):
         self.label_18 = QtGui.QLabel(Dialog)
         self.label_18.setObjectName("label_18")
         self.formLayout.setWidget(8, QtGui.QFormLayout.FieldRole, self.label_18)
+        self.label_19 = QtGui.QLabel(Dialog)
+        self.label_19.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.label_19.setObjectName("label_19")
+        self.formLayout.setWidget(9, QtGui.QFormLayout.LabelRole, self.label_19)
+        self.label_20 = QtGui.QLabel(Dialog)
+        self.label_20.setObjectName("label_20")
+        self.formLayout.setWidget(9, QtGui.QFormLayout.FieldRole, self.label_20)
         self.verticalLayout.addLayout(self.formLayout)
 
         self.retranslateUi(Dialog)
@@ -105,4 +112,6 @@ class Ui_Dialog(object):
         self.label_16.setText(QtGui.QApplication.translate("Dialog", "CTRL+ SHIFT+ ENTER", None, QtGui.QApplication.UnicodeUTF8))
         self.label_17.setText(QtGui.QApplication.translate("Dialog", "Font Size", None, QtGui.QApplication.UnicodeUTF8))
         self.label_18.setText(QtGui.QApplication.translate("Dialog", "CTRL + MouseWheel", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_19.setText(QtGui.QApplication.translate("Dialog", "Scroll Code Left-Right", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_20.setText(QtGui.QApplication.translate("Dialog", "ALT + MouseWheel", None, QtGui.QApplication.UnicodeUTF8))
 

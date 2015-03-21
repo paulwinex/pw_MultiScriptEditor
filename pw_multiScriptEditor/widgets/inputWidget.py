@@ -132,7 +132,7 @@ class inputClass(QTextEdit):
                 self.completer.activateCompleter(event.key())
                 self.completer.setFocus()
                 return
-        elif not event.modifiers() == Qt.NoModifier:
+        elif not event.modifiers() == Qt.NoModifier and not event.modifiers() == Qt.ShiftModifier:
             self.completer.updateCompleteList()
         else:
             parse = 1

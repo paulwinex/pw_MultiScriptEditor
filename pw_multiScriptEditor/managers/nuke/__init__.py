@@ -4958,7 +4958,6 @@ Returns the string on this knob, will be normalized to technical notation if seq
  
 
 class Group(Node):
-
     def node(self,s):
         """self.node(s) -> Node with name s or None.
 Locate a node by name.
@@ -4966,7 +4965,6 @@ Locate a node by name.
 @return: Node with name s or None.
 """
         pass
-    
 
     def __exit__(self):
         """None"""
@@ -4978,7 +4976,7 @@ Locate a node by name.
 All python code that follows will be executed in the context of node. All names are evaluated relative to this object. Must be paired with end.
 @return: Group.
 """
-        pass
+        return Group()
     
 
     def __enter__(self):
@@ -4993,20 +4991,13 @@ Execute in the context of node. All names are evaluated relative to this object.
 @return: Result of callable.
 """
         pass
-    
-
-    def __getitem__(self,y):
-        """x.__getitem__(y) <==> x[y]"""
-        pass
-    
 
     def numNodes(self):
         """self.numNodes() -> Number of nodes
 Number of nodes in group.
 @return: Number of nodes
 """
-        pass
-    
+        return 0
 
     def connectSelectedNodes(self):
         """self.connectSelectedNodes(backward, inputA) -> None.
@@ -5016,46 +5007,32 @@ Connect the selected nodes.
 @return: None.
 """
         pass
-    
-
-    def __str__(self):
-        """x.__str__() <==> str(x)"""
-        pass
-    
 
     def selectedNode(self):
         """self.selectedNode() -> Node or None.
 Returns the node the user is most likely thinking about. This is the last node the user clicked on, if it is selected.  Otherwise it is an 'output' (one with no selected outputs) of the set of selected nodes. If no nodes are selected then None is returned.
 @return: Node or None.
 """
-        pass
-    
+        return Node()
 
     def selectedNodes(self):
         """self.selectedNodes() -> Node or None.
 Selected nodes.
 @return: Node or None.
 """
-        pass
-    
+        return Node()
 
     def __reduce_ex__(self):
         """None"""
         pass
-    
 
-    def __repr__(self):
-        """x.__repr__() <==> repr(x)"""
-        pass
-    
 
     def output(self):
         """self.output() -> Node or None.
 Return output node of group.
 @return: Node or None.
 """
-        pass
-    
+        return Node()
 
     def expand(self):
         """self.expand() -> None.
@@ -5066,7 +5043,6 @@ Returns the nodes that were moved, which will also be selected.
 """
         pass
     
-
     def end(self):
         """self.end() -> None.
 All python code that follows will no longer be executed in the context of node. Must be paired with begin.
@@ -5074,13 +5050,12 @@ All python code that follows will no longer be executed in the context of node. 
 """
         pass
     
-
     def nodes(self):
         """self.nodes() -> List of nodes
 List of nodes in group.
 @return: List of nodes
 """
-        pass
+        return [Node(),]
     
 
     def splaySelectedNodes(self):
@@ -5091,31 +5066,14 @@ Splay the selected nodes.
 @return: None.
 """
         pass
-    
 
-    def __len__(self):
-        """x.__len__() <==> len(x)"""
-        pass
-    
 class Gizmo(Group):
-
-    def __getitem__(self,y):
-        """x.__getitem__(y) <==> x[y]"""
-        pass
-    
-
-    def __str__(self):
-        """x.__str__() <==> str(x)"""
-        pass
-    
-
     def filename(self):
         """self.filename() -> String.
 Gizmo filename.
 @return: String.
 """
         pass
-    
 
     def command(self):
         """self.command() -> String.
@@ -5123,38 +5081,15 @@ Gizmo command.
 @return: String.
 """
         pass
-    
-
-    def __repr__(self):
-        """x.__repr__() <==> repr(x)"""
-        pass
-    
 
     def makeGroup(self):
         """self.makeGroup() -> Group
 Creates a Group node copy of the Gizmo node.
 @return: Group.
 """
-        pass
-    
-
-    def __len__(self):
-        """x.__len__() <==> len(x)"""
-        pass
-    
-    
+        return Group()
 
 class Precomp(Group):
-
-    def __getitem__(self,y):
-        """x.__getitem__(y) <==> x[y]"""
-        pass
-    
-
-    def __str__(self):
-        """x.__str__() <==> str(x)"""
-        pass
-    
 
     def reload(self):
         """self.reload() -> None
@@ -5162,18 +5097,6 @@ Precomp Node reload()
 @return: None
 """
         pass
-    
-
-    def __repr__(self):
-        """x.__repr__() <==> repr(x)"""
-        pass
-    
-
-    def __len__(self):
-        """x.__len__() <==> len(x)"""
-        pass
-    
-
 
 class Root(Group):
 
@@ -5236,15 +5159,14 @@ Class method.
 First frame.
 @return: Integer.
 """
-        pass
-    
+        return 0
 
     def layers(self):
         """nuke.Root.layers() -> Layer list.
 Class method.
 @return: Layer list.
 """
-        pass
+        return [Layer(), ]
     
 
     def __new__(self,S, ):
@@ -5262,8 +5184,7 @@ Class method.
 FPS.
 @return: Integer.
 """
-        pass
-    
+        return 0
 
     def setProxy(self,b):
         """self.setProxy(b) -> None.
@@ -5272,18 +5193,11 @@ Set proxy.
 @return: None.
 """
         pass
-    
 
     def input(self):
         """None"""
         pass
     
-
-    def __len__(self):
-        """x.__len__() <==> len(x)"""
-        pass
-    
-
     def addView(self,s):
         """self.addView(s) -> None.
 Add view.
@@ -5367,11 +5281,6 @@ Set frame.
         pass
     
 
-    def __repr__(self):
-        """x.__repr__() <==> repr(x)"""
-        pass
-    
-
 class Viewer(Node):
 
     def roi(self):
@@ -5380,10 +5289,10 @@ Region of interest set in the viewer in pixel space coordinates.
 Returns None if the Viewer has no window yet.
 @return: Dict with keys x, y, r and t or None.
 """
-        pass
+        return {}
     
 
-    def setRoi(self,box):
+    def setRoi(self, box):
         """self.setRoi(box) -> None.
 Set the region of interest in pixel space.
 @param box: A dictionary with the x, y, r and t keys.@return: None.
@@ -5393,25 +5302,15 @@ Set the region of interest in pixel space.
 
     def __getitem__(self,y):
         """x.__getitem__(y) <==> x[y]"""
-        pass
+        return 0
     
 
     def playbackRange(self):
         """self.playbackRange() -> FrameRange.
 Return the frame range that's currently set to be played back in the viewer.@return: FrameRange.
 """
-        pass
-    
+        return FrameRange()
 
-    def __str__(self):
-        """x.__str__() <==> str(x)"""
-        pass
-    
-
-    def __repr__(self):
-        """x.__repr__() <==> repr(x)"""
-        pass
-    
 
     def roiEnabled(self):
         """self.roiEnabled() -> bool
@@ -5435,7 +5334,7 @@ class Menu(MenuItem):
     def name(self):
         """self.name() -> String
 Returns the name of the menu item."""
-        pass
+        return ''
     
 
     def addSeparator(self,**kwargs):
@@ -5454,7 +5353,7 @@ Finds a submenu or command with a particular name.
 @param name: The name to search for.
 @return: The submenu or command we found, or None if we could not find anything.
 """
-        pass
+        return Menu()
     
 
     def addCommand(self):
@@ -5504,7 +5403,7 @@ Removes a submenu or command with a particular name. If the containing menu beco
     def items(self):
         """self.items() -> None
 Returns a list of sub menu items."""
-        pass
+        return [MenuItem,]
     
 
     def findItem(self,name):
@@ -5513,7 +5412,7 @@ Finds a submenu or command with a particular name.
 @param name: The name to search for.
 @return: The submenu or command we found, or None if we could not find anything.
 """
-        pass
+        return Menu()
     
 
     def clearMenu(self):
@@ -5544,7 +5443,7 @@ Return an object representing the active Viewer panel. This
 is not the same as the Viewer node, this is the viewer UI element.
 
 @return: Object representing the active Viewer"""
-    pass
+    return Viewer()
 
 
 def addAfterBackgroundFrameRender(call,args,kwargs):
@@ -5656,7 +5555,7 @@ def addBeforeRender(call,args,kwargs,nodeClass):
     pass
 
 
-def addFavoriteDir():
+def addFavoriteDir(name, directory, type, icon, tooltip, key):
     """addFavoriteDir(name, directory, type, icon, tooltip, key) -> None.
 
 Add a path to the file choosers favorite directory list. The path name can contain environment variables which will be expanded when the user clicks the favourites button
@@ -5763,7 +5662,7 @@ def addValidateFilename(call,args,kwargs,nodeClass):
     pass
 
 
-def addView(s):
+def addView(name):
     """addView(s) -> None
 
 Deprecated. Use the Root node.
@@ -5805,10 +5704,10 @@ nuke.root().nodes().
 @param filter: Optional. Only return nodes of the specified class.
 @param group: Optional. If the group is omitted the current group (ie the group the user picked a menu item from the toolbar of) is used.
 @return: List"""
-    pass
+    return [Node(),]
 
 
-def animation():
+def animation(object, *commands):
     """animation(object, *commands) -> None
 
 Does operations on an animation curve.
@@ -5852,48 +5751,38 @@ def animationEnd():
     """animationEnd() -> float.
 
 Returns the last frame (or x value) for the currently selected animations.
-
 @return: The end frame."""
-    pass
+    return 0
 
 
 def animationIncrement():
     """animationIncrement() -> float
 
 Returns a recommended interval between samples of the currently selected animation.
-
 @return: The recommended interval."""
-    pass
+    return 0
 
 
 def animationStart():
     """animationStart() -> float
 
 Returns the starting frame (or x value) for the currently selected animations.
-
 @return: The start frame."""
-    pass
+    return 0
 
 
 def animations():
     """animations() -> tuple
 
 Returns a list of animatable things the user wants to work on.
-
 If this is a command being executed from a menu item in a curve editor, a list of the names of all selected curves is returned. If this list is empty a "No curves selected" error is produced.
-
 If this is a command being executed from the pop-up list in a knob then a list of all the fields in the knob is returned.
-
 If this is a command being executed from the right-mouse-button pop-up list in a field of a knob, the name of that field is returned.
-
 Otherwise this produces an error indicating that the command requries a knob context. You can get such a context by doing "in <knob> {command}"
-
 Also see the 'selected' argument to the animation command.
-
 See also: animation, animationStart, animationEnd, animationIncrement
-
 @return: A tuple of animatable things."""
-    pass
+    return (None,)
 
 
 def applyPreset():
@@ -5942,7 +5831,7 @@ def autolabel():
     pass
 
 
-def autoplace(n):
+def autoplace(node):
     """autoplace(n) -> None.
 
 Deprecated. Use Node.autoplace.
@@ -5954,7 +5843,7 @@ Automatically place nodes, so they do not overlap.
     pass
 
 
-def autoplaceSnap(n):
+def autoplaceSnap(node):
     """autoplaceSnap(n) -> None
 
 Move node to the closest grid position.
@@ -5997,7 +5886,7 @@ Cancel an in-progress operation. This has the same effect as hitting cancel on t
     pass
 
 
-def channels(n=None):
+def channels(node_parameter=None):
     """channels(n=None) -> (string) 
 
 Deprecated. Use Node.channels.
@@ -6006,10 +5895,10 @@ List channels. The n argument is a Nuke node and if given only the channels outp
 
 @param n: Optional node parameter.
 @return: A list of channel names."""
-    pass
+    return ''
 
 
-def choice():
+def choice(title, prompt, options, default = 0):
     """choice(title, prompt, options, default = 0) -> index
 
 Shows a dialog box with the given title and prompt text, and a combo box containing the given options.
@@ -6041,7 +5930,7 @@ have different positions and connections in the render tree. Any clone, includin
 @param args: Optional number of inputs requested.
 @param inpanel: Optional boolean.
 @return: Node"""
-    pass
+    return Node()
 
 
 def cloneSelected(action):
@@ -6062,7 +5951,7 @@ Moves the currently selected nodes to a new group, maintaining their previous co
 @param show: If show is True, the node graph for the new group is shown in the background.
 @return: The new Group node.
 """
-    pass
+    return Group()
 
 
 def connectNodes():
@@ -6074,7 +5963,7 @@ Deprecated. Use Group.connectSelectedNodes.
     pass
 
 
-def connectViewer():
+def connectViewer(inputNum, node):
     """connectViewer(inputNum, node) -> None
 
 Connect a viewer input to a node. The argument i is the input number and n is either a Nuke node or None.
@@ -6099,7 +5988,7 @@ Creates a node of the specified type and adds it to the DAG.
     return Node()
 
 
-def createToolset():
+def createToolset(filename=None, overwrite=-1):
     """createToolset(filename=None, overwrite=-1) -> None
 
 Creates a tool preset based on the currently selected nodes. 
@@ -6229,7 +6118,7 @@ Example:
     pass
 
 
-def display():
+def display(script, node, title=None, width=None):
     """display(s, node, title, width) -> None.
 
 Creates a window showing the result of a python script. The script is
@@ -6269,7 +6158,7 @@ Puts the message into the error console, treating it like an error.
     pass
 
 
-def execute():
+def execute(nameOrNode, start, end, incr, views, continueOnError = False):
     """execute(nameOrNode, start, end, incr, views, continueOnError = False) -> None.
 execute(nameOrNode, frameRangeSet, views, continueOnError = False) -> None.
 
@@ -6289,7 +6178,7 @@ If Nuke is run with the GUI up, this will pop up a progress meter. If the user h
     pass
 
 
-def executeBackgroundNuke():
+def executeBackgroundNuke(exe_path, nodes, frameRange, views, limits, continueOnError = False, flipbookToRun = False, flipbookOptions = {}):
     """executeBackgroundNuke(exe_path, nodes, frameRange, views, limits, continueOnError = False, flipbookToRun = , flipbookOptions = {}) -> None
 Run an instance of Nuke as a monitored sub process. Returns an integer that's used as unique id for the started task. If it failed to launch this will be -1.
 @param exe_path: Path to Nuke or a script that can take Nuke arguments. You probably want to supply nuke.EXE_PATH.
@@ -6317,7 +6206,7 @@ n
     pass
 
 
-def executeMultiple():
+def executeMultiple(nodes, ranges, views, continueOnError=False):
     """executeMultiple(nodes, ranges, views, continueOnError=False) -> None
 
 Execute the current script for a specified frame range. The argument nodes is a sequence of Nuke nodes and ranges is a sequence of range lists. A Nuke range list is a sequence of 3 integers - first, last and incr ( e.g. nuke.execute((w,), ((1,100,1),)) ). The named nodes must all be Write or other executable operators. If no nodes are given then all executable nodes in the current group are executed.
@@ -6485,7 +6374,7 @@ gets a list of all current user presets
     pass
 
 
-def getClipname():
+def getClipname(prompt, pattern=None, default=None, multiple=False):
     """getClipname(prompt, pattern=None, default=None, multiple=False) -> list of strings or string
 
 Pops up a file chooser dialog box. You can use the pattern to restrict the displayed choices to matching filenames,
@@ -6532,7 +6421,7 @@ Retrieves the filename list .
     pass
 
 
-def getFilename():
+def getFilename(message, pattern=None, default=None, favorites=None, type=None, multiple=False):
     """getFilename(message, pattern=None, default=None, favorites=None, type=None, multiple=False) -> list of strings or single string
 
 Pops up a file chooser dialog box. You can use the pattern to restrict the displayed choices to matching filenames, normal Unix glob rules are used here.
@@ -6548,7 +6437,7 @@ Pops up a file chooser dialog box. You can use the pattern to restrict the displ
     pass
 
 
-def getFramesAndViews():
+def getFramesAndViews(label, default=None, maxviews=0):
     """getFramesAndViews(label, default=None, maxviews=0) -> (ranges, views)
 
 Pops up a dialog with fields for a frame range and view selection.
@@ -6619,7 +6508,7 @@ def getPresetsMenu(Node):
 Gets the presets menu for the currently selected node.
 @return: The menu, or None if it doesn't exist.
 """
-    pass
+    return Menu()
 
 
 def getReadFileKnob(node):
@@ -6630,7 +6519,7 @@ def getReadFileKnob(node):
 @param node: The node to get the knob for.
 
 @return: A PyObject containing the read knob if it exists, NULL otherwise"""
-    pass
+    return Knob()
 
 
 def getToolsetExcludePaths():
@@ -6697,7 +6586,7 @@ Selects all unselected nodes, and deselects all selected ones.
     pass
 
 
-def knob():
+def knob(name, value, getType, getClass):
     """knob(name, value, getType, getClass) -> None
 
 rief Returns or sets the entire state of a knob.
@@ -6782,7 +6671,7 @@ nuke.knobDefault("Read.exr.compression", "2")
     pass
 
 
-def knobTooltip():
+def knobTooltip(classknob, value):
     """knobTooltip(classknob, value) -> None
 
 Set an override for a tooltip on a knob.
@@ -6841,7 +6730,7 @@ def localisationEnabled(knob):
 @param knob: The Read_File_Knob to check.
 
 @return: true if enabled, false otherwise"""
-    pass
+    return True
 
 
 def localiseFiles(readKnobs):
@@ -6859,7 +6748,7 @@ Creates a new group containing copies of all the currently selected nodes. Note 
 
 @param show: If show is True, the node graph for the new group is shown.
 @return: The new Group node."""
-    pass
+    return Group()
 
 
 def memory():
@@ -6898,7 +6787,7 @@ Find and return the Menu object with the given name. Current valid menus are:
 @param name: The name of the menu to get. Must be one of the values above.
 @return: The menu.
 @raise RuntimeError: if Nuke isn't in GUI mode."""
-    pass
+    return Menu()
 
 
 def message(prompt):
@@ -6954,7 +6843,7 @@ a nodeCopy command. The 's' argument can be '%clipboard%' to paste the operating
 
 @param s: The 's' argument can be '%clipboard%' to paste the operating system's clipboard contents.
 @return: Node"""
-    pass
+    return Node()
 
 
 def nodesSelected():
@@ -6965,7 +6854,7 @@ returns true if any nodes are currently selected
     pass
 
 
-def numvalue():
+def numvalue(knob, default=0):
     """numvalue(knob, default=infinity) -> float
 
 The numvalue function returns the current value of a knob.
@@ -7326,7 +7215,7 @@ def root():
 Get the DAG's root node. Always succeeds.
 
 @return: The root node. This will never be None."""
-    pass
+    return Node()
 
 
 def runIn():
@@ -7360,7 +7249,7 @@ This requires the image to be calculated, so performance may be very bad if this
     pass
 
 
-def saveUserPreset():
+def saveUserPreset(node, presetName):
     """saveUserPreset(node, presetName) -> None
 Saves a node's current knob values as a user preset.
 @param presetName: Name of the preset to create.
@@ -7424,7 +7313,7 @@ Saves the current script to the current file name. If there is no current file n
     pass
 
 
-def scriptSaveAs():
+def scriptSaveAs(filename=None, overwrite=-1):
     """scriptSaveAs(filename=None, overwrite=-1) -> None
 
 Saves the current script with the given file name if supplied, or (in GUI mode) asks the user for one using the file chooser. If Nuke is not running in GUI mode, you must supply a filename.
@@ -7467,7 +7356,7 @@ Selects nodes according to a regular expression matching pattern, entered throug
     pass
 
 
-def selectSimilar(matchType):
+def selectSimilar(matchType=None):
     """selectSimilar(matchType) -> None
 
 Selects nodes that match a node in the current selection based on matchType criteria.
@@ -7491,7 +7380,7 @@ If none, or the last event was not a hotkey, this produces a 'No node selected' 
     return Node()
 
 
-def selectedNodes(filter):
+def selectedNodes(filter=None):
     """selectedNodes(filter) -> List.
 
 Returns a list of all selected nodes in the current group. An attempt is made to return them in 'useful' order where inputs are done before the final node, so commands applied to this list go from top-down.
@@ -7499,7 +7388,7 @@ Returns a list of all selected nodes in the current group. An attempt is made to
 @param filter: Optional class of Node. Instructs the algorithm to apply only to a specific class of nodes.
 @return: The list of selected nodes.
 """
-    return [Node()]
+    return [Node(),]
 
 
 def setPreset():
@@ -7617,7 +7506,7 @@ def thisGroup():
 Returns the current context Group node.
 
 @return: The group node."""
-    pass
+    return Group()
 
 
 def thisKnob():
@@ -7626,7 +7515,7 @@ def thisKnob():
 Returns the current context knob if any.
 
 @return: Knob or None"""
-    pass
+    return Knob()
 
 
 def thisNode():
@@ -7636,7 +7525,7 @@ Return the current context node.
 
 @return: The node.
 """
-    pass
+    return Node()
 
 
 def thisPane():
@@ -7672,7 +7561,7 @@ Search for a node in the DAG by name and return it as a Python object.
 
 @param s: Node name.
 @return: Node or None if it does not exist."""
-    pass
+    return Node()
 
 
 def toggleFullscreen():
@@ -7702,7 +7591,7 @@ A RuntimeException is thrown if not in GUI mode.
 
 @param name: The name of the toolbar to find or create.
 @param create: Optional parameter. True (the default value) will mean that a new  toolbar gets created if one with the given name couldn't be found; False will  mean that no new toolbar will be created.@return: The toolbar, or None if no toolbar was found and 'create' was False."""
-    pass
+    return ToolBar()
 
 
 def tprint():
@@ -7752,7 +7641,7 @@ def views():
 List of all the globally existing views.
 
 @return: List"""
-    pass
+    return (View(),)
 
 
 def waitForThreadsToFinish():
