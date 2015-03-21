@@ -54,3 +54,17 @@ pw_scriptEditor.showMaya()
 
 ### Nuke
 
+```text
+# Add to menu.py
+menubar = nuke.menu("Nuke")
+toolMenu = menubar.addMenu('&Tools')
+path = 'path/to/package'
+if not path in sys.path:
+    sys.path.append(path)
+
+import pw_scriptEditor
+# add to menu
+toolMenu.addCommand("Multi Script Editor", "pw_scriptEditor.showNuke()")
+# create new pane
+pw_scriptEditor.showNuke(panel=True)
+```
