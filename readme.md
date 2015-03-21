@@ -62,7 +62,8 @@ reload(pw_multiScriptEditor)
 pw_multiScriptEditor.showHoudini(name='Multi Script Editor',replacePyPanel=1, hideTitleMenu=0)
 ```
 
-Also you can use .pypanel file: /managers/houdini/pw_MultiScriptEditor.pypanel
+Also you can use .pypanel file without hqt module 
+>/managers/houdini/pw_MultiScriptEditor.pypanel
 
 ### Maya
 
