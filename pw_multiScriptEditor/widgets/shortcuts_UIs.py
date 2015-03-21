@@ -1,0 +1,91 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'D:\Dropbox\Dropbox\pw_prefs\RnD\tools\pw_scriptEditor\widgets\shortcuts.ui'
+#
+# Created: Sat Mar 21 11:23:37 2015
+#      by: pyside-uic 0.2.15 running on PySide 1.2.2
+#
+# WARNING! All changes made in this file will be lost!
+
+from PySide import QtCore, QtGui
+
+class Ui_Dialog(object):
+    def setupUi(self, Dialog):
+        Dialog.setObjectName("Dialog")
+        Dialog.resize(280, 195)
+        self.verticalLayout = QtGui.QVBoxLayout(Dialog)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.formLayout = QtGui.QFormLayout()
+        self.formLayout.setObjectName("formLayout")
+        self.label = QtGui.QLabel(Dialog)
+        self.label.setObjectName("label")
+        self.formLayout.setWidget(0, QtGui.QFormLayout.LabelRole, self.label)
+        self.label_2 = QtGui.QLabel(Dialog)
+        self.label_2.setObjectName("label_2")
+        self.formLayout.setWidget(0, QtGui.QFormLayout.FieldRole, self.label_2)
+        self.label_3 = QtGui.QLabel(Dialog)
+        self.label_3.setObjectName("label_3")
+        self.formLayout.setWidget(2, QtGui.QFormLayout.LabelRole, self.label_3)
+        self.label_4 = QtGui.QLabel(Dialog)
+        self.label_4.setObjectName("label_4")
+        self.formLayout.setWidget(2, QtGui.QFormLayout.FieldRole, self.label_4)
+        self.label_5 = QtGui.QLabel(Dialog)
+        self.label_5.setObjectName("label_5")
+        self.formLayout.setWidget(3, QtGui.QFormLayout.LabelRole, self.label_5)
+        self.label_6 = QtGui.QLabel(Dialog)
+        self.label_6.setObjectName("label_6")
+        self.formLayout.setWidget(3, QtGui.QFormLayout.FieldRole, self.label_6)
+        self.label_7 = QtGui.QLabel(Dialog)
+        self.label_7.setObjectName("label_7")
+        self.formLayout.setWidget(4, QtGui.QFormLayout.LabelRole, self.label_7)
+        self.label_8 = QtGui.QLabel(Dialog)
+        self.label_8.setObjectName("label_8")
+        self.formLayout.setWidget(4, QtGui.QFormLayout.FieldRole, self.label_8)
+        self.label_9 = QtGui.QLabel(Dialog)
+        self.label_9.setObjectName("label_9")
+        self.formLayout.setWidget(6, QtGui.QFormLayout.LabelRole, self.label_9)
+        self.label_10 = QtGui.QLabel(Dialog)
+        self.label_10.setObjectName("label_10")
+        self.formLayout.setWidget(6, QtGui.QFormLayout.FieldRole, self.label_10)
+        self.label_11 = QtGui.QLabel(Dialog)
+        self.label_11.setObjectName("label_11")
+        self.formLayout.setWidget(5, QtGui.QFormLayout.LabelRole, self.label_11)
+        self.label_12 = QtGui.QLabel(Dialog)
+        self.label_12.setObjectName("label_12")
+        self.formLayout.setWidget(5, QtGui.QFormLayout.FieldRole, self.label_12)
+        self.label_13 = QtGui.QLabel(Dialog)
+        self.label_13.setObjectName("label_13")
+        self.formLayout.setWidget(7, QtGui.QFormLayout.LabelRole, self.label_13)
+        self.label_14 = QtGui.QLabel(Dialog)
+        self.label_14.setObjectName("label_14")
+        self.formLayout.setWidget(7, QtGui.QFormLayout.FieldRole, self.label_14)
+        self.label_15 = QtGui.QLabel(Dialog)
+        self.label_15.setObjectName("label_15")
+        self.formLayout.setWidget(1, QtGui.QFormLayout.LabelRole, self.label_15)
+        self.label_16 = QtGui.QLabel(Dialog)
+        self.label_16.setObjectName("label_16")
+        self.formLayout.setWidget(1, QtGui.QFormLayout.FieldRole, self.label_16)
+        self.verticalLayout.addLayout(self.formLayout)
+
+        self.retranslateUi(Dialog)
+        QtCore.QMetaObject.connectSlotsByName(Dialog)
+
+    def retranslateUi(self, Dialog):
+        Dialog.setWindowTitle(QtGui.QApplication.translate("Dialog", "Shortcuts list", None, QtGui.QApplication.UnicodeUTF8))
+        self.label.setText(QtGui.QApplication.translate("Dialog", "Execute selected", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_2.setText(QtGui.QApplication.translate("Dialog", "CTRL+ ENTER", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_3.setText(QtGui.QApplication.translate("Dialog", "Indent Selection", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_4.setText(QtGui.QApplication.translate("Dialog", "TAB", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_5.setText(QtGui.QApplication.translate("Dialog", "Unindent Selection", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_6.setText(QtGui.QApplication.translate("Dialog", "SHIFT + TAB", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_7.setText(QtGui.QApplication.translate("Dialog", "Activate Completer", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_8.setText(QtGui.QApplication.translate("Dialog", "UP or DOWN", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_9.setText(QtGui.QApplication.translate("Dialog", "Hide Completer", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_10.setText(QtGui.QApplication.translate("Dialog", "ESC", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_11.setText(QtGui.QApplication.translate("Dialog", "Deactivate Completer", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_12.setText(QtGui.QApplication.translate("Dialog", "BACKSPACE", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_13.setText(QtGui.QApplication.translate("Dialog", "Autocomplete code", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_14.setText(QtGui.QApplication.translate("Dialog", "ENTER (in Completer)", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_15.setText(QtGui.QApplication.translate("Dialog", "Execute All", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_16.setText(QtGui.QApplication.translate("Dialog", "CTRL+ SHIFT+ ENTER", None, QtGui.QApplication.UnicodeUTF8))
+
