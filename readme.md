@@ -4,6 +4,25 @@
 
 ## [Tutorials](http://www.paulwinex.ru/multi-script-editor-v2-0/ )
 
+Этот скрипи является Python редактором, который можно запустить как standalone приложение или встроить в другое приложение.
+Главное условие интеграции - возможность скриптинга на Python.
+
+Основные возможности
+
+  - сохранение и восстановление вкладок и кода в них
+  - интерактивное выполнение выделенного кода по нажатию Ctrl+Enter
+  - настройка цветовой темы редактора кода
+  - автодополнение кода (модуль jedi)
+
+Существующие модули интеграции
+
+  - Houdini 13 и 14 (используется модуль hqt)
+  - Nuke 8 и выше
+  - Maya 2014
+    
+При необходимости вы можете сделать свой модуль интеграции используя имеющиеся в качестве примера. 
+Основное условие - в программе должен использоваться Python 2.7.
+ 
 ## How to install
 
 ### Standalone
@@ -42,6 +61,8 @@ import pw_multiScriptEditor
 reload(pw_multiScriptEditor)
 pw_multiScriptEditor.showHoudini(name='Multi Script Editor',replacePyPanel=1, hideTitleMenu=0)
 ```
+
+Also you can use .pypanel file: /managers/houdini/pw_MultiScriptEditor.pypanel
 
 ### Maya
 
