@@ -29,7 +29,7 @@
     
   - install Python 2.7
   - install PySide
-  - use run.cmd (Windows) ot run.sh (Linux) to start
+  - use run.cmd (Windows) or run.sh (Linux) to start
 
 ### Houdini 13
     
