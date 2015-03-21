@@ -1,5 +1,7 @@
 # Multi Script Editor v2.0
 
+## [Tutorials](http://www.paulwinex.ru/multi-script-editor-v2-0/ )
+
 ## How to install
 
 ### Standalone
@@ -41,6 +43,7 @@ pw_multiScriptEditor.showHoudini(name='Multi Script Editor',replacePyPanel=1, hi
 
 ### Maya
 
+  - create shelf button with code
 ```text
 import sys
 path = 'path/to/MultiScriptEditor_module'
