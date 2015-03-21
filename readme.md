@@ -34,13 +34,15 @@
 ### Houdini 13
     
   - download and install [hqt.py](http://github.com/paulwinex/hqt )
+  - install PySide to default Python interpreter
   - create new tool on shelf
 
 ```python
-path = 'path/to/MultiScriptEditor_module'
-# example c:/houdini/python/lib
-if not path in sys.path:
-    sys.path.append(path)
+paths = ['path/to/MultiScriptEditor_module','path/to/default/python27/lib/with/PySide']
+# example ['c:/houdini/python/lib', 'c:/python27/Lib/site-packages']
+for path in paths:
+    if not path in sys.path:
+        sys.path.append(path)
 import pw_multiScriptEditor
 reload(pw_multiScriptEditor)
 pw_multiScriptEditor.showHoudini(ontop=1)
