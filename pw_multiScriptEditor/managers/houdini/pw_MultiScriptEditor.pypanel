@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pythonPanelDocument>
+  <interface name="scriptEditor" label="scriptEditor" icon="MISC_python">
+    <script><![CDATA[########################################################################
+
+p = 'path/to/package'
+if not p in sys.path:
+    sys.path.append(p)
+
+from pw_scriptEditor import scriptEditor
+reload(scriptEditor)
+def createInterface():
+    return scriptEditor.scriptEditorClass()
+####################################################]]></script>
+  </interface>
+</pythonPanelDocument>

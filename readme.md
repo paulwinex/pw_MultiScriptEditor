@@ -16,7 +16,7 @@
 
 ### Существующие модули интеграции
 
-  - Houdini 13 и 14 (используется модуль hqt)
+  - Houdini 13 и 14 (используется модуль [hqt.py](http://github.com/paulwinex/hqt ))
   - Nuke 8 и выше
   - Maya 2014
     
