@@ -1,7 +1,16 @@
-1. Для работы потруебуется PySide
-2. Для старта в Windows запусти run.bat
-Если python.exe не прописан в PATH, исправь поть на абсолютный в файле run.bat
-3. Для запуска в Houdini потребуется hqt.py: https://github.com/paulwinex/hqt
+# Multi Script Editor v2.0
+
+## How to install
+
+### Standalone
+    
+    - install Python 2.7
+    - install PySide
+    - use run.cmd ot run.sh to start
+
+### Houdini
+    
+    - download [hqt.py](http://github.com/paulwinex/hqt )
 Код для Houdini:
 import sys
 
