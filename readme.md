@@ -13,6 +13,7 @@
   - download [hqt.py](http://github.com/paulwinex/hqt )
   - create new tool on shelf
 
+```text
 >p = 'path/to/mulriscripteditor_modile'
 >\# example c:/houdini/python/lib
 >if not p in sys.path:
@@ -20,33 +21,36 @@
 >import pw_scriptEditor
 >reload(pw_scriptEditor)
 >pw_scriptEditor.showHoudini(ontop=1)
-
+```
   
 ### Houdini 14
 
   - download [hqt.py](http://github.com/paulwinex/hqt )
   - create new tool on shelf
-
-
->import sys
->p = 'path/to/mulriscripteditor_modile'
->\# example c:/houdini/python/lib
->if not p in sys.path:
->    sys.path.append(p)
->import pw_scriptEditor
->reload(pw_scriptEditor)
->pw_scriptEditor.showHoudini(name='Multi Script Editor',replacePyPanel=1, hideTitleMenu=0)
+  
+```text
+import sys
+p = 'path/to/mulriscripteditor_modile'
+# example c:/houdini/python/lib
+if not p in sys.path:
+    sys.path.append(p)
+import pw_scriptEditor
+reload(pw_scriptEditor)
+pw_scriptEditor.showHoudini(name='Multi Script Editor',replacePyPanel=1, hideTitleMenu=0)
+```
 
 ### Maya
 
->import sys
->p = 'path/to/mulriscripteditor_modile'
->\# example c:/houdini/python/lib
->if not p in sys.path:
->    sys.path.append(p)
->import pw_scriptEditor
->reload(pw_scriptEditor)
->pw_scriptEditor.showMaya()
+```text
+import sys
+p = 'path/to/mulriscripteditor_modile'
+# example c:/houdini/python/lib
+if not p in sys.path:
+    sys.path.append(p)
+import pw_scriptEditor
+reload(pw_scriptEditor)
+pw_scriptEditor.showMaya()
+```
 
 ### Nuke
 
