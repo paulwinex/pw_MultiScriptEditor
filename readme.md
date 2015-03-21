@@ -15,7 +15,7 @@
   - download [hqt.py](http://github.com/paulwinex/hqt )
   - create new tool on shelf
 
-```text
+```python
 path = 'path/to/MultiScriptEditor_module'
 # example c:/houdini/python/lib
 if not path in sys.path:
@@ -30,7 +30,7 @@ pw_multiScriptEditor.showHoudini(ontop=1)
   - download [hqt.py](http://github.com/paulwinex/hqt )
   - create new tool on shelf
   
-```text
+```python
 import sys
 path = 'path/to/MultiScriptEditor_module'
 # example c:/houdini/python/lib
@@ -44,7 +44,7 @@ pw_multiScriptEditor.showHoudini(name='Multi Script Editor',replacePyPanel=1, hi
 ### Maya
 
   - create shelf button with code
-```text
+```python
 import sys
 path = 'path/to/MultiScriptEditor_module'
 # example c:/maya/python/lib
