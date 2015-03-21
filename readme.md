@@ -4,8 +4,8 @@
 
 ## [Go to site](http://www.paulwinex.ru/multi-script-editor-v2-0/)
 
-This is a Python editor, which can be run as a standalone application or embedded in another application.
-The main purpose for integration - the ability to script in Python.
+This is a cross application, cross platform and open source Python editor, which can be run as a standalone application 
+or embedded in another application. The main purpose for integration - the ability to script in Python.
 
 ### Key features
 
@@ -68,7 +68,7 @@ Also you can use .pypanel file without hqt module
 
 ### Maya
 
-  - create shelf button with code
+  - Create shelf button with code
 ```python
 import sys
 path = 'path/to/MultiScriptEditor_module'
@@ -80,7 +80,9 @@ pw_multiScriptEditor.showMaya()
 ```
 
 ### Nuke
-Add next code to menu.py
+
+  - Add next code to menu.py
+  
 ```python
 menubar = nuke.menu("Nuke")
 toolMenu = menubar.addMenu('&Tools')

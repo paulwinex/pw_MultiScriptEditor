@@ -4947,12 +4947,6 @@ Returns the string on this knob, will be normalized to technical notation if seq
 """
         pass
     
-
-    def __init__(self):
-        """x.__init__(...) initializes x; see x.__class__.__doc__ for signature"""
-        pass
-
-
  # NODES
  
  
