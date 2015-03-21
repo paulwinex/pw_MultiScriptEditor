@@ -71,9 +71,9 @@ class scriptEditorClass(QMainWindow, ui.Ui_scriptEditor):
         self.fillThemeMenu()
 
         #shortcuts
-        self.execSel_act.setShortcut('Ctrl+Return')
+        # self.execSel_act.setShortcut('Ctrl+Return')
         self.execSel_act.triggered.connect(self.executeSelected)
-        self.execSel_act.setShortcutContext(Qt.ApplicationShortcut)
+        # self.execSel_act.setShortcutContext(Qt.ApplicationShortcut)
 
         self.execAll_act.setShortcut('Ctrl+Shift+Return')
         self.execAll_act.triggered.connect(self.executeAll)
@@ -172,6 +172,7 @@ class scriptEditorClass(QMainWindow, ui.Ui_scriptEditor):
             self.executeCommand(allText.strip())
 
     def executeSelected(self):
+
         text = self.tab.getCurrentSelectedText()
         if text:
             self.executeCommand(text)

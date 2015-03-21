@@ -52,6 +52,7 @@ class tabWidgetClass(QTabWidget):
     def addNewTab(self, name='New Tab', text = None):
         cont = container(text, self.p)#, self.completer)
         cont.edit.saveSignal.connect(self.p.saveSession)
+        # cont.edit.executeSignal.connect(self.p.executeSelected)
         self.addTab(cont, name)
         self.setCurrentIndex(self.count()-1)
         return cont.edit
@@ -95,7 +96,7 @@ class container(QWidget):
         hbox.setContentsMargins(0,0,0,0)
         # input widget
         self.edit = inputWidget.inputClass(parent)
-        self.edit.executeSignal.connect(parent.executeCommand)
+        self.edit.executeSignal.connect(parent.executeSelected)
         if text:
             self.edit.addText(text)
         if not context == 'hou':

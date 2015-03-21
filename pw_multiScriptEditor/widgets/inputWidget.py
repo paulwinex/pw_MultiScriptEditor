@@ -12,7 +12,7 @@ import settingsManager
 from managers import context
 from pythonSyntax import design
 import inspect
-
+import nuke
 from jedi import settings
 settings.case_insensitive_completion = False
 
@@ -23,7 +23,7 @@ escapeButtons = [Qt.Key_Return, Qt.Key_Enter, Qt.Key_Left, Qt.Key_Right, Qt.Key_
                  Qt.Key_Delete, Qt.Key_Insert]
 
 class inputClass(QTextEdit):
-    executeSignal = Signal(str)
+    executeSignal = Signal()
     saveSignal = Signal()
     def __init__(self, parent):
         super(inputClass, self).__init__(parent)
@@ -95,14 +95,19 @@ class inputClass(QTextEdit):
         self.completer.move(pt)
 
     def keyPressEvent(self, event):
-
         parse = 0
-        if event.key() in escapeButtons:
+        if event.modifiers() == Qt.ControlModifier and event.key() in [Qt.Key_Return , Qt.Key_Enter]:
             if self.completer:
                 self.completer.updateCompleteList()
-            # if event.modifiers() == Qt.ControlModifier:
-            #     self.getSelection()
-            #     return
+            self.executeSignal.emit()
+            return
+
+        elif event.modifiers() == Qt.ShiftModifier and event.key() in [Qt.Key_Return , Qt.Key_Enter]:
+            return
+
+        elif event.key() in escapeButtons:
+            if self.completer:
+                self.completer.updateCompleteList()
 
         elif event.key() == Qt.Key_Tab:
             if self.completer:
