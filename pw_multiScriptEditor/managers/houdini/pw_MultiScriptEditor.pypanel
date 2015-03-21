@@ -7,7 +7,7 @@ p = 'path/to/package'
 if not p in sys.path:
     sys.path.append(p)
 
-from pw_scriptEditor import scriptEditor
+from pw_multiScriptEditor import scriptEditor
 reload(scriptEditor)
 def createInterface():
     return scriptEditor.scriptEditorClass()

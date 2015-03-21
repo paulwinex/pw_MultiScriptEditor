@@ -20,8 +20,8 @@ qNuke = getMainWindow()
 
 def show(panel=False):
     if panel:
-        import pw_scriptEditor.scriptEditor
-        nukescripts.panels.registerWidgetAsPanel("pw_scriptEditor.scriptEditor.scriptEditorClass", "Multi Script Editor", "pw_multi_script_editor")
+        import pw_multiScriptEditor.scriptEditor
+        nukescripts.panels.registerWidgetAsPanel("pw_multiScriptEditor.scriptEditor.scriptEditorClass", "Multi Script Editor", "pw_multi_script_editor")
     else:
         showWindow()
 
@@ -31,33 +31,18 @@ def showWindow():
     se.runCommand('import nuke')
     se.show()
 
-#panel
 
-class ScriptEditorKnob():
-  def makeUI(self):
-    self.webWidget = scriptEditor.scriptEditorClass()
-    return self.webWidget
-
-class WebBrowserPanel(nukescripts.PythonPanel):
-  def __init__(self):
-    super(WebBrowserPanel, self).__init__("Multi Script Editor", "uk.co.thefoundry.ScriptEditorPanel")
-    # self.webBrowserKnob = nuke.PyCustom_Knob( "tool", "", "pw_scriptEditor.managers._nuke.ScriptEditorKnob()" )
-    self.webBrowserKnob = nuke.PyCustom_Knob( "pw_scriptEditor.managers._nuke.ScriptEditorKnob()" )
-    self.addKnob( self.webBrowserKnob )
-
-def addPanel():
-  return WebBrowserPanel().addToPane()
-
-
-### Example for menu.py
-# menubar = nuke.menu("Nuke") # Access the main menu bar
+# add to menu.py
+# Add to menu.py
+# menubar = nuke.menu("Nuke")
 # toolMenu = menubar.addMenu('&Tools')
-# path = 'path/to/package'
+# path = 'path/to/MultiScriptEditor_module'
+# # example c:/nuke/python/lib
 # if not path in sys.path:
 #     sys.path.append(path)
 #
-# import pw_scriptEditor
+# import pw_multiScriptEditor
 # # add to menu
-# toolMenu.addCommand("Multi Script Editor", "pw_scriptEditor.showNuke()")
+# toolMenu.addCommand("Multi Script Editor", "pw_multiScriptEditor.showNuke()")
 # # create new pane
-# pw_scriptEditor.showNuke(panel=True)
+# pw_multiScriptEditor.showNuke(panel=True)
