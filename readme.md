@@ -14,13 +14,13 @@
   - create new tool on shelf
 
 ```text
->p = 'path/to/mulriscripteditor_modile'
->\# example c:/houdini/python/lib
->if not p in sys.path:
->    sys.path.append(p)
->import pw_scriptEditor
->reload(pw_scriptEditor)
->pw_scriptEditor.showHoudini(ontop=1)
+p = 'path/to/mulriscripteditor_modile'
+# example c:/houdini/python/lib
+if not p in sys.path:
+    sys.path.append(p)
+import pw_scriptEditor
+reload(pw_scriptEditor)
+pw_scriptEditor.showHoudini(ontop=1)
 ```
   
 ### Houdini 14
