@@ -214,7 +214,6 @@ class inputClass(QTextEdit):
     def dropEvent(self, event):
         mimeData = event.mimeData()
         if mimeData.hasText():
-            print event.mimeData().text()
             event.acceptProposedAction()
         super(inputClass, self).dropEvent(event)
 
