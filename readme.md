@@ -2,10 +2,10 @@
 
 ![alt tag](http://www.paulwinex.ru/wp-content/uploads/2015/03/mse_git.png)
 
-## [Go to tutorials](http://www.paulwinex.ru/multi-script-editor-v2-0/ )
+## [Go to tutorials](http://www.paulwinex.ru/multi-script-editor-v2-0/)
 
 Этот скрипт является Python редактором, который можно запустить как standalone приложение или встроить в другое приложение.
-Главное условие интеграции - возможность скриптинга на Python.
+Главное условие интеграции – возможность скриптинга на Python. Был сделан для работы с Python в CG пакетах.
 
 ### Основные возможности
 
@@ -21,7 +21,7 @@
   - Maya 2014
     
 При необходимости вы можете сделать свой модуль интеграции используя имеющиеся в качестве примера. 
-Основное условие - в программе должен использоваться Python 2.7.
+Основное условие – в программе должен использоваться Python 2.7.
  
 # How to install
 
@@ -33,7 +33,7 @@
 
 ### Houdini 13
     
-  - download [hqt.py](http://github.com/paulwinex/hqt )
+  - download and install [hqt.py](http://github.com/paulwinex/hqt )
   - create new tool on shelf
 
 ```python
@@ -48,7 +48,7 @@ pw_multiScriptEditor.showHoudini(ontop=1)
   
 ### Houdini 14
 
-  - download [hqt.py](http://github.com/paulwinex/hqt )
+  - download and install [hqt.py](http://github.com/paulwinex/hqt )
   - create new tool on shelf
   
 ```python
