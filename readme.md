@@ -1,5 +1,7 @@
 # Multi Script Editor v2.0
 
+![alt tag](http://www.paulwinex.ru/wp-content/uploads/2015/03/mse_git.png)
+
 ## [Tutorials](http://www.paulwinex.ru/multi-script-editor-v2-0/ )
 
 ## How to install
@@ -57,7 +59,7 @@ pw_multiScriptEditor.showMaya()
 
 ### Nuke
 
-```text
+```python
 # Add to menu.py
 menubar = nuke.menu("Nuke")
 toolMenu = menubar.addMenu('&Tools')
