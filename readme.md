@@ -14,10 +14,10 @@
   - create new tool on shelf
 
 ```text
-p = 'path/to/mulriscripteditor_modile'
+path = 'path/to/mulriscripteditor_modile'
 # example c:/houdini/python/lib
-if not p in sys.path:
-    sys.path.append(p)
+if not path in sys.path:
+    sys.path.append(path)
 import pw_scriptEditor
 reload(pw_scriptEditor)
 pw_scriptEditor.showHoudini(ontop=1)
@@ -30,10 +30,10 @@ pw_scriptEditor.showHoudini(ontop=1)
   
 ```text
 import sys
-p = 'path/to/mulriscripteditor_modile'
+path = 'path/to/mulriscripteditor_modile'
 # example c:/houdini/python/lib
-if not p in sys.path:
-    sys.path.append(p)
+if not path in sys.path:
+    sys.path.append(path)
 import pw_scriptEditor
 reload(pw_scriptEditor)
 pw_scriptEditor.showHoudini(name='Multi Script Editor',replacePyPanel=1, hideTitleMenu=0)
@@ -43,10 +43,10 @@ pw_scriptEditor.showHoudini(name='Multi Script Editor',replacePyPanel=1, hideTit
 
 ```text
 import sys
-p = 'path/to/mulriscripteditor_modile'
-# example c:/houdini/python/lib
-if not p in sys.path:
-    sys.path.append(p)
+path = 'path/to/mulriscripteditor_modile'
+# example c:/maya/python/lib
+if not path in sys.path:
+    sys.path.append(path)
 import pw_scriptEditor
 reload(pw_scriptEditor)
 pw_scriptEditor.showMaya()
@@ -58,7 +58,8 @@ pw_scriptEditor.showMaya()
 # Add to menu.py
 menubar = nuke.menu("Nuke")
 toolMenu = menubar.addMenu('&Tools')
-path = 'path/to/package'
+path = 'path/to/mulriscripteditor_modile'
+# example c:/nuke/python/lib
 if not path in sys.path:
     sys.path.append(path)
 
