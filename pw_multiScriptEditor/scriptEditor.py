@@ -52,7 +52,6 @@ class scriptEditorClass(QMainWindow, ui.Ui_scriptEditor):
         fixButton(self.executeSel_btn, 'sel')
         fixButton(self.clearHistory_btn, 'clear')
 
-
         # connects
         self.executeAll_btn.clicked.connect(self.executeAll)
         self.executeSel_btn.clicked.connect(self.executeSelected)
@@ -84,8 +83,6 @@ class scriptEditorClass(QMainWindow, ui.Ui_scriptEditor):
         self.execAll_act.setShortcutContext(Qt.ApplicationShortcut)
 
         self.clearHistory_act.triggered.connect(self.clearHistory)
-
-
 
         #start
         self.loadSession()

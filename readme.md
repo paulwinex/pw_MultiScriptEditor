@@ -17,11 +17,11 @@ or embedded in another application. The main purpose for integration - the abili
 ### Existing integration modules
 
   - Houdini 13 and 14 (using [hqt.py](http://github.com/paulwinex/hqt ) module)
-  - Nuke 9
-  - Maya 2014
+  - Nuke 8,9
+  - Maya 2014, 2015
     
 If necessary, you can extend this to make your own integration module.
-The main pre condition - Should be used Python 2.7.
+The main pre condition - Should be used Python2.7.
  
  
 # How to install
