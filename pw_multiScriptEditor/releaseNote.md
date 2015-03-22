@@ -14,7 +14,10 @@
 
 ## v2.0
 ### new
-  - add autocompleter
-  - fix auto completition for Houdini
-  - fix auto completition for Nuke
+  - added auto completer
+  - fix auto completion for Houdini
+  - fix auto completion for Nuke
 
+## v1.0
+
+Not released
