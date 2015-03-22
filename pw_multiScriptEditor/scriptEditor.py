@@ -35,9 +35,10 @@ class scriptEditorClass(QMainWindow, ui.Ui_scriptEditor):
         #variables
         self.s = settingsManager.scriptEditorClass()
         self.namespace = {}
-        self.dial = themeEditor.themeEditorClass(self)
+        self.dial = None
 
-        self.updateNamespace({'tab':self.tab,
+        self.updateNamespace({'main':self,
+                              'tab':self.tab,
                               'out': self.out,
                               'design': design})
         self.session = sessionManager.sessionManagerClass()
@@ -71,9 +72,12 @@ class scriptEditorClass(QMainWindow, ui.Ui_scriptEditor):
         self.fillThemeMenu()
 
         #shortcuts
-        # self.execSel_act.setShortcut('Ctrl+Return')
+        if managers.context == 'nuke':
+            import nuke
+            if nuke.NUKE_VERSION_MAJOR>8:
+                self.execSel_act.setShortcut('Ctrl+Return')
+                self.execSel_act.setShortcutContext(Qt.ApplicationShortcut)
         self.execSel_act.triggered.connect(self.executeSelected)
-        # self.execSel_act.setShortcutContext(Qt.ApplicationShortcut)
 
         self.execAll_act.setShortcut('Ctrl+Shift+Return')
         self.execAll_act.triggered.connect(self.executeAll)
@@ -278,7 +282,8 @@ class scriptEditorClass(QMainWindow, ui.Ui_scriptEditor):
             self.out.showMessage('>>> Not created!')
 
     def openThemeEditor(self):
-        self.dial.show()
+        self.dial = themeEditor.themeEditorClass(self, self.tab.desk)
+        self.dial.exec_()
         self.fillThemeMenu()
 
     def moveEvent(self, event):

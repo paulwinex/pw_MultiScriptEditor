@@ -26,7 +26,7 @@ class tabWidgetClass(QTabWidget):
         newTabButton.setText('+')
         newTabButton.clicked.connect(self.addNewTab)
         newTabButton.setToolTip("Add Tab")
-
+        self.desk = QApplication.desktop()
         # variables
         self.p = parent
 
@@ -50,7 +50,7 @@ class tabWidgetClass(QTabWidget):
             self.setTabText(index, result[0])
 
     def addNewTab(self, name='New Tab', text = None):
-        cont = container(text, self.p)#, self.completer)
+        cont = container(text, self.p, self.desk)#, self.completer)
         cont.edit.saveSignal.connect(self.p.saveSession)
         # cont.edit.executeSignal.connect(self.p.executeSelected)
         self.addTab(cont, name)
@@ -60,8 +60,6 @@ class tabWidgetClass(QTabWidget):
     def getTabText(self, i):
         text = self.widget(i).edit.toPlainText()
         return text
-
-
 
     def addToCurrent(self, text):
         i = self.currentIndex()
@@ -89,13 +87,13 @@ class tabWidgetClass(QTabWidget):
 
 
 class container(QWidget):
-    def __init__(self, text, parent):
+    def __init__(self, text, parent, desk):
         super(container, self).__init__()
         hbox = QHBoxLayout(self)
         hbox.setSpacing(0)
         hbox.setContentsMargins(0,0,0,0)
         # input widget
-        self.edit = inputWidget.inputClass(parent)
+        self.edit = inputWidget.inputClass(parent, desk)
         self.edit.executeSignal.connect(parent.executeSelected)
         if text:
             self.edit.addText(text)

@@ -23,7 +23,7 @@ class completeMenuClass(QListWidget):
         def insertSelected(item):
             if item:
                 comp = item.data(32)
-                self.sendText(comp.complete)
+                self.sendText(comp)
                 self.hideMe()
 
     def updateStyle(self, colors=None):
@@ -42,7 +42,7 @@ class completeMenuClass(QListWidget):
             fm = QFontMetrics (font)
             width = fm.width(' ') *  max([len(x.name) for x in lines]) + 30
 
-            self.resize(max(200,width), 200)
+            self.resize(max(250,width), 250)
         else:
             self.hideMe()
 
@@ -54,7 +54,7 @@ class completeMenuClass(QListWidget):
             i = self.selectedItems()
             if i:
                 comp = i[0].data(32)
-                self.sendText(comp.complete)
+                self.sendText(comp)
             self.hideMe()
             return event
         elif event.key() == Qt.Key_Up:
@@ -80,8 +80,8 @@ class completeMenuClass(QListWidget):
 
         super(completeMenuClass, self).keyPressEvent(event)
 
-    def sendText(self, text):
-        self.editor().insertText(text)
+    def sendText(self, comp):
+        self.editor().insertText(comp)
 
     def editor(self):
         return self.e

@@ -9,10 +9,10 @@ from . import inputWidget
 import icons_rcs
 
 class themeEditorClass(QDialog, ui.Ui_themeEditor):
-    def __init__(self, parent = None):
+    def __init__(self, parent = None, desk=None):
         super(themeEditorClass, self).__init__(parent)
         self.setupUi(self)
-        self.preview_twd = inputWidget.inputClass(self)
+        self.preview_twd = inputWidget.inputClass(self, desk)
         self.preview_ly.addWidget(self.preview_twd)
         self.preview_twd.setPlainText(defaultText)
         self.splitter.setSizes([200,300])

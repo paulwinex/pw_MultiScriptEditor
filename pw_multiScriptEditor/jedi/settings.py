@@ -110,7 +110,7 @@ but are in the `same_name_completions` attribute.
 # Filesystem cache
 # ----------------
 
-use_filesystem_cache = False
+use_filesystem_cache = True
 """
 Use filesystem cache to save once parsed files with pickle.
 """

@@ -9,24 +9,27 @@ reload(syntaxHighLighter)
 import completeWidget
 reload(completeWidget)
 import settingsManager
-from managers import context
+import managers
+reload(managers)
 from pythonSyntax import design
 import inspect
-import nuke
 from jedi import settings
-settings.case_insensitive_completion = False
-
+# settings.case_insensitive_completion = False
+addEndBracket = True
 
 indentLen = 4
 minimumFontSize = 10
 escapeButtons = [Qt.Key_Return, Qt.Key_Enter, Qt.Key_Left, Qt.Key_Right, Qt.Key_Home, Qt.Key_End, Qt.Key_PageUp, Qt.Key_PageDown,
                  Qt.Key_Delete, Qt.Key_Insert]
 
+
 class inputClass(QTextEdit):
     executeSignal = Signal()
     saveSignal = Signal()
-    def __init__(self, parent):
+    def __init__(self, parent, desk=None):
         super(inputClass, self).__init__(parent)
+        self.p = parent
+        self.desk = desk
         self.setWordWrapMode(QTextOption.NoWrap)
         self.document().setDefaultFont(QFont("monospace", minimumFontSize, QFont.Normal))
         metrics = QFontMetrics(self.document().defaultFont())
@@ -38,6 +41,8 @@ class inputClass(QTextEdit):
         # self.customContextMenuRequested.connect(self.openMenu)
         data = settingsManager.scriptEditorClass().readSettings()
         self.applyHightLighter(data.get('theme'))
+        self.changeFontSize(False)
+        self.changeFontSize(True)
 
     def focusOutEvent(self, event):
         self.saveSignal.emit()
@@ -74,25 +79,48 @@ class inputClass(QTextEdit):
             self.moveCompleter()
             if text:
                 tc = self.textCursor()
+                context_completer = False
                 pos = tc.position()
-                if re.match('[a-zA-Z0-9.]', text[pos-1]):
-                    script = jedi.Script(text, tc.blockNumber() + 1, tc.columnNumber(), '')
-                    try:
-                        # curframe = inspect.currentframe()
-                        # print inspect.getouterframes(curframe, 2)[1][3]
-                        self.completer.updateCompleteList(script.completions())
-                    except:
-                        pass
-                    return
-                else:
-                    self.completer.updateCompleteList()
+                if managers.context in managers.contextCompleters:
+                    line = text[:pos].split('\n')[-1]
+                    comp = managers.contextCompleters[managers.context ](line)
+                    if comp:
+                        context_completer = True
+                        self.completer.updateCompleteList(comp)
+
+                if not context_completer:
+                    if re.match('[a-zA-Z0-9.]', text[pos-1]):
+                        script = jedi.Script(text, tc.blockNumber() + 1, tc.columnNumber(), '')
+                        try:
+                            # curframe = inspect.currentframe()
+                            # print inspect.getouterframes(curframe, 2)[1][3]
+                            self.completer.updateCompleteList(script.completions())
+                        except:
+                            pass
+                        return
+                    else:
+                        self.completer.updateCompleteList()
             else:
                 self.completer.updateCompleteList()
 
     def moveCompleter(self):
         rec = self.cursorRect()
-        pt = self.mapToGlobal(QPoint(rec.x()+5, rec.y()+self.completer.lineHeight))
+        # pt = self.mapToGlobal(QPoint(rec.bottomRight().x(), rec.y()+self.completer.lineHeight))
+        pt = self.mapToGlobal(rec.bottomRight())
+        y=x=0
+        if self.completer.isVisible() and self.desk:
+            currentScreen = self.desk.screenGeometry(self.mapToGlobal(rec.bottomRight()))
+            futureCompGeo = self.completer.geometry()
+            futureCompGeo.moveTo(pt)
+            if not currentScreen.contains(futureCompGeo):
+                i = currentScreen.intersect(futureCompGeo)
+                x = futureCompGeo.width() - i.width()
+                y = futureCompGeo.height()+self.completer.lineHeight if (futureCompGeo.height()-i.height())>0 else 0
+
+        pt = self.mapToGlobal(rec.bottomRight()) + QPoint(10-x, -y)
+
         self.completer.move(pt)
+
 
     def keyPressEvent(self, event):
         parse = 0
@@ -170,10 +198,42 @@ class inputClass(QTextEdit):
             self.document().documentLayout().blockSignals(False)
             self.update()
 
-    def insertText(self, text):
+    def insertText(self, comp):
         cursor = self.textCursor()
-        cursor.insertText(text)
+        cursor.insertText(comp.complete)
+        self.fixLine(cursor, comp)
         self.setTextCursor(cursor)
+
+    def fixLine(self, cursor, comp):
+        pos = cursor.position()
+        linePos = cursor.positionInBlock()
+
+        cursor.movePosition(QTextCursor.MoveOperation.StartOfLine)
+        cursor.movePosition(QTextCursor.MoveOperation.EndOfLine,QTextCursor.KeepAnchor)
+        line = cursor.selectedText()
+        cursor.removeSelectedText()
+
+        start = line[:linePos]
+        end = line[linePos:]
+        before = start[:-len(comp.name)]
+        br = ''
+        ofs = 0
+        if addEndBracket and before:
+            brackets = {'"':'"', "'":"'"}#, '(':')', '[':']'}
+            if before[-1] in brackets:
+                ofs = 1
+                br = brackets[before[-1]]
+                if end and end[0] == brackets[before[-1]]:
+                    br = ''
+
+        res = before + comp.name + br + end
+
+        cursor.beginEditBlock()
+        cursor.insertText(res)
+        cursor.endEditBlock()
+        cursor.clearSelection()
+        cursor.setPosition(pos+ofs,QTextCursor.MoveAnchor)
+        return cursor
 
     def removeTabs(self, text):
         lines = text.split('\n')
@@ -249,7 +309,7 @@ class inputClass(QTextEdit):
         super(inputClass, self).wheelEvent(event)
 
     def changeFontSize(self, up):
-        if context == 'hou':
+        if managers.context == 'hou':
             if up:
                 self.fs = min(30, self.fs+1)
             else:
@@ -281,7 +341,7 @@ class inputClass(QTextEdit):
 
     def setFontSize(self,size):
         if size > minimumFontSize:
-            if context == 'hou':
+            if managers.context == 'hou':
                 self.fs = size
                 self.setTextEditFontSize(self.fs)
             else:
@@ -291,9 +351,9 @@ class inputClass(QTextEdit):
 
     def mousePressEvent(self, event):
         self.completer.updateCompleteList()
-        if context == 'hou':
-            if event.button() == Qt.LeftButton:
-                super(inputClass, self).mousePressEvent(event)
-        else:
-            super(inputClass, self).mousePressEvent(event)
+        # if managers.context == 'hou':
+        #     if event.button() == Qt.LeftButton:
+        #         super(inputClass, self).mousePressEvent(event)
+        # else:
+        super(inputClass, self).mousePressEvent(event)
 

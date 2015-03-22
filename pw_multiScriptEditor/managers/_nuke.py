@@ -3,12 +3,12 @@ from PySide.QtCore import *
 from .. import scriptEditor
 reload(scriptEditor)
 import os, sys
+import nuke
+import nukescripts
+
 p = os.path.dirname(__file__)
 if not p in sys.path:
     sys.path.insert(0, p)
-
-import nuke
-import nukescripts
 
 qApp = QApplication.instance()
 
@@ -46,3 +46,4 @@ def showWindow():
 # toolMenu.addCommand("Multi Script Editor", "pw_multiScriptEditor.showNuke()")
 # # create new pane
 # pw_multiScriptEditor.showNuke(panel=True)
+
