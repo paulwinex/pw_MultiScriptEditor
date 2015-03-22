@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'D:\Dropbox\Dropbox\pw_prefs\RnD\tools\pw_scriptEditor\widgets\scriptEditor.ui'
+# Form implementation generated from reading ui file 'D:\Dropbox\Dropbox\pw_prefs\RnD\tools\pw_scriptEditor\pw_multiScriptEditor\widgets\scriptEditor.ui'
 #
-# Created: Sat Mar 21 11:28:32 2015
+# Created: Sun Mar 22 20:00:25 2015
 #      by: pyside-uic 0.2.15 running on PySide 1.2.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -157,7 +157,7 @@ class Ui_scriptEditor(object):
         self.save_act.setText(QtGui.QApplication.translate("scriptEditor", "Save Script", None, QtGui.QApplication.UnicodeUTF8))
         self.load_act.setText(QtGui.QApplication.translate("scriptEditor", "Load Script", None, QtGui.QApplication.UnicodeUTF8))
         self.exit_act.setText(QtGui.QApplication.translate("scriptEditor", "Exit", None, QtGui.QApplication.UnicodeUTF8))
-        self.openManual_act.setText(QtGui.QApplication.translate("scriptEditor", "Tutorials", None, QtGui.QApplication.UnicodeUTF8))
+        self.openManual_act.setText(QtGui.QApplication.translate("scriptEditor", "Manual", None, QtGui.QApplication.UnicodeUTF8))
         self.quickHelp_act.setText(QtGui.QApplication.translate("scriptEditor", "Quick Help", None, QtGui.QApplication.UnicodeUTF8))
         self.saveSeccion_act.setText(QtGui.QApplication.translate("scriptEditor", "Save session", None, QtGui.QApplication.UnicodeUTF8))
         self.tabToSpaces_act.setText(QtGui.QApplication.translate("scriptEditor", "Tab to spaces", None, QtGui.QApplication.UnicodeUTF8))

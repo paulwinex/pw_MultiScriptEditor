@@ -23,7 +23,7 @@ class scriptEditorClass(QMainWindow, ui.Ui_scriptEditor):
     def __init__(self, parent=None):
         super(scriptEditorClass, self).__init__(parent)
         # ui
-        self.ver = 2.0
+        self.ver = '2.0.1'
         self.setupUi(self)
         self.setWindowTitle('PW Multi Script Editor v%s' % self.ver)
         self.setObjectName('pw_scriptEditor')
@@ -37,10 +37,10 @@ class scriptEditorClass(QMainWindow, ui.Ui_scriptEditor):
         self.namespace = {}
         self.dial = None
 
-        self.updateNamespace({'main':self,
-                              'tab':self.tab,
-                              'out': self.out,
-                              'design': design})
+        self.updateNamespace({'mse_main':self,
+                              'mse_version':self.ver,
+                              'mse_out': self.out,
+                              'mse_help': self.mse_help})
         self.session = sessionManager.sessionManagerClass()
 
         def fixButton(btn, ico):
@@ -93,10 +93,18 @@ class scriptEditorClass(QMainWindow, ui.Ui_scriptEditor):
         self.setWindowStyle()
         self.out.showMessage('>>> PW Multi Script Editor v.%s' % self.ver)
         self.tab.widget(0).edit.setFocus()
+        self.addArgs()
 
 
     def __del__(self):
         self.saveSession()
+
+    def mse_help(self):
+        txt = '''mse_main: main widget
+mse_out: output widget
+mse_version: current version
+mse_help: show this text'''
+        self.out.showMessage(txt)
 
     def closeEvent(self, event):
         self.saveSession()
@@ -104,6 +112,14 @@ class scriptEditorClass(QMainWindow, ui.Ui_scriptEditor):
         self.close()
         if __name__ == '__main__':
             sys.exit()
+
+    def addArgs(self):
+        f = sys.argv[-1]
+        if os.path.exists(f):
+            if not os.path.basename(f) == os.path.basename(__file__):
+                self.out.showMessage('Open File: '+f)
+                text = open(f).read()
+                self.tab.addNewTab(os.path.basename(f), text)
 
     def fillThemeMenu(self):
         self.theme_menu.clear()
@@ -146,7 +162,6 @@ class scriptEditorClass(QMainWindow, ui.Ui_scriptEditor):
                 if s['active']:
                     active = i
                 w.setFontSize(s.get('size', None))
-
         else:
             self.tab.addNewTab()
         self.tab.setCurrentIndex(active)

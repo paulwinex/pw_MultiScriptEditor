@@ -3232,6 +3232,9 @@ class Node(object):
 
 
     """
+    thisown=None
+    this=None
+
 
     def __init__(self): raise AttributeError, "No constructor defined"
     def _getArgumentAutoComplete(*args):
@@ -4476,7 +4479,7 @@ class Node(object):
         """
         return _hou.Node_parmsInFolder(*args)
 
-    def parmTemplateGroup(*args): return _hou.Node_parmTemplateGroup(*args)
+    def parmTemplateGroup(*args): return ParmTemplateGroup()
     def isTimeDependent(*args):
         """
         isTimeDependent(self) -> bool
@@ -5667,6 +5670,125 @@ class Node(object):
 
         """
         return _hou.Node_removeEventCallback(*args)
+
+    def addSpareParmFolder(self):
+        """
+    Adds a folder to the spare parameters.
+    Note that all the folders in a set correspond to one parameter. If this is the first folder to go in the set, parm_name will be used as the parameter name. Otherwise, parm_name will be ignored and the parameter name of the first folder in the set is used.
+    If this is the first folder in the set and parm_name is None, it will default to 'sparefolder0'. If parm_name is already in use, a unique name will be automatically generated.
+    If create_missing_folders is True, this method will create the folders in in_folder that don’t exist. So, this method can be used to add spare folders and a spare parameter at the same time.
+    Note that you can add folders by passing a hou.FolderParmTemplate to the addSpareParmTuple method, so this method is deprecated. Note also that addSpareParmTuple is deprecated in favor of setParmTemplateGroup.
+    See also the removeSpareParmFolder and addSpareParmTuple methods.
+    This method is deprecated in favor of setParmTemplateGroup.
+        """
+        return
+    def addSpareParmTuple(self):
+        """
+    Add a spare parameter tuple to the end of the parameters on the node. If in_folder is not an empty sequence,
+    this method adds the parameters to the end of the parameters in a particular folder.
+    parm_template
+    A hou.ParmTemplate subclass instance that specifies the type of parameter tuple, the default value, range, etc.
+    in_folder
+    A sequence of folder names specifying which folder will hold the parameter. If this parameter is an empty sequence
+    (e.g. ()), Houdini will not put the parameter inside a folder. If it is, for example, ("Misc", "Controls"), Houdini
+    puts it inside the “Controls” folder that’s inside the “Misc” folder. If it is, for example, ("Misc",), Houdini puts
+    it inside the “Misc” folder.
+    create_missing_folders
+    If True, and the folder location specified by in_folder does not exist, this method creates the missing containing
+    folders.
+    Note that this method can add a single folder by passing a hou.FolderParmTemplate for parm_template.
+    See also the removeSpareParmTuple() and addSpareParmFolder() methods.
+    This method is deprecated in favor of setParmTemplateGroup.
+        """
+        return ParmTuple()
+    def allNodes(self):
+        """
+        Generator
+        """
+        return (Node(),)
+    def allParms(self):
+        """
+
+        """
+        return (Parm(),)
+    def creationTime(self):
+        """Return the date and time when the node was created.
+        """
+        return 0
+    def modificationTime(self):
+        """Return the date and time when the node was last modified.
+        """
+        return 0
+    def removeSpareParmFolder(self, folder):
+        """    Removes an empty folder from the spare parameters.
+folder is a sequence of folder names. So, to remove the Output folder, use ("Output",) instead of "Output".
+See also addSpareParmFolder(), hou.ParmTemplateGroup.remove, and hou.ParmTemplateGroup.findFolder.
+        """
+        return
+    def removeSpareParmTuple(self, parm_tuple):
+        """    Removes the specified spare parameter tuple.
+    See also addSpareParmTuple().
+    This method is deprecated in favor of setParmTemplateGroup.
+        """
+        return
+    def replaceSpareParmTuple(self, parm_tuple_name, parm_template):
+        """    Replace an existing spare parameter tuple with a new one. The old parameter tuple is removed and the new one is added in its place.
+    parm_tuple_name
+    The name of the spare parameter tuple to replace. Raises hou.OperationFailed if no parameter tuple exists with this name, or if it is the name of a non-spare parameter.
+    parm_template
+    A hou.ParmTemplate describing the new parameter tuple.
+    The new parameter tuple may or may not have the same name as the old one. By providing a parameter tuple with the same name, you can modify an existing spare parameter tuple.
+    Note that you cannot replace non-spare parameter tuples. However, you can change the visibility of non-spare parameters using hou.ParmTuple.hide.
+    To change a parameter for all instances of digital asset, use hou.HDADefinition.replaceParmTuple.
+    This method is deprecated in favor of setParmTemplateGroup.
+        """
+        return
+    def setParmExpressions(self, parm_dict, language=None, replace_expressions=True):
+        """    Given a dictionary mapping parm names to expression strings, set each of the corresponding parms on this node to the given expression string in the dictionary.
+    See hou.Parm.setExpression for a description of the language and replace_expressions parms.
+    The following example expressions set the tx and sy parameters at once:
+    >>> node = hou.node("/obj").createNode("geo")
+    >>> node.setParmExpressions({"tx": 'ch("ty")', "sy": "sin($F)"})
+    Raises hou.OperationFailed if any of the parameter names are not valid.
+    See also the setParms method.
+        """
+        return
+    def setParms(self, parm_dict):
+        """    Given a dictionary mapping parm names to values, set each of the corresponding parms on this node to the given value in the dictionary.
+
+    The following example sets the tx and sy parameters at once:
+
+    >>> node = hou.node("/obj").createNode("geo")
+    >>> node.setParms({"tx": 1, "sy": 3})
+
+    Raises hou.OperationFailed if any of the parameter names are not valid.
+
+    See also the setParmExpressions method.
+setParmExpressions(self, parm_dict, language=None, replace_expressions=True)
+
+    Given a dictionary mapping parm names to expression strings, set each of the corresponding parms on this node to the given expression string in the dictionary.
+
+    See hou.Parm.setExpression for a description of the language and replace_expressions parms.
+
+    The following example expressions set the tx and sy parameters at once:
+
+    >>> node = hou.node("/obj").createNode("geo")
+    >>> node.setParmExpressions({"tx": 'ch("ty")', "sy": "sin($F)"})
+
+    Raises hou.OperationFailed if any of the parameter names are not valid.
+
+    See also the setParms method.
+
+        """
+        return
+    def shiftPosition(self, delta):
+        """Moves the position of this node’s tile in the network editor graph. Raises hou.InvalidInput if the node cannot have the given position.
+delta
+
+A tuple of two floats indicating how much the node should move. The first float indicates horizontal movement and the second indicates vertical movement.
+
+        """
+        return
 
 
 class NodeGroup(object):
@@ -7413,7 +7535,7 @@ class NodeType(object):
             optypeinfo function
 
         """
-        return _hou.NodeType_category(*args)
+        return NodeTypeCategory()
 
     def name(*args):
         """
@@ -7428,7 +7550,7 @@ class NodeType(object):
             optypeinfo function
 
         """
-        return _hou.NodeType_name(*args)
+        return ''
 
     def nameComponents(*args):
         """
@@ -7446,7 +7568,7 @@ class NodeType(object):
 
 
         """
-        return _hou.NodeType_nameComponents(*args)
+        return ('',)
 
     def description(*args):
         """
@@ -7461,7 +7583,7 @@ class NodeType(object):
             optypeinfo function
 
         """
-        return _hou.NodeType_description(*args)
+        return ''
 
     def nameWithCategory(*args):
         """
@@ -7477,7 +7599,7 @@ class NodeType(object):
 
 
         """
-        return _hou.NodeType_nameWithCategory(*args)
+        return ''
 
     def namespaceOrder(*args):
         """
@@ -7498,7 +7620,7 @@ class NodeType(object):
 
 
         """
-        return _hou.NodeType_namespaceOrder(*args)
+        return {'',}
 
     def source(*args):
         """
@@ -7519,7 +7641,7 @@ class NodeType(object):
             dsoinfo command
 
         """
-        return _hou.NodeType_source(*args)
+        return nodeTypeSource()
 
     def sourcePath(*args):
         """
@@ -7550,7 +7672,7 @@ class NodeType(object):
 
 
         """
-        return _hou.NodeType_sourceNetwork(*args)
+        return Node()
 
     def definition(*args):
         """
@@ -7563,7 +7685,7 @@ class NodeType(object):
             otgetotl command
 
         """
-        return _hou.NodeType_definition(*args)
+        return HDADefinition()
 
     def allInstalledDefinitions(*args):
         """
@@ -7581,7 +7703,7 @@ class NodeType(object):
             otls command
 
         """
-        return _hou.NodeType_allInstalledDefinitions(*args)
+        return HDADefinition()
 
     def icon(*args):
         """
@@ -7616,7 +7738,7 @@ class NodeType(object):
 
 
         """
-        return _hou.NodeType_maxNumInputs(*args)
+        return 0
 
     def maxNumOutputs(*args):
         """
@@ -7628,7 +7750,7 @@ class NodeType(object):
 
 
         """
-        return _hou.NodeType_maxNumOutputs(*args)
+        return 0
 
     def isGenerator(*args):
         """
@@ -7641,7 +7763,7 @@ class NodeType(object):
 
 
         """
-        return _hou.NodeType_isGenerator(*args)
+        return True
 
     def generatorFlag(*args): return _hou.NodeType_generatorFlag(*args)
     def isManager(*args):
@@ -7654,7 +7776,7 @@ class NodeType(object):
 
 
         """
-        return _hou.NodeType_isManager(*args)
+        return True
 
     def managerFlag(*args): return _hou.NodeType_managerFlag(*args)
     def hasUnorderedInputs(*args):
@@ -7672,9 +7794,9 @@ class NodeType(object):
 
 
         """
-        return _hou.NodeType_hasUnorderedInputs(*args)
+        return True
 
-    def unorderedInputsFlag(*args): return _hou.NodeType_unorderedInputsFlag(*args)
+    def unorderedInputsFlag(*args): return True
     def aliases(*args):
         """
         aliases(self) -> tuple of str
@@ -7686,7 +7808,7 @@ class NodeType(object):
             opalias command
 
         """
-        return _hou.NodeType_aliases(*args)
+        return ''
 
     def addAlias(*args):
         """
@@ -7706,7 +7828,7 @@ class NodeType(object):
             opalias command
 
         """
-        return _hou.NodeType_addAlias(*args)
+        pass
 
     def removeAlias(*args):
         """
@@ -7718,7 +7840,7 @@ class NodeType(object):
             opalias command
 
         """
-        return _hou.NodeType_removeAlias(*args)
+        pass
 
     def hidden(*args):
         """
@@ -7729,7 +7851,7 @@ class NodeType(object):
 
 
         """
-        return _hou.NodeType_hidden(*args)
+        return True
 
     def setHidden(*args):
         """
@@ -7742,7 +7864,7 @@ class NodeType(object):
             opexclude command
 
         """
-        return _hou.NodeType_setHidden(*args)
+        pass
 
     def instances(*args):
         """
@@ -7755,7 +7877,7 @@ class NodeType(object):
             otinuse command
 
         """
-        return _hou.NodeType_instances(*args)
+        return Node()
 
     def parmTemplates(*args):
         """
@@ -7767,7 +7889,7 @@ class NodeType(object):
 
 
         """
-        return _hou.NodeType_parmTemplates(*args)
+        return ParmTemplate()
 
     def parmTemplateGroup(*args):
         """
@@ -7782,7 +7904,7 @@ class NodeType(object):
 
 
         """
-        return _hou.NodeType_parmTemplateGroup(*args)
+        return ParmTemplateGroup()
 
     def uninstallFromPath(*args): return _hou.NodeType_uninstallFromPath(*args)
     def hdaModule(*args):
@@ -7801,7 +7923,7 @@ class NodeType(object):
 
 
         """
-        return _hou.NodeType_hdaModule(*args)
+        return HDAModule()
 
     def hasPermanentUserDefaults(*args):
         """
@@ -7984,7 +8106,7 @@ class ParmTemplate(object):
 
 
         """
-        return _hou.ParmTemplate_type(*args)
+        return parmTemplateType()
 
     def dataType(*args):
         """
@@ -8000,7 +8122,7 @@ class ParmTemplate(object):
 
 
         """
-        return _hou.ParmTemplate_dataType(*args)
+        return parmData()
 
     def look(*args):
         """
@@ -8013,7 +8135,7 @@ class ParmTemplate(object):
 
 
         """
-        return _hou.ParmTemplate_look(*args)
+        return parmLook()
 
     def setLook(*args):
         """
@@ -8541,7 +8663,7 @@ class ParmTemplateGroup(object):
 
 
         """
-        return _hou.ParmTemplateGroup_find(*args)
+        return ParmTemplate()
 
     def findIndices(*args):
         """
@@ -8566,7 +8688,7 @@ class ParmTemplateGroup(object):
 
 
         """
-        return _hou.ParmTemplateGroup_findIndices(*args)
+        return (0,)
 
     def findFolder(*args):
         """
@@ -8589,7 +8711,7 @@ class ParmTemplateGroup(object):
 
 
         """
-        return _hou.ParmTemplateGroup_findFolder(*args)
+        return FolderParmTemplate()
 
     def findIndicesForFolder(*args):
         """
@@ -8607,7 +8729,7 @@ class ParmTemplateGroup(object):
 
 
         """
-        return _hou.ParmTemplateGroup_findIndicesForFolder(*args)
+        return (0,)
 
     def entryAtIndices(*args):
         """
@@ -8709,7 +8831,7 @@ class ParmTemplateGroup(object):
 
 
         """
-        return _hou.ParmTemplateGroup_entries(*args)
+        return [ParmTemplate(),]
 
     def parmTemplates(*args):
         """
@@ -8732,7 +8854,7 @@ class ParmTemplateGroup(object):
 
 
         """
-        return _hou.ParmTemplateGroup_parmTemplates(*args)
+        return ParmTemplate()
 
     def entriesWithoutFolders(*args):
         """
@@ -17730,7 +17852,7 @@ class hda(object):
             otls command
 
         """
-        return _hou.hda_definitionsInFile(*args)
+        return (HDADefinition(),)
 
     def componentsFromFullNodeTypeName(*args):
         """
@@ -17970,7 +18092,7 @@ class HDADefinition(object):
             otprefer command
 
         """
-        return _hou.HDADefinition_isPreferred(*args)
+        return True
 
     def preferred(*args): return _hou.HDADefinition_preferred(*args)
     def setIsPreferred(*args):
@@ -17998,9 +18120,17 @@ class HDADefinition(object):
             otcontentls command
 
         """
-        return _hou.HDADefinition_sections(*args)
+        return {'':HDASection()}
+    def addParmFolder(self):
+        """
+        Adds a folder to this node type’s parameters.
+        :return:
+        """
 
-    def addSection(*args):
+    def addParmTuple(self):
+        """Add a parameter tuple to this node type’s parameters. Houdini places the new parameter at the bottom of the parameters in a particular folder.
+         """
+    def addSection(name, contents=""):
         """
         addSection(self, name, contents="") -> hou.HDASection
 
@@ -18026,9 +18156,9 @@ class HDADefinition(object):
             otcontentadd command
 
         """
-        return _hou.HDADefinition_addSection(*args)
+        return HDASection()
 
-    def removeSection(*args):
+    def removeSection(name):
         """
         removeSection(self, name)
 
@@ -18046,7 +18176,7 @@ class HDADefinition(object):
         """
         return _hou.HDADefinition_removeSection(*args)
 
-    def description(*args):
+    def description(self):
         """
         description(self) -> str
 
@@ -18058,9 +18188,9 @@ class HDADefinition(object):
 
 
         """
-        return _hou.HDADefinition_description(*args)
+        return ''
 
-    def setDescription(*args):
+    def setDescription(self, description):
         """
         setDescription(self, description)
 
@@ -18072,7 +18202,7 @@ class HDADefinition(object):
 
 
         """
-        return _hou.HDADefinition_setDescription(*args)
+        pass
 
     def icon(*args):
         """
@@ -18088,9 +18218,9 @@ class HDADefinition(object):
             otls command
 
         """
-        return _hou.HDADefinition_icon(*args)
+        return ''
 
-    def setIcon(*args):
+    def setIcon(self, icon):
         """
         setIcon(self, icon)
 
@@ -18099,7 +18229,7 @@ class HDADefinition(object):
 
 
         """
-        return _hou.HDADefinition_setIcon(*args)
+        pass
 
     def minNumInputs(*args):
         """
@@ -18115,7 +18245,7 @@ class HDADefinition(object):
             otls command
 
         """
-        return _hou.HDADefinition_minNumInputs(*args)
+        return 0
 
     def setMinNumInputs(*args):
         """
@@ -18426,7 +18556,7 @@ class HDADefinition(object):
             opspare command
 
         """
-        return _hou.HDADefinition_parmTemplateGroup(*args)
+        return ParmTemplateGroup()
 
     def setParmTemplateGroup(*args, **kwargs):
         """
@@ -35444,7 +35574,7 @@ def parm(*args):
 
 
     """
-  return _hou.parm(*args)
+  return Parm()
 
 def parmTuple(*args):
   """
@@ -35501,7 +35631,7 @@ def evaluatingParm(*args):
 
 
     """
-  return _hou.evaluatingParm(*args)
+  return Parm()
 
 def parmClipboardContents(*args):
   """
@@ -35563,7 +35693,7 @@ def evalParm(*args):
 
 
     """
-  return _hou.evalParm(*args)
+  return None
 
 def evalParmTuple(*args):
   """
@@ -38494,7 +38624,7 @@ def selectedNodes(*args):
 
 
     """
-  return _hou.selectedNodes(*args)
+  return [Node(),]
 
 def getenv(*args):
   """
