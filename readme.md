@@ -1,4 +1,4 @@
-# Multi Script Editor v2.0
+# Multi Script Editor v2.0.1
 
 ![alt tag](http://www.paulwinex.ru/wp-content/uploads/2015/03/mse_git.png)
 
