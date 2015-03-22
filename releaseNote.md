@@ -6,7 +6,7 @@
     - Nuke: nuke.createNode and nuke.nodes.
 
 ### fix
-  - move completer when widget geometry offscreen
+  - move complete when widget geometry offscreen
   - Nuke 8 now worked
   - Maya 2015 now worked
 
@@ -14,7 +14,7 @@
 
 ## v2.0
 ### new
-  - added auto completer
+  - added auto complete
   - fix auto completion for Houdini
   - fix auto completion for Nuke
 
