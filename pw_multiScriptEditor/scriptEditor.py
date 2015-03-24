@@ -40,7 +40,8 @@ class scriptEditorClass(QMainWindow, ui.Ui_scriptEditor):
         self.updateNamespace({'mse_main':self,
                               'mse_version':self.ver,
                               'mse_out': self.out,
-                              'mse_help': self.mse_help})
+                              'mse_help': self.mse_help,
+                              'mse_context':managers})
         self.session = sessionManager.sessionManagerClass()
 
         def fixButton(btn, ico):

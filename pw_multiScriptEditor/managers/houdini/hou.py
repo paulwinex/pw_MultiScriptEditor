@@ -34348,7 +34348,7 @@ class ViewerState(object):
 
 
         """
-        return _hou.ViewerState_categories(*args)
+        return (NodeTypeCategories(),)
 
     def nodeType(*args):
         """
@@ -38808,3 +38808,9 @@ def fileReferences(*args):
     """
   return _hou.fileReferences(*args)
 
+def nodeTypeCategories ():
+    """
+    Return a dictionary where the keys are the category names (e.g. “Object”, “Sop”) and the values are hou.NodeTypeCategory objects.
+    :return:
+    """
+    return {'name':NodeTypeCategory()}

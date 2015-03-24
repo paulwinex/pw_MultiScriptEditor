@@ -51,7 +51,9 @@ class inputClass(QTextEdit):
 
     def hideEvent(self, event):
         self.completer.updateCompleteList()
-        super(inputClass, self).hideEvent(event)
+        try:
+            super(inputClass, self).hideEvent(event)
+        except:pass
 
     def applyHightLighter(self, theme=None, qss=None):
         self.blockSignals(True)
@@ -201,7 +203,7 @@ class inputClass(QTextEdit):
     def insertText(self, comp):
         cursor = self.textCursor()
         cursor.insertText(comp.complete)
-        self.fixLine(cursor, comp)
+        cursor = self.fixLine(cursor, comp)
         self.setTextCursor(cursor)
 
     def fixLine(self, cursor, comp):
@@ -218,13 +220,14 @@ class inputClass(QTextEdit):
         before = start[:-len(comp.name)]
         br = ''
         ofs = 0
-        if addEndBracket and before:
-            brackets = {'"':'"', "'":"'"}#, '(':')', '[':']'}
-            if before[-1] in brackets:
-                ofs = 1
-                br = brackets[before[-1]]
-                if end and end[0] == brackets[before[-1]]:
-                    br = ''
+        if hasattr(comp, 'end_char'):
+            if addEndBracket and before and comp.end_char:
+                brackets = {'"':'"', "'":"'"}#, '(':')', '[':']'}
+                if before[-1] in brackets:
+                    ofs = 1
+                    br = brackets[before[-1]]
+                    if end and end[0] == brackets[before[-1]]:
+                        br = ''
 
         res = before + comp.name + br + end
 
@@ -276,23 +279,23 @@ class inputClass(QTextEdit):
 
     ########################### DROP
 
-    def dropEvent(self, event):
-        mimeData = event.mimeData()
-        if mimeData.hasText():
-            event.acceptProposedAction()
-        super(inputClass, self).dropEvent(event)
-
-    def dragEnterEvent(self, event):
-        event.acceptProposedAction()
-        super(inputClass, self).dragEnterEvent(event)
-
-    def dragMoveEvent(self, event):
-        event.acceptProposedAction()
-        super(inputClass, self).dragMoveEvent(event)
-
-    def dragLeaveEvent(self, event):
-        event.acceptProposedAction()
-        super(inputClass, self).dragLeaveEvent(event)
+    # def dropEvent(self, event):
+    #     event.acceptProposedAction()
+    #     mimeData = event.mimeData()
+    #     if mimeData.hasText():
+    #         super(inputClass, self).dropEvent(event)
+    #
+    # def dragEnterEvent(self, event):
+    #     event.acceptProposedAction()
+    #     # super(inputClass, self).dragEnterEvent(event)
+    #
+    # def dragMoveEvent(self, event):
+    #     event.acceptProposedAction()
+    #     # super(inputClass, self).dragMoveEvent(event)
+    #
+    # def dragLeaveEvent(self, event):
+    #     event.acceptProposedAction()
+    #     # super(inputClass, self).dragLeaveEvent(event)
 
 ################################################################
 

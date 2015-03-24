@@ -36,6 +36,9 @@ class completeMenuClass(QListWidget):
             self.showMe()
             for i in [x for x in lines if not x.name == 'mro']:
                 item = QListWidgetItem(i.name)
+                # f = item.font()
+                # f.setItalic(1)
+                # item.setFont(f)
                 item.setData(32, i)
                 self.addItem(item)
             font = QFont("monospace", self.lineHeight, False)
