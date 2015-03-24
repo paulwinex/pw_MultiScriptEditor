@@ -64,12 +64,12 @@ def getChildrenFromPath(path):
         else:
             nodes = [contextCompleterClass(x, x) for x in roots]
             return nodes
-    else:
-        n = hou.node(sp[0][1:])
-        if n:
-            ch = list(set([x.name() for x in n.children()]))# + list(set([x.name() for x in n.parms()] + [x.name() for x in n.parmTuples()]))
-            nodes = [contextCompleterClass(x, x[len(sp[1]):]) for x in ch if x.startswith(sp[1])]
-            return nodes
+    # else:
+    #     n = hou.node(sp[0][1:])
+    #     if n:
+    #         ch = list(set([x.name() for x in n.children()]))# + list(set([x.name() for x in n.parms()] + [x.name() for x in n.parmTuples()]))
+    #         nodes = [contextCompleterClass(x, x[len(sp[1]):]) for x in ch if x.startswith(sp[1])]
+    #         return nodes
 
 
 
