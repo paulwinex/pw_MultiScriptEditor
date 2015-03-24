@@ -44,13 +44,13 @@ def houdiniCompleter(line):
                 auto = [x for x in nodes if x.lower().startswith(name.lower())]
                 l = len(name)
                 return [contextCompleterClass(x, x[l:], True) for x in auto]
-    # p = r"(?<=['\"]{1})(/[\w/]*)$"
-    # m = re.search(p, line)
-    # if m:
-    #     name = m.group(0)
-    #     auto = getChildrenFromPath(name)
-    #     if auto:
-    #         return auto
+    p = r"(?<=['\"]{1})(/[\w/]*)$"
+    m = re.search(p, line)
+    if m:
+        name = m.group(0)
+        auto = getChildrenFromPath(name)
+        if auto:
+            return auto
 
 
 roots = ['obj', 'shop', 'ch', 'vex', 'img', 'out']
@@ -67,7 +67,7 @@ def getChildrenFromPath(path):
     else:
         n = hou.node(sp[0][1:])
         if n:
-            ch = list(set([x.name() for x in n.children()])) + list(set([x.name() for x in n.parms()] + [x.name() for x in n.parmTuples()]))
+            ch = list(set([x.name() for x in n.children()]))# + list(set([x.name() for x in n.parms()] + [x.name() for x in n.parmTuples()]))
             nodes = [contextCompleterClass(x, x[len(sp[1]):]) for x in ch if x.startswith(sp[1])]
             return nodes
 

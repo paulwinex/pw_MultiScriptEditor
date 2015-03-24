@@ -12,11 +12,12 @@ class outputClass(QTextBrowser):
         self.fs = 14
 
     def showMessage(self, msg):
+        self.moveCursor(QTextCursor.End)
         cursor = self.textCursor()
+        cursor.insertText(str(msg)+'\n')
         self.setTextCursor(cursor)
         self.moveCursor(QTextCursor.End)
         self.ensureCursorVisible()
-        cursor.insertText(str(msg)+'\n')
 
     def setTextEditFontSize(self, size):
         style = '''QTextEdit

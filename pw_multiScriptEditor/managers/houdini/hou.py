@@ -3869,7 +3869,7 @@ class Node(object):
             opnchildren function
 
         """
-        return _hou.Node_children(*args)
+        return (Node(),)
 
     def allSubChildren(*args, **kwargs):
         """
@@ -5789,7 +5789,10 @@ A tuple of two floats indicating how much the node should move. The first float 
 
         """
         return
-
+    def setDisplayFlag(self, val):
+        pass
+    def setRenderFlag(self, val):
+        pass
 
 class NodeGroup(object):
     """
