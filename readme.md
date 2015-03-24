@@ -85,6 +85,7 @@ pw_multiScriptEditor.showMaya()
   - Add next code to menu.py
   
 ```python
+import nuke
 menubar = nuke.menu("Nuke")
 toolMenu = menubar.addMenu('&Tools')
 path = 'path/to/MultiScriptEditor_module'
