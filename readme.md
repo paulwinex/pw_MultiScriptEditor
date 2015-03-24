@@ -39,6 +39,7 @@ The main pre condition - Should be used Python2.7.
   - create new tool on shelf
 
 ```python
+import sys
 paths = ['path/to/MultiScriptEditor_module','path/to/default/python27/lib/with/PySide']
 # example ['c:/houdini/python/lib', 'c:/python27/Lib/site-packages']
 for path in paths:
