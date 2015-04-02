@@ -345,7 +345,7 @@ class scriptEditorClass(QMainWindow, ui.Ui_scriptEditor):
         self.out.showMessage('>>> Settings folder: %s' % path.replace('\\','/'))
 
         if os.path.exists(path):
-            os.startfile(path)
+            self.openFolder(path)
         else:
             self.out.showMessage('>>> Not created!')
 
@@ -390,6 +390,14 @@ class scriptEditorClass(QMainWindow, ui.Ui_scriptEditor):
         w.replaceAllSignal.connect(self.tab.replaceAll)
         w.show()
         w.activateWindow()
+
+    def openFolder(self, path):
+        if os.name == 'nt':
+            os.startfile(path)
+        elif os.name == 'posix':
+            os.system('xdg-open "%s"' % path)
+        elif os.name =='os2':
+            os.system('open "%s"' % path)
 
 QTextCodec.setCodecForCStrings(QTextCodec.codecForName("UTF-8"))
 
