@@ -33,7 +33,8 @@ class outputClass(QTextBrowser):
                 self.changeFontSize(True)
             else:
                 self.changeFontSize(False)
-        super(outputClass, self).wheelEvent(event)
+        # super(outputClass, self).wheelEvent(event)
+        QTextBrowser.wheelEvent(self, event)
 
     def changeFontSize(self, up):
         if context == 'hou':
@@ -53,9 +54,11 @@ class outputClass(QTextBrowser):
             self.setFont(f)
 
 
-    def mousePressEvent(self, event):
-        if context == 'hou':
-            if event.button() == Qt.LeftButton:
-                super(outputClass, self).mousePressEvent(event)
-        else:
-            super(outputClass, self).mousePressEvent(event)
+    # def mousePressEvent(self, event):
+    #     print context
+    #     if context == 'hou':
+    #         if event.button() == Qt.LeftButton:
+    #             # super(outputClass, self).mousePressEvent(event)
+    #             QTextBrowser.mousePressEvent(self, event)
+    #     else:
+    #     QTextBrowser.mousePressEvent(self, event)

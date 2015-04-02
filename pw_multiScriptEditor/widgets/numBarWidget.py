@@ -1,13 +1,13 @@
 from PySide.QtCore import *
 from PySide.QtGui import *
-
+import managers
 
 class lineNumberBarClass(QWidget):
     def __init__(self, edit, parent=None):
         QWidget.__init__(self, parent)
         self.edit = edit
         self.highest_line = 0
-        self.setMinimumWidth(10)
+        self.setMinimumWidth(30)
         self.edit.installEventFilter(self)
         self.edit.viewport().installEventFilter(self)
         self.bg = None
@@ -18,8 +18,11 @@ class lineNumberBarClass(QWidget):
         Also, adjusts the width of the number bar if necessary.
         '''
         # The + 4 is used to compensate for the current line being bold.
-        fontSize = self.edit.font().pointSize()
-        width = ((self.fontMetrics().width(str(self.highest_line)) + 7)*2)*(fontSize/13.0)
+        if managers.context == 'hou':
+            fontSize = self.edit.fs
+        else:
+            fontSize = self.edit.font().pointSize()
+        width = ((self.fontMetrics().width(str(self.highest_line)) + 7))*(fontSize/13.0)
         if self.width() != width and width > 10:
             self.setFixedWidth(width)
         bg = self.palette().brush(QPalette.Normal,QPalette.Window).color().toHsv()
@@ -40,13 +43,18 @@ class lineNumberBarClass(QWidget):
         line_count = 0
         # Iterate over all text blocks in the document.
         block = self.edit.document().begin()
-        fontSize = self.edit.font().pointSize()
-        font = painter.font()
+        if managers.context == 'hou':
+            fontSize = self.edit.fs
+            font = QFont('monospace', fontSize*0.7)
+            offset = (font_metrics.ascent() + font_metrics.descent())/2
+        else:
+            fontSize = self.edit.font().pointSize()
+            font = painter.font()
+            font.setPixelSize(fontSize)
+            offset = font_metrics.ascent() + font_metrics.descent()
         color = painter.pen().color()
-        font.setPointSize(fontSize)
         painter.setFont(font)
         align = Qt.AlignRight
-
         while block.isValid():
             line_count += 1
             # The top left position of the block in the document
@@ -59,7 +67,7 @@ class lineNumberBarClass(QWidget):
             rec = QRect(0,
                         round(position.y()) - contents_y,
                         self.width()-5,
-                        fontSize + font_metrics.ascent() + font_metrics.descent())
+                        fontSize + offset)
 
             # draw line rect
             if block == current_block:
@@ -68,7 +76,7 @@ class lineNumberBarClass(QWidget):
                 painter.drawRect(QRect(0,
                         round(position.y()) - contents_y,
                         self.width(),
-                        fontSize + font_metrics.ascent() + font_metrics.descent()))
+                        fontSize + (offset/2) ))
             #   #restore color
                 painter.setPen(QPen(color))
 

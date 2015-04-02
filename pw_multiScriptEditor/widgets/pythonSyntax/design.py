@@ -15,6 +15,7 @@ defaultColors = dict(
         methods = (120, 190, 205),
         comment = (110,100,100),
         string = (245,165,18),
+        docstring = (130,160,75),
         boolean = (160,220,120),
         brace = (235,235,195),
         completer_text=(200,200,200),

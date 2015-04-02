@@ -98,5 +98,5 @@ rawArgs = []
 untitled = 'Untitled'
 updateUIs = {}
 validateFilenames = {}
-
-
+__all__=[]
+threading = None

@@ -77,7 +77,7 @@ path = 'path/to/MultiScriptEditor_module'
 if not path in sys.path:
     sys.path.append(path)
 import pw_multiScriptEditor
-pw_multiScriptEditor.showMaya()
+pw_multiScriptEditor.showMaya(dock=True)
 ```
 
 ### Nuke

@@ -1,4 +1,4 @@
-
+import math, geo
 class KnobType(object):
     pass
 
@@ -7,7 +7,6 @@ class Knob(object):
     def clearAnimated(self):
         """Clear animation for channel 'c'. Return True if successful."""
         pass
-
 
     def setLabel(self,s):
         """self.setLabel(s) -> None.
@@ -27,18 +26,15 @@ class Knob(object):
         """Remove key for channel 'c'. Return True if successful."""
         pass
 
-
     def removeKeyAt(self):
         """Remove key at time 't' for channel 'c'. Return True if successful."""
         pass
-
 
     def visible(self):
         """self.visible() -> Boolean.
 
 @return: True if the knob is visible, False if it's hidden."""
         pass
-
 
     def warning(self,message):
         """self.warning(message) -> None.
@@ -47,21 +43,13 @@ class Knob(object):
 """
         pass
 
-
     def getIntegral(self):
         """Return integral at the interval [t1, t2] for channel 'c'."""
         pass
 
-
-    def __init__(self):
-        """x.__init__(...) initializes x; see x.__class__.__doc__ for signature"""
-        pass
-
-
     def isKeyAt(self):
         """Return True if there is a keyframe at time 't' for channel 'c'."""
         pass
-
 
     def hasExpression(self,index=-1):
         """self.hasExpression(index=-1) -> bool
@@ -71,30 +59,25 @@ Return True if animation at index 'index' has an expression.
 """
         pass
 
-
     def __new__(self,S, ):
         """T.__new__(S, ...) -> a new object with type S, a subtype of T"""
         pass
-
 
     def getKeyTime(self):
         """Return index of the keyframe at time 't' for channel 'c'."""
         pass
 
-
     def tooltip(self):
         """self.tooltip() -> tooltip.
 @return: tooltip.
 """
-        pass
-
+        return ''
 
     def label(self):
         """self.label() -> label.
 @return: label.
 """
-        pass
-
+        return ''
 
     def setFlag(self,f):
         """self.setFlag(f) -> None.
@@ -104,11 +87,9 @@ Logical OR of the argument and existing knob flags.
 """
         pass
 
-
     def getNumKeys(self):
         """Return number of keyframes for channel 'c'."""
         pass
-
 
     def critical(self,message):
         """self.critical(message) -> None.
@@ -117,15 +98,13 @@ Logical OR of the argument and existing knob flags.
 """
         pass
 
-
     def toScript(self):
         """toScript(quote, context=current) -> string.
 
 Return the value of the knob in script syntax.
 Pass True for quote to return results quoted in {}.
 Pass None for context to get results for all views and key times (as stored in a .nk file)."""
-        pass
-
+        return ''
 
     def clearFlag(self,f):
         """self.clearFlag(f) -> None.
@@ -135,19 +114,17 @@ Clear flag.
 """
         pass
 
-
     def Class(self):
         """self.Class() -> Class name.
 @return: Class name.
 """
-        pass
-
+        return ''
 
     def node(self):
         """self.node() -> nuke.Node
 Return the node that this knob belongs to. If the node has been cloned, we'll always return a reference to the original.
 @return: The node which owns this knob, or None if the knob has no owner yet."""
-        pass
+        return Node()
 
 
     def setEnabled(self,enabled):
@@ -157,14 +134,12 @@ Enable or disable the knob.
 @param enabled: True to enable the knob, False to disable it."""
         pass
 
-
     def setValue(self):
         """self.setValue(val, chan) -> bool
 
 Sets the value 'val' at channel 'chan'.
 @return: True if successful, False if not."""
         pass
-
 
     def setName(self,s):
         """self.setName(s) -> None.
@@ -173,11 +148,9 @@ Sets the value 'val' at channel 'chan'.
 """
         pass
 
-
     def isAnimated(self):
         """Return True if channel 'c' is animated."""
         pass
-
 
     def setAnimated(self):
         """Set channel 'c' to be animated."""
@@ -188,8 +161,7 @@ Sets the value 'val' at channel 'chan'.
         """Return derivative at time 't' for channel 'c'."""
         pass
 
-
-    def setExpression(self):
+    def setExpression(self,expr, channel=-1, view=None):
         """self.setExpression(expr, channel=-1, view=None) -> bool
 Set the expression for a knob. You can optionally specify a channel to set the expression for.
 
@@ -199,41 +171,34 @@ Set the expression for a knob. You can optionally specify a channel to set the e
 @return: True if successful, False if not."""
         pass
 
-
-    def setValueAt(self):
+    def setValueAt(self,val, time, chan):
         """self.setValueAt(val, time, chan) -> bool
 
 Sets the value 'val' at channel 'chan' for time 'time'.
 @return: True if successful, False if not."""
         pass
 
-
     def getNthDerivative(self):
         """Return nth derivative at time 't' for channel 'c'."""
         pass
-
 
     def getValueAt(self):
         """Return value at time 't' for channel 'c'."""
         pass
 
-
     def name(self):
         """self.name() -> name.
 @return: name.
 """
-        pass
-
+        return ''
 
     def isKey(self):
         """Return True if there is a keyframe at the current frame for channel 'c'."""
         pass
 
-
     def fromScript(self):
         """Initialise from script."""
         pass
-
 
     def enabled(self):
         """self.enabled() -> Boolean.
@@ -241,21 +206,17 @@ Sets the value 'val' at channel 'chan' for time 'time'.
 @return: True if the knob is enabled, False if it's disabled."""
         pass
 
-
     def value(self):
         """Return value at the current frame for channel 'c'."""
         pass
-
 
     def getValue(self):
         """Return value at the current frame for channel 'c'."""
         pass
 
-
     def getKeyIndex(self):
         """Return keyframe index at time 't' for channel 'c'."""
         pass
-
 
     def error(self,message):
         """self.error(message) -> None.
@@ -264,14 +225,12 @@ Sets the value 'val' at channel 'chan' for time 'time'.
 """
         pass
 
-
     def debug(self,message):
         """self.debug(message) -> None.
 @param message: message to put out to the error console, attached to the knob, if the verbosity level is set high enough.
 @return: None.
 """
         pass
-
 
     def setVisible(self,visible):
         """self.setVisible(visible) -> None.
@@ -280,6 +239,8 @@ Show or hide the knob.
 @param visible: True to show the knob, False to hide it."""
         pass
 
+    def animation(self, i):
+        return AnimationCurve()
 
 class Node(object):
 
@@ -287,10 +248,9 @@ class Node(object):
         """self.numKnobs() -> The number of knobs.
 @return: The number of knobs.
 """
-        pass
+        return 0
 
-
-    def writeKnobs(self,i):
+    def writeKnobs(self ,i):
         """self.writeKnobs(i) -> String in .nk form.
 Return a tcl list. If TO_SCRIPT | TO_VALUE is not on, this is a simple list
 of knob names. If it is on, it is an alternating list of knob names
@@ -306,8 +266,7 @@ Flags can be any of these or'd together:
 @param i: The set of flags or'd together. Default is TO_SCRIPT | TO_VALUE.
 @return: String in .nk form.
 """
-        pass
-
+        return ''
 
     def autoplace(self):
         """self.autoplace() -> None.
@@ -316,7 +275,6 @@ Automatically place nodes, so they do not overlap.
 """
         pass
 
-
     def forceValidate(self):
         """self.forceValidate() -> None
 
@@ -324,21 +282,18 @@ Force the node to validate itself, updating its hash.
 """
         pass
 
-
     def help(self):
         """self.help() -> str
 @return: Help for the node.
 """
-        pass
-
+        return ''
 
     def lastFrame(self):
         """self.lastFrame() -> int.
 Last frame in frame range for this node.
 @return: int.
 """
-        pass
-
+        return 0
 
     def setSelected(self,selected):
         """self.setSelected(selected) -> None.
@@ -348,12 +303,6 @@ Set the selection state of the node.  This is the same as changing the 'selected
 """
         pass
 
-
-    def __str__(self):
-        """x.__str__() <==> str(x)"""
-        pass
-
-
     def treeHasError(self):
         """treeHasError() -> bool
 True if the node or any in its input tree have an error, or False otherwise.
@@ -362,13 +311,11 @@ Error state of the node and its input tree.
 Note that this will always return false for viewers, which cannot generate their input trees.  Instead, choose an input of the viewer (e.g. the active one), and call treeHasError() on that."""
         pass
 
-
     def maximumInputs(self):
         """self.maximumInputs() -> Maximum number of inputs this node can have.
 @return: Maximum number of inputs this node can have.
 """
         pass
-
 
     def hasError(self):
         """hasError() -> bool
@@ -378,8 +325,7 @@ Error state of the node itself, regardless of the state of the ops in its input 
 Note that an error on a node may not appear if there is an error somewhere in its input tree, because it may not be possible to validate the node itself correctly in that case."""
         pass
 
-
-    def deepSample(self):
+    def deepSample(self,chan, x, y, sample):
         """self.deepSample(c, x, y, n) -> Floating point value.
 Return pixel values from a deep image.
 This requires the image to be calculated, so performance may be very bad if this is placed into an expression in
@@ -390,18 +336,16 @@ a control panel.
 @param n: Sample index (between 0 and the number returned by deepSampleCount() for this pixel, or -1 for the frontmost).
 @return: Floating point value.
 """
-        pass
-
+        return 0.0
 
     def height(self):
         """self.height() -> int.
 Height of the node.
 @return: int.
 """
-        pass
+        return 0
 
-
-    def sample(self):
+    def sample(self, chan, x, y, dx, dy, frame):
         """self.sample(c, x, y, dx, dy) -> Floating point value.
 Return pixel values from an image.
 This requires the image to be calculated, so performance may be very bad if this is placed into an expression in
@@ -416,10 +360,9 @@ If the optional dx,dy are not given then the exact value of the square pixel tha
 @param frame: Optional frame to sample the node at.
 @return: Floating point value.
 """
-        pass
+        return 0.0
 
-
-    def setInput(self):
+    def setInput(self, i, node):
         """self.setInput(i, node) -> bool
 Connect input i to node if canSetInput() returns true.
 @param i: Input number.
@@ -427,7 +370,6 @@ Connect input i to node if canSetInput() returns true.
 @return: True if canSetInput() returns true, or if the input is already correct.
 """
         pass
-
 
     def dependencies(self,what):
         """self.dependencies(what) -> List of nodes.
@@ -444,10 +386,9 @@ nuke.toNode('Blur1').dependencies( nuke.INPUTS | nuke.EXPRESSIONS )
 @param what: Or'ed constant of nuke.EXPRESSIONS, nuke.INPUTS and nuke.HIDDEN_INPUTS to select the types of dependencies. The default is to look for all types of connections.
 @return: List of nodes.
 """
-        pass
+        return [Node(),]
 
-
-    def canSetInput(self):
+    def canSetInput(self, i, node):
         """self.canSetInput(i, node) -> bool
 Check whether the output of 'node' can be connected to input i.
 @param i: Input number.
@@ -456,21 +397,18 @@ Check whether the output of 'node' can be connected to input i.
 """
         pass
 
-
     def maximumOutputs(self):
         """self.maximumOutputs() -> Maximum number of outputs this node can have.
 @return: Maximum number of outputs this node can have.
 """
-        pass
-
+        return 0
 
     def screenWidth(self):
         """self.screenWidth() -> int.
 Width of the node when displayed on screen in the DAG, at 1:1 zoom, in pixels.
 @return: int.
 """
-        pass
-
+        return 0
 
     def linkableKnobs(self,knobType):
         """self.linkableKnobs(knobType) -> List
@@ -478,23 +416,20 @@ Width of the node when displayed on screen in the DAG, at 1:1 zoom, in pixels.
 Returns a list of any knobs that may be linked to from the node as well as some meta information about the knob. This may include whether the knob is enabled and whether it should be used for absolute or relative values. Not all of these variables may make sense for all knobs..
 @param knobType A KnobType describing the type of knobs you want.@return: A list of LinkableKnobInfo that may be empty .
 """
-        pass
-
+        return [Knob(),]
 
     def minimumInputs(self):
         """self.minimumInputs() -> Minimum number of inputs this node can have.
 @return: Minimum number of inputs this node can have.
 """
-        pass
-
+        return 0
 
     def firstFrame(self):
         """self.firstFrame() -> int.
 First frame in frame range for this node.
 @return: int.
 """
-        pass
-
+        return 0
 
     def setXpos(self,x):
         """self.setXpos(x) -> None.
@@ -504,37 +439,23 @@ Set the x position of node in node graph.
 """
         pass
 
-
     def shown(self):
         """self.shown() -> true if the properties panel is open. This can be used to skip updates that are not visible to the user.
 @return: true if the properties panel is open. This can be used to skip updates that are not visible to the user.
 """
         pass
 
-
-    def __reduce_ex__(self):
-        """None"""
-        pass
-
-
-    def __new__(self,S, ):
-        """T.__new__(S, ...) -> a new object with type S, a subtype of T"""
-        pass
-
-
     def numKnobs(self):
         """self.numKnobs() -> The number of knobs.
 @return: The number of knobs.
 """
-        pass
-
+        return 0
 
     def maxInputs(self):
         """self.maximumInputs() -> Maximum number of inputs this node can have.
 @return: Maximum number of inputs this node can have.
 """
-        pass
-
+        return 0
 
     def isSelected(self):
         """self.isSelected() -> bool
@@ -544,13 +465,11 @@ Returns the current selection state of the node.  This is the same as checking t
 """
         pass
 
-
     def opHashes(self):
         """self.opHashes() -> list of int
 
 Returns a list of hash values, one for each op in this node."""
-        pass
-
+        return (0,)
 
     def setYpos(self,y):
         """self.setYpos(y) -> None.
@@ -560,30 +479,26 @@ Set the y position of node in node graph.
 """
         pass
 
-
     def showControlPanel(self):
         """self.showControlPanel(forceFloat = false) -> None
 @param forceFloat: Optional python object. If it evaluates to True the control panel will always open as a floating panel. Default is False.
 @return: None"""
         pass
 
-
     def width(self):
         """self.width() -> int.
 Width of the node.
 @return: int.
 """
-        pass
+        return 0
 
-
-    def connectInput(self):
+    def connectInput(self, i, node):
         """self.connectInput(i, node) -> bool
 Connect the output of 'node' to the i'th input or the next available unconnected input. The requested input is tried first, but if it is already set then subsequent inputs are tried until an unconnected one is found, as when you drop a connection arrow onto a node in the GUI.
 @param i: Input number to try first.
 @param node: The node to connect to input i.
 @return: True if a connection is made, False otherwise."""
         pass
-
 
     def allKnobs(self):
         """self.knobs() -> dict
@@ -597,10 +512,9 @@ For example:
 
 @return: Dictionary of all knobs.
 """
-        pass
+        return {'':Knob(),}
 
-
-    def deepSampleCount(self):
+    def deepSampleCount(self,x, y):
         """self.deepSampleCount(x, y) -> Integer value.
 Return number of samples for a pixel on a deep image.
 This requires the image to be calculated, so performance may be very bad if this is placed into an expression in
@@ -609,8 +523,7 @@ a control panel.
 @param y: Position to sample (Y coordinate).
 @return: Integer value.
 """
-        pass
-
+        return 0
 
     def removeKnob(self,k):
         """self.removeKnob(k) -> None.
@@ -620,14 +533,12 @@ Remove knob k from this node or panel. Throws a ValueError exception if k is not
 """
         pass
 
-
     def input(self,i):
         """self.input(i) -> The i'th input.
 @param i: Input number.
 @return: The i'th input.
 """
-        pass
-
+        return 0
 
     def knobs(self):
         """self.knobs() -> dict
@@ -641,24 +552,22 @@ For example:
 
 @return: Dictionary of all knobs.
 """
-        pass
+        return {'':Knob(),}
 
 
     def Class(self):
         """self.Class() -> Class of node.
 @return: Class of node.
 """
-        pass
-
+        return ''
 
     def maxOutputs(self):
         """self.maximumOutputs() -> Maximum number of outputs this node can have.
 @return: Maximum number of outputs this node can have.
 """
-        pass
+        return 0
 
-
-    def metadata(self):
+    def metadata(self, key, time, view):
         """self.metadata(key, time, view) -> value or dict
 Return the metadata item for key on this node at current output context, or at optional time and view.
 If key is not specified a dictionary containing all key/value pairs is returned.
@@ -668,8 +577,7 @@ None is returned if key does not exist on this node.
 @param view: Optional view to evaluate at (default is taken from node's current output context).
 @return: The requested metadata value, a dictionary containing all keys if a key name is not provided, or None if the specified key is not matched.
 """
-        pass
-
+        return 0
 
     def knob(self,p):
         """self.knob(p) -> The knob named p or the pth knob.
@@ -678,20 +586,17 @@ None is returned if key does not exist on this node.
 """
         return Knob()
 
-
     def inputs(self):
         """self.inputs() -> Number of inputs.
 @return: Number of inputs.
 """
-        pass
-
+        return 0
 
     def xpos(self):
         """self.xpos() -> X position of node in node graph.
 @return: X position of node in node graph.
 """
-        pass
-
+        return 0
 
     def setName(self, name):
         """self.setName(name, uncollide=True) -> None
@@ -701,19 +606,16 @@ Set name of the node and resolve name collisions if optional named argument 'unc
 @return: None"""
         pass
 
-
     def __getitem__(self,y):
         """x.__getitem__(y) <==> x[y]"""
         return Knob()
-
 
     def format(self):
         """self.format() -> Format.
 Format of the node.
 @return: Format.
 """
-        pass
-
+        return Format()
 
     def dependent(self):
         """self.dependent(what, forceEvaluate) -> List of nodes.
@@ -734,8 +636,7 @@ nuke.toNode('Blur1').dependent( nuke.INPUTS | nuke.EXPRESSIONS )
 @param forceEvaluate: Specifies whether a full tree evaluation will take place. Defaults to True.
 @return: List of nodes.
 """
-        pass
-
+        return [Node(),]
 
     def setXYpos(self):
         """self.setXYpos(x, y) -> None.
@@ -746,13 +647,11 @@ Set the (x, y) position of node in node graph.
 """
         pass
 
-
     def ypos(self):
         """self.ypos() -> Y position of node in node graph.
 @return: Y position of node in node graph.
 """
-        pass
-
+        return 0
 
     def running(self):
         """self.running() -> Node rendering when paralled threads are running or None.
@@ -761,14 +660,12 @@ Class method.
 """
         pass
 
-
     def pixelAspect(self):
         """self.pixelAspect() -> int.
 Pixel Aspect ratio of the node.
 @return: float.
 """
-        pass
-
+        return 0
 
     def proxy(self):
         """self.proxy() -> bool
@@ -776,21 +673,18 @@ Pixel Aspect ratio of the node.
 """
         pass
 
-
     def clones(self):
         """self.clones() -> Number of clones.
 @return: Number of clones.
 """
-        pass
-
+        return 0
 
     def fullName(self):
         """self.fullName() -> str
 Get the name of this node and any groups enclosing it in 'group.group.name' form.
 @return: The fully-qualified name of this node, as a string.
 """
-        pass
-
+        return ''
 
     def resetKnobsToDefault(self):
         """self.resetKnobsToDefault() -> None
@@ -799,14 +693,12 @@ Reset all the knobs to their default values.
 """
         pass
 
-
     def channels(self):
         """self.channels() -> String list.
 List channels output by this node.
 @return: String list.
 """
-        pass
-
+        return ['',]
 
     def showInfo(self,s):
         """self.showInfo(s) -> None.
@@ -816,41 +708,35 @@ Creates a dialog box showing the result of script s.
 """
         pass
 
-
     def name(self):
         """self.name() -> str
 @return: Name of node.
 """
-        pass
-
+        return ''
 
     def minInputs(self):
         """self.minimumInputs() -> Minimum number of inputs this node can have.
 @return: Minimum number of inputs this node can have.
 """
-        pass
-
+        return 0
 
     def hideControlPanel(self):
         """self.hideControlPanel() -> None
 @return: None"""
         pass
 
-
     def optionalInput(self):
         """self.optionalInput() -> Number of first optional input.
 @return: Number of first optional input.
 """
-        pass
-
+        return 0
 
     def screenHeight(self):
         """self.screenHeight() -> int.
 Height of the node when displayed on screen in the DAG, at 1:1 zoom, in pixels.
 @return: int.
 """
-        pass
-
+        return 0
 
     def addKnob(self,k):
         """self.addKnob(k) -> None.
@@ -860,24 +746,16 @@ Add knob k to this node or panel.
 """
         pass
 
-
     def __len__(self):
         """x.__len__() <==> len(x)"""
-        pass
-
+        return 0
 
     def frameRange(self):
         """self.frameRange() -> FrameRange.
 Frame range for this node.
 @return: FrameRange.
 """
-        pass
-
-
-    def __repr__(self):
-        """x.__repr__() <==> repr(x)"""
-        pass
-
+        return FrameRange()
 
     def error(self):
         """error() -> bool
@@ -887,14 +765,12 @@ Error state of the node and its input tree.  Deprecated; use hasError or treeHas
 Note that this will always return false for viewers, which cannot generate their input trees.  Instead, choose an input of the viewer (e.g. the active one), and call treeHasError() on that."""
         pass
 
-
     def redraw(self):
         """self.redraw() -> None.
 Force a redraw of the node.
 @return: None.
 """
         pass
-
 
     def readKnobs(self,s):
         """self.readKnobs(s) -> None.
@@ -904,15 +780,12 @@ Read the knobs from a string (TCL syntax).
 """
         pass
 
-
     def bbox(self):
         """self.bbox() -> List of x, y, w, h.
 Bounding box of the node.
 @return: List of x, y, w, h.
 """
-        pass
-
-
+        return [0, 0, 0, 0]
 
 class NodeConstructor(object):
 
@@ -920,18 +793,15 @@ class NodeConstructor(object):
         """x.__call__(...) <==> x(...)"""
         pass
 
-
     def __new__(self,S, ):
         """T.__new__(S, ...) -> a new object with type S, a subtype of T"""
         pass
-
 
 class Nodes(object):
 
     def __new__(self,S, ):
         """T.__new__(S, ...) -> a new object with type S, a subtype of T"""
         pass
-
 
 class AnimationCurve(object):
 
@@ -941,14 +811,12 @@ class AnimationCurve(object):
 """
         pass
 
-
     def constant(self):
         """self.constant() -> bool
 @return: True if the animation appears to be a horizontal line, is a simple number,
 or it is the default and all the points are at the same y value and have 0 slopes. False otherwise.
 """
         pass
-
 
     def removeKey(self,keys):
         """self.removeKey(keys) -> None.
@@ -958,20 +826,17 @@ Remove some keys from the curve.
 """
         pass
 
-
     def size(self):
         """self.size() -> Number of keys.
 @return: Number of keys.
 """
-        pass
-
+        return 0
 
     def knobIndex(self):
         """self.knobIndex() -> Int.
 Return the knob index this animation belongs to.@return: Int.
 """
-        pass
-
+        return 0
 
     def inverse(self,y):
         """self.inverse(y) -> Float.
@@ -980,13 +845,11 @@ This is designed to invert color lookup tables. It only works if the derivative 
 @param y: The value of the function to get the inverse for.
 @return: Float.
 """
-        pass
-
+        return 0.0
 
     def __new__(self,S, ):
         """T.__new__(S, ...) -> a new object with type S, a subtype of T"""
         pass
-
 
     def selected(self):
         """self.selected() -> bool
@@ -994,8 +857,7 @@ This is designed to invert color lookup tables. It only works if the derivative 
 """
         pass
 
-
-    def setKey(self):
+    def setKey(self, t, y):
         """self.setKey(t, y) -> Key.
 Set a key at time t and value y. If there is no key
 there one is created. If there is a key there it is moved
@@ -1007,8 +869,7 @@ nuke.CONSTANT extrapolation.
 @param y: The value for the key.
 @return: The new key.
 """
-        pass
-
+        return AnimationKey()
 
     def addKey(self,keys):
         """self.addKey(keys) -> None.
@@ -1018,8 +879,7 @@ Insert a sequence of keys.
 """
         pass
 
-
-    def changeInterpolation(self):
+    def changeInterpolation(self, keys, type):
         """self.changeInterpolation(keys, type) -> None.
 Change interpolation (and extrapolation) type for the keys.
 @param keys: Sequence of keys.
@@ -1028,28 +888,24 @@ Change interpolation (and extrapolation) type for the keys.
 """
         pass
 
-
     def toScript(self,selected):
         """self.toScript(selected) -> str
 @param selected: Optional parameter. If this is given and is True, then only process the selected curves; otherwise convert all.
 @return: A string containing the curves.
 """
-        pass
-
+        return ''
 
     def knob(self):
         """self.knob() -> Knob.
 Return knob this animation belongs to.@return: Knob.
 """
-        pass
-
+        return Knob()
 
     def keys(self):
         """self.keys() -> List of keys.
 @return: List of keys.
 """
-        pass
-
+        return [AnimationKey(),]
 
     def evaluate(self,t):
         """self.evaluate(t) -> float
@@ -1057,28 +913,25 @@ Value at time 't'.
 @param t: Time.
 @return: The value of the animation at time 't'.
 """
-        pass
+        return 0.0
 
-
-    def integrate(self):
+    def integrate(self, t1, t2):
         """self.integrate(t1, t2) -> Float.
 Calculate the area underneath the curve from t1 to t2.
 @param t1 The start of the integration range.
 @param t2 The end of the integration range.
 @return: The result of the integration.
 """
-        pass
+        return 0.0
 
-
-    def derivative(self):
+    def derivative(self, t, n):
         """self.derivative(t, n) -> Float.
 The n'th derivative at time 't'. If n is less than 1 it returns evaluate(t).
 @param t: Time.
 @param n: Optional. Default is 1.
 @return: The value of the derivative.
 """
-        pass
-
+        return 0.0
 
     def setExpression(self,s):
         """self.setExpression(s) -> None.
@@ -1088,14 +941,12 @@ Set expression.
 """
         pass
 
-
     def identity(self):
         """self.identity() -> bool
 @return: True if the animation appears to be such that y == x everywhere. This is True only for an expression of 'x' or the
 default expression and all points having y == x and slope == 1. Extrapolation is ignored.
 """
         pass
-
 
     def clear(self):
         """self.clear() -> None.
@@ -1104,7 +955,6 @@ Delete all keys.
 """
         pass
 
-
     def fromScript(self,s):
         """self.fromScript(s) -> None.
 @param s: String.
@@ -1112,14 +962,12 @@ Delete all keys.
 """
         pass
 
-
     def knobAndFieldName(self):
         """self.knobAndFieldName() -> string.
 Knob and field name combined (e.g. 'translate.x').
 @return: string.
 """
-        pass
-
+        return ''
 
     def noExpression(self):
         """self.noExpression() -> bool
@@ -1127,35 +975,49 @@ Knob and field name combined (e.g. 'translate.x').
 """
         pass
 
-
     def expression(self):
         """self.expression() -> String.
 Get the expression.@return: String.
 """
-        pass
-
+        return ''
 
     def view(self):
         """self.view() -> String.
 The view this AnimationCurve object is associated with.
 @return: String.
 """
-        pass
-
+        return ''
 
 class AnimationKey(object):
-
-
-    def __init__(self):
-        """x.__init__(...) initializes x; see x.__class__.__doc__ for signature"""
-        pass
-
-
-    def __new__(self,S):
-        """T.__new__(S, ...) -> a new object with type S, a subtype of T"""
-        pass
-
-
+    """
+extrapolation   Controls how to set the left slope of the first point and the right slope of the last point
+interpolation   Used to calculate all the slopes except for the left slope of the first key and the right slope of the last key
+la              The left 'bicubic' value
+lslope          The derivative to the left of the point
+ra              The right 'bicubic' value
+rslope          The derivative to the right of the point
+selected        True if the point is selected in the curve editor
+x               The horizontal position of the point
+y               The vertical position of the point
+    """
+    extrapolation= None
+    #Controls how to set the left slope of the first point and the right slope of the last point
+    interpolation=0
+    #Used to calculate all the slopes except for the left slope of the first key and the right slope of the last key
+    la=0
+    #The left 'bicubic' value
+    lslope=0.0
+    #The derivative to the left of the point
+    ra=0.0
+    #The right 'bicubic' value
+    rslope=0.0
+    #The derivative to the right of the point
+    selected=True
+    #True if the point is selected in the curve editor
+    x=0
+    #The horizontal position of the point
+    y=0
+    #The vertical position of the point
 
 class Box(object):
 
@@ -1165,42 +1027,27 @@ class Box(object):
 Set all values at once."""
         pass
 
-
     def move(self):
         """self.move(dx, dy) -> None.
 
 Move all the sides and thus the entire box by the given deltas."""
         pass
 
-
     def isConstant(self):
         """self.isConstant() -> True if box is 1x1 in both directions, False otherwise."""
         pass
-
 
     def clampY(self,y):
         """self.clampY(y) -> int.
 
 Return y restricted to pointing at a pixel in the box."""
-        pass
-
+        return 0
 
     def clampX(self,x):
         """self.clampX(x) -> int.
 
 Return x restricted to pointing at a pixel in the box."""
-        pass
-
-
-    def __init__(self):
-        """x.__init__(...) initializes x; see x.__class__.__doc__ for signature"""
-        pass
-
-
-    def __new__(self,S, ):
-        """T.__new__(S, ...) -> a new object with type S, a subtype of T"""
-        pass
-
+        return 0
 
     def pad(self):
         """self.pad(dx, dy, dr, dt) -> None.
@@ -1208,27 +1055,23 @@ Return x restricted to pointing at a pixel in the box."""
 Move all the sides and thus the entire box by the given deltas."""
         pass
 
-
     def centerX(self):
         """self.centerX() -> float
 
 Return center in X."""
-        pass
-
+        return 0.0
 
     def centerY(self):
         """self.centerY() -> float
 
 Return height in Y."""
-        pass
+        return 0.0
 
-
-    def intersect(self):
+    def intersect(self, x, y, r, t):
         """self.intersect(x, y, r, t) -> None.
 
 Intersect with the given edges."""
         pass
-
 
     def setH(self,n):
         """self.setH(n) -> None
@@ -1236,13 +1079,11 @@ Intersect with the given edges."""
 Set height by moving top edge."""
         pass
 
-
     def setT(self,n):
         """self.setT(n) -> None
 
 Set top edge."""
         pass
-
 
     def setW(self,n):
         """self.setW(n) -> None
@@ -1250,13 +1091,11 @@ Set top edge."""
 Set width by moving right edge."""
         pass
 
-
     def setR(self,n):
         """self.setR(n) -> None
 
 Set the right edge. The parameter n is an integer."""
         pass
-
 
     def setX(self,n):
         """self.setX(n) -> None
@@ -1264,20 +1103,17 @@ Set the right edge. The parameter n is an integer."""
 Set the left edge. The parameter n is an integer."""
         pass
 
-
     def setY(self,n):
         """self.setY(n) -> None
 
 Set the bottom edge. The parameter n is an integer."""
         pass
 
-
     def h(self):
         """self.h() -> int
 
 Return height."""
-        pass
-
+        return 0
 
     def clear(self):
         """self.clear() -> None.
@@ -1285,48 +1121,41 @@ Return height."""
 Set to is_constant()."""
         pass
 
-
-    def merge(self):
+    def merge(self, x, y, r, t):
         """self.merge(x, y, r, t) -> None.
 
 Merge with the given edges."""
         pass
 
-
     def r(self):
         """self.r() -> int
 
 Return the right edge of the box."""
-        pass
-
+        return 0
 
     def t(self):
         """self.t() -> int
 
 Return top edge."""
-        pass
-
+        return 0
 
     def w(self):
         """self.w() -> int
 
 Return width."""
-        pass
-
+        return 0
 
     def y(self):
         """self.y() -> int
 
 Return the bottom edge."""
-        pass
-
+        return 0
 
     def x(self):
         """self.x() -> int
 
 The left edge of the box."""
-        pass
-
+        return 0
 
 class FnPySingleton(object):
 
@@ -1334,28 +1163,15 @@ class FnPySingleton(object):
         """None"""
         pass
 
-
 class Font_Knob(Knob):
 
     def value(self):
         """None"""
-        pass
-
+        return ''
 
     def setValue(self):
         """None"""
         pass
-
-
-    def __new__(self,S, ):
-        """T.__new__(S, ...) -> a new object with type S, a subtype of T"""
-        pass
-
-
-    def __init__(self):
-        """x.__init__(...) initializes x; see x.__class__.__doc__ for signature"""
-        pass
-
 
 class Format(object):
 
@@ -1365,18 +1181,15 @@ class Format(object):
 Set the height of image file in pixels. newHeight is the new height for the image; it should be a positive integer."""
         pass
 
-
     def pixelAspect(self):
         """self.pixelAspect() -> float
 
 Returns the pixel aspect ratio (pixel width divided by pixel height) for this format."""
-        pass
-
+        return 0.0
 
     def __new__(self,S, ):
         """T.__new__(S, ...) -> a new object with type S, a subtype of T"""
         pass
-
 
     def setName(self,name):
         """self.setName(name) -> None
@@ -1384,36 +1197,31 @@ Returns the pixel aspect ratio (pixel width divided by pixel height) for this fo
 Set name of this format. The name parameter is the new name for the format."""
         pass
 
-
     def setPixelAspect(self,aspectRatio):
         """self.setPixelAspect(aspectRatio) -> None
 
 Set a new pixel aspect ratio for this format. The aspectRatio parameter is the new ratio, found by dividing the desired pixel width by the desired pixel height."""
         pass
 
-
     def height(self):
         """self.height() -> int
 
 Return the height of image file in pixels."""
-        pass
+        return 0
 
-
-    def scaled(self):
+    def scaled(self, sx, sy, tx, ty):
         """scaled(sx, sy, tx, ty) -> Format
 
 Scale and translate this format by sx, sy, tx and ty.
 
 @param sx: Scale factor in X.@param sy: Scale factor in Y.@param tx: Offset factor in X.@param ty: Offset factor in Y.@return: Format."""
-        pass
-
+        return Format()
 
     def width(self):
         """self.width() -> int
 
 Return the width of image file in pixels."""
-        pass
-
+        return 0
 
     def add(self,name):
         """self.add(name) -> None
@@ -1421,8 +1229,7 @@ Return the width of image file in pixels."""
 Add this instance to a list of "named" formats. The name parameter is the name of the list to add the format to."""
         pass
 
-
-    def toUV(self):
+    def toUV(self, x, y):
         """self.toUV(x, y) -> (u, v)
 
 Back-transform an XY coordinate in the format's space into UV space.
@@ -1430,8 +1237,7 @@ Back-transform an XY coordinate in the format's space into UV space.
 @param x: The X coordinate.
 @param y: The Y coordinate.
 @return: [u, v]."""
-        pass
-
+        return (0,0)
 
     def fromUV(self):
         """self.fromUV(u, v) -> [x, y]
@@ -1441,8 +1247,7 @@ Transform a UV coordinate in the range 0-1 into the format's XY range. Returns a
 @param u: The U coordinate.
 @param v: The V coordinate.
 @return: [x, y]"""
-        pass
-
+        return [0,0]
 
     def setWidth(self,newWidth):
         """self.setWidth(newWidth) -> None
@@ -1450,18 +1255,11 @@ Transform a UV coordinate in the range 0-1 into the format's XY range. Returns a
 Set the width of image file in pixels.newWidth is the new width for the image; it should be a positive integer."""
         pass
 
-
-    def __init__(self):
-        """x.__init__(...) initializes x; see x.__class__.__doc__ for signature"""
-        pass
-
-
     def name(self):
         """self.name() -> string
 
 Returns the user-visible name of the format."""
-        pass
-
+        return ''
 
 class FrameRange(object):
 
@@ -1469,20 +1267,17 @@ class FrameRange(object):
         """self.minFrame() -> int
 
  return the minimun frame define in the range."""
-        pass
-
+        return 0
 
     def last(self):
         """self.last() -> int
 
  return the last frame of the range."""
-        pass
-
+        return 0
 
     def __new__(self,S, ):
         """T.__new__(S, ...) -> a new object with type S, a subtype of T"""
         pass
-
 
     def setLast(self,n):
         """self.setLast(n) -> None
@@ -1490,25 +1285,17 @@ class FrameRange(object):
  set the last frame of the range."""
         pass
 
-
-    def __str__(self):
-        """x.__str__() <==> str(x)"""
-        pass
-
-
     def getFrame(self,n):
         """self.getFrame(n) -> int
 
  return the frame according to the index, parameter n must be between 0 and frames()."""
-        pass
-
+        return 0
 
     def stepFrame(self):
         """self.stepFrame() -> int
 
  return the absolute increment between two frames."""
-        pass
-
+        return 0
 
     def setFirst(self,n):
         """self.setFirst(n) -> None
@@ -1516,30 +1303,25 @@ class FrameRange(object):
  set the first frame of the range."""
         pass
 
-
     def next(self):
         """x.next() -> the next value, or raise StopIteration"""
         pass
-
 
     def isInRange(self,n):
         """self.isInRange(n) -> int
 
  return if the frame is inside the range."""
-        pass
-
+        return 0
 
     def maxFrame(self):
         """self.maxFrame() -> int
 
  return the maximun frame define in the range."""
-        pass
-
+        return 0
 
     def __iter__(self):
         """x.__iter__() <==> iter(x)"""
-        pass
-
+        return 0
 
     def setIncrement(self,n):
         """self.setIncrement(n) -> None
@@ -1547,32 +1329,23 @@ class FrameRange(object):
  set the increment between two frames."""
         pass
 
-
     def increment(self):
         """self.increment() -> int
 
  return the increment between two frames."""
-        pass
-
+        return 0
 
     def frames(self):
         """self.frames() -> int
 
  return the numbers of frames defined in the range."""
-        pass
-
-
-    def __init__(self):
-        """x.__init__(...) initializes x; see x.__class__.__doc__ for signature"""
-        pass
-
+        return 0
 
     def first(self):
         """self.first() -> int
 
  return the first frame of the range."""
-        pass
-
+        return 0
 
 class FrameRanges(object):
 
@@ -1582,37 +1355,23 @@ class FrameRanges(object):
  compact all the frame ranges."""
         pass
 
-
     def getRange(self):
         """getRange()-> FrameRange
 
  return a range from the list"""
         pass
 
-
-    def __new__(self,S, ):
-        """T.__new__(S, ...) -> a new object with type S, a subtype of T"""
-        pass
-
-
     def toFrameList(self):
         """toFrameList() -> [int]
 
  return a list of frames in a vector"""
-        pass
-
-
-    def __str__(self):
-        """x.__str__() <==> str(x)"""
-        pass
-
+        return [0,]
 
     def minFrame(self):
         """minFrame() -> int
 
  get minimun frame of all ranges."""
-        pass
-
+        return 0
 
     def add(self,r):
         """add(r) -> None
@@ -1620,23 +1379,19 @@ class FrameRanges(object):
  add a new frame range."""
         pass
 
-
     def next(self):
         """x.next() -> the next value, or raise StopIteration"""
         pass
-
 
     def maxFrame(self):
         """maxFrame() -> int
 
  get maximun frame of all ranges."""
-        pass
-
+        return 0
 
     def __iter__(self):
         """x.__iter__() <==> iter(x)"""
         pass
-
 
     def clear(self):
         """clear() -> None
@@ -1644,18 +1399,11 @@ class FrameRanges(object):
  reset all store frame ranges."""
         pass
 
-
-    def __init__(self):
-        """x.__init__(...) initializes x; see x.__class__.__doc__ for signature"""
-        pass
-
-
     def size(self):
         """size() -> int
 
  return the ranges number."""
-        pass
-
+        return 0
 
 class GlobalsEnvironment(object):
 
@@ -1683,41 +1431,33 @@ class GlobalsEnvironment(object):
         """None"""
         pass
 
-
     def items(self):
         """None"""
         pass
-
 
     def get(self):
         """None"""
         pass
 
-
     def __setitem__(self):
         """x.__setitem__(i, y) <==> x[i]=y"""
         pass
-
 
     def has_key(self):
         """None"""
         pass
 
-
     def values(self):
         """None"""
         pass
-
 
     def __repr__(self):
         """x.__repr__() <==> repr(x)"""
         pass
 
-
     def __len__(self):
         """x.__len__() <==> len(x)"""
         pass
-
 
 class Hash(object):
 
@@ -1725,76 +1465,61 @@ class Hash(object):
         """Reset the hash."""
         pass
 
-
     def __ne__(self,y):
         """x.__ne__(y) <==> x!=y"""
         pass
-
 
     def __setattr__(self):
         """x.__setattr__('name', value) <==> x.name = value"""
         pass
 
-
     def __new__(self,S, ):
         """T.__new__(S, ...) -> a new object with type S, a subtype of T"""
         pass
-
 
     def setHash(self):
         """Set the current value of the hash."""
         pass
 
-
     def __getattribute__(self,name):
         """x.__getattribute__('name') <==> x.name"""
         pass
-
 
     def __delattr__(self,name):
         """x.__delattr__('name') <==> del x.name"""
         pass
 
-
     def __le__(self,y):
         """x.__le__(y) <==> x<=y"""
         pass
-
 
     def append(self):
         """Add another value to the hash."""
         pass
 
-
     def __gt__(self,y):
         """x.__gt__(y) <==> x>y"""
         pass
-
 
     def __hash__(self):
         """x.__hash__() <==> hash(x)"""
         pass
 
-
     def getHash(self):
         """Get the current value of the hash."""
         pass
-
 
     def __lt__(self,y):
         """x.__lt__(y) <==> x<y"""
         pass
 
-
     def __eq__(self,y):
         """x.__eq__(y) <==> x==y"""
         pass
 
-
     def __ge__(self,y):
         """x.__ge__(y) <==> x>=y"""
         pass
-
 
 class Info(object):
 
@@ -1802,46 +1527,39 @@ class Info(object):
         """T.__new__(S, ...) -> a new object with type S, a subtype of T"""
         pass
 
-
     def h(self):
         """self.h() -> float
 
 Return height."""
-        pass
-
+        return 0.0
 
     def w(self):
         """self.w() -> float
 
 Return width."""
-        pass
-
+        return 0.0
 
     def y(self):
         """self.y() -> float
 
 Return the bottom edge."""
-        pass
-
+        return 0.0
 
     def x(self):
         """x() -> float
 
 Return left edge."""
-        pass
-
+        return 0.0
 
     def __init__(self):
         """x.__init__(...) initializes x; see x.__class__.__doc__ for signature"""
         pass
-
 
 class Layer(object):
 
     def __new__(self,S, ):
         """T.__new__(S, ...) -> a new object with type S, a subtype of T"""
         pass
-
 
     def setName(self,newName):
         """self.setName(newName) -> None
@@ -1850,14 +1568,12 @@ Set the name of this layer.
 @param newName: The new name for this layer."""
         pass
 
-
     def channels(self):
         """self.channels() -> [string, ...]
 Get a list of the channels in this layer.
 
 @return: A list of strings, where each string is the name of a channel in this layer."""
-        pass
-
+        return ['',]
 
     def visible(self):
         """self.visible() -> bool
@@ -1866,14 +1582,12 @@ Check whether the layer is visible.
 @return: True if visible, False if not."""
         pass
 
-
     def name(self):
         """self.name() -> str
 Get the layer name.
 
 @return: The layer name, as a string."""
-        pass
-
+        return ''
 
 class Lut(object):
 
@@ -1881,68 +1595,58 @@ class Lut(object):
         """T.__new__(S, ...) -> a new object with type S, a subtype of T"""
         pass
 
-
     def toByte(self,float):
         """self.toByte(float) -> float.
 
 Converts floating point values to byte values in the range 0-255."""
-        pass
-
+        return 0.0
 
     def fromByteSingle(self,float):
         """self.fromByte(float) -> float.
 
 Converts byte values in the range 0-255 to floating point."""
-        pass
+        return 0.0
 
-
-    def fromFloat(self):
+    def fromFloat(self, src, alpha):
         """fromFloat(src, alpha) -> float list.
 
 Convert a sequence of floating-point values to from_byte(x*255).
 Alpha is an optional argument and if present unpremultiply by alpha, convert, and then multiply back."""
-        pass
-
+        return [0.0,]
 
     def toFloat(self):
         """toFloat(src, alpha) -> float list.
 
 Convert a sequence of floating-point values to to_byte(x)/255.
 Alpha is an optional argument and if present unpremultiply by alpha, convert, and then multiply back."""
-        pass
-
+        return [0.0,]
 
     def isLinear(self):
         """self.isLinear() -> True if toByte(x) appears to return x*255, False otherwise."""
         pass
 
-
     def toByteSingle(self,float):
         """self.toByte(float) -> float.
 
 Converts floating point values to byte values in the range 0-255."""
-        pass
-
+        return 0.0
 
     def fromByte(self,float):
         """self.fromByte(float) -> float.
 
 Converts byte values in the range 0-255 to floating point."""
-        pass
-
+        return 0.0
 
     def isZero(self):
         """self.isZero() -> True if toByte(0) returns a value <= 0, False otherwise."""
         pass
-
 
 class MenuBar(object):
 
     def name(self):
         """self.name() -> String
 Returns the name of the menu item."""
-        pass
-
+        return ''
 
     def addSeparator(self,**kwargs):
         """self.addSeparator(**kwargs) -> The separator that was created.
@@ -1951,8 +1655,7 @@ Add a separator to this menu/toolbar.
 index     The position to insert the new separator in, in the menu/toolbar.
 @return: The separator that was created.
 """
-        pass
-
+        return MenuItem()
 
     def menu(self,name):
         """self.menu(name) -> Menu or None
@@ -1962,8 +1665,7 @@ Finds a submenu or command with a particular name.
 """
         return Menu()
 
-
-    def addCommand(self):
+    def addCommand(self, name, command, shortcut, icon, tooltip, index, readonly):
         """self.addCommand(name, command, shortcut, icon, tooltip, index, readonly) -> The menu/toolbar item that was added to hold the command.
 Add a new command to this menu/toolbar. Note that when invoked, the command is automatically enclosed in an undo group, so that undo/redo functionality works. Optional arguments can be specified by name.
 Note that if the command argument is not specified, then the command will be auto-created as a "nuke.createNode()" using the name argument as the node to create.
@@ -1982,8 +1684,7 @@ fileMenu.addCommand('NewCommand', 'print 10', shortcut='t')
 @param readonly: Optional. True/False for whether the item should be available when the menu is invoked in a read-only context.
 @return: The menu/toolbar item that was added to hold the command.
 """
-        pass
-
+        return MenuItem()
 
     def addMenu(self,**kwargs):
         """self.addMenu(**kwargs) -> The submenu that was added.
@@ -1995,8 +1696,7 @@ Add a new submenu.
                 index     The position to insert the menu in. Use -1 to add to the end of the menu.
 @return: The submenu that was added.
 """
-        pass
-
+        return Menu()
 
     def removeItem(self,name):
         """self.removeItem(name) -> None
@@ -2006,12 +1706,10 @@ Removes a submenu or command with a particular name. If the containing menu beco
 """
         pass
 
-
     def items(self):
         """self.items() -> None
 Returns a list of sub menu items."""
         pass
-
 
     def findItem(self,name):
         """self.findItem(name) -> Menu or None
@@ -2019,8 +1717,7 @@ Finds a submenu or command with a particular name.
 @param name: The name to search for.
 @return: The submenu or command we found, or None if we could not find anything.
 """
-        pass
-
+        return Menu()
 
     def clearMenu(self):
         """self.clearMenu()
@@ -2031,7 +1728,6 @@ Clears a menu.
 """
         pass
 
-
 class MenuItem(object):
 
     def setEnabled(self,enabled):
@@ -2041,11 +1737,10 @@ Enable or disable the item.
 """
         pass
 
-
     def name(self):
         """self.name() -> String
 Returns the name of the menu item."""
-        pass
+        return ''
 
 
     def invoke(self):
@@ -2053,13 +1748,11 @@ Returns the name of the menu item."""
 Perform the action associated with this menu item."""
         pass
 
-
     def script(self):
         """self.script() -> String
 Returns the script that gets executed for this menu item.
 """
-        pass
-
+        return ''
 
     def setScript(self,script):
         """self.setScript(script) -> None
@@ -2069,7 +1762,6 @@ menu.setScript("execfile('script.py')")
 """
         pass
 
-
     def setShortcut(self,keySequence):
         """self.setShortcut(keySequence) -> None
 Set the keyboard shortcut on this menu item.
@@ -2077,12 +1769,10 @@ Set the keyboard shortcut on this menu item.
 """
         pass
 
-
     def shortcut(self):
         """self.shortcut() -> String
 Returns the keyboard shortcut on this menu item. The format of this is the PortableText format. It will return a string such as "Ctrl+Shift+P". Note that on Mac OS X the Command key is equivalent to Ctrl."""
-        pass
-
+        return ''
 
     def setIcon(self,icon):
         """self.setIcon(icon) -> None
@@ -2091,12 +1781,10 @@ Set the icon on this menu item.
 """
         pass
 
-
     def icon(self):
         """self.icon() -> String
 Returns the name of the icon on this menu item as path of the icon."""
-        pass
-
+        return ''
 
 class OutputContext(object):
 
@@ -2106,18 +1794,15 @@ class OutputContext(object):
 Return number of views."""
         pass
 
-
     def __new__(self,S, ):
         """T.__new__(S, ...) -> a new object with type S, a subtype of T"""
         pass
-
 
     def viewname(self,n):
         """viewname(n) -> string
 
 Return name of the view. The n argument is an integer in the range of 0 to number of views."""
-        pass
-
+        return ''
 
     def setFrame(self,f):
         """setFrame(f) -> True
@@ -2125,13 +1810,11 @@ Return name of the view. The n argument is an integer in the range of 0 to numbe
 Set frame value. The f argument is a float."""
         pass
 
-
     def frame(self):
         """frame() -> float
 
 Return frame value."""
-        pass
-
+        return 0.0
 
     def setView(self,n):
         """setView(n) -> True
@@ -2139,23 +1822,19 @@ Return frame value."""
 Set view number. The n argument is an integer in the range of 0 to number of views."""
         pass
 
-
     def viewshort(self,n):
         """viewshort(n) -> string
 
 Return short name of the view. The n argument is an integer in the range of 0 to number of views."""
-        pass
-
+        return ''
 
     def view(self):
         """view() -> int
 
 Return view number."""
-        pass
-
+        return 0
 
 class Panel(object):
-
     def addEnumerationPulldown(self):
         """self.addEnumerationPulldown(name, value) -> True if successful.
 Add a pulldown menu to the panel.
@@ -2165,14 +1844,12 @@ Add a pulldown menu to the panel.
 """
         pass
 
-
     def show(self):
         """self.show() -> An int value indicating how the dialog was closed (normally, or cancelled).
 Display the panel.
 @return: An int value indicating how the dialog was closed (normally, or cancelled).
 """
         pass
-
 
     def setTitle(self,val):
         """self.setTitle(val) -> True if successful.
@@ -2181,7 +1858,6 @@ Set the current title for the panel.
 @return: True if successful.
 """
         pass
-
 
     def addButton(self):
         """self.addButton(name, value) -> True if successful.
@@ -2192,7 +1868,6 @@ Add a button to the panel.
 """
         pass
 
-
     def addPasswordInput(self):
         """self.addPasswordInput(name, value) -> True if successful.
 Add a password input knob to the panel.
@@ -2202,7 +1877,6 @@ Add a password input knob to the panel.
 """
         pass
 
-
     def value(self,name):
         """self.value(name) -> The value for the field if any, otherwise None.
 Get the value of a particular control in the panel.
@@ -2210,7 +1884,6 @@ Get the value of a particular control in the panel.
 @return: The value for the field if any, otherwise None.
 """
         pass
-
 
     def setWidth(self,val):
         """self.setWidth(val) -> True if successful.
@@ -2220,21 +1893,18 @@ Set the width of the panel.
 """
         pass
 
-
     def __new__(self,S, ):
         """T.__new__(S, ...) -> a new object with type S, a subtype of T"""
         pass
-
 
     def title(self):
         """self.title() -> The title as a string.
 Get the current title for the panel.
 @return: The title as a string.
 """
-        pass
+        return ''
 
-
-    def addMultilineTextInput(self):
+    def addMultilineTextInput(self,name, value):
         """self.addMultilineTextInput(name, value) -> True if successful.
 Add a multi-line text knob to the panel.
 @param name: The name for the new knob.
@@ -2243,16 +1913,14 @@ Add a multi-line text knob to the panel.
 """
         pass
 
-
     def width(self):
         """self.width() -> The width as an int.
 Get the width of the panel.
 @return: The width as an int.
 """
-        pass
+        return 0
 
-
-    def addRGBColorChip(self):
+    def addRGBColorChip(self,name, value):
         """self.addRGBColorChip(name, value) -> True if successful.
 Add a color chooser to the panel.
 @param name: The name for the new knob.
@@ -2261,8 +1929,7 @@ Add a color chooser to the panel.
 """
         pass
 
-
-    def addClipnameSearch(self):
+    def addClipnameSearch(self,name, value):
         """self.addClipnameSearch(name, value) -> True if successful.
 Add a clipname search knob to the panel.
 @param name: The name for the new knob.
@@ -2271,8 +1938,7 @@ Add a clipname search knob to the panel.
 """
         pass
 
-
-    def addNotepad(self):
+    def addNotepad(self,name, value):
         """self.addNotepad(name, value) -> True if successful.
 Add a text edit widget to the panel.
 @param name: The name for the new knob.
@@ -2281,8 +1947,7 @@ Add a text edit widget to the panel.
 """
         pass
 
-
-    def addScriptCommand(self):
+    def addScriptCommand(self,name, value):
         """self.addScriptCommand(name, value) -> True if successful.
 Add a script command evaluator to the panel.
 @param name: The name for the new knob.
@@ -2291,8 +1956,7 @@ Add a script command evaluator to the panel.
 """
         pass
 
-
-    def addSingleLineInput(self):
+    def addSingleLineInput(self,name, value):
         """self.addSingleLineInput(name, value) -> True if successful.
 Add a single-line input knob to the panel.
 @param name: The name for the new knob.
@@ -2301,8 +1965,7 @@ Add a single-line input knob to the panel.
 """
         pass
 
-
-    def addTextFontPulldown(self):
+    def addTextFontPulldown(self,name, value):
         """self.addTextFontPulldown(name, value) -> True if successful.
 Add a font chooser to the panel.
 @param name: The name for the new knob.
@@ -2311,15 +1974,13 @@ Add a font chooser to the panel.
 """
         pass
 
-
     def execute(self,name):
         """self.execute(name) -> The result of the script as a string, or None if it fails.
 Execute the script command associated with a particular label and return the result as a string.
 @param name: The name of the script field to execute.
 @return: The result of the script as a string, or None if it fails.
 """
-        pass
-
+        return ''
 
     def clear(self):
         """self.clear() -> None
@@ -2327,8 +1988,7 @@ Clear all panel attributes.
 """
         pass
 
-
-    def addFilenameSearch(self):
+    def addFilenameSearch(self, name, value):
         """self.addFilenameSearch(name, value) -> True if successful.
 Add a filename search knob to the panel.
 @param name: The name for the new knob.
@@ -2337,8 +1997,7 @@ Add a filename search knob to the panel.
 """
         pass
 
-
-    def addBooleanCheckBox(self):
+    def addBooleanCheckBox(self, name, value):
         """self.addBooleanCheckBox(name, value) -> True if successful.
 Add a boolean check box knob to the panel.
 @param name: The name for the new knob.
@@ -2348,7 +2007,7 @@ Add a boolean check box knob to the panel.
         pass
 
 
-    def addExpressionInput(self):
+    def addExpressionInput(self, name, value):
         """self.addExpressionInput(name, value) -> True if successful.
 Add an expression evaluator to the panel.
 @param name: The name for the new knob.
@@ -2376,23 +2035,19 @@ Flags can be any of these or'd together:
 @param i: The set of flags or'd together. Default is TO_SCRIPT | TO_VALUE.
 @return: String in .nk form.
 """
-        pass
-
+        return ''
 
     def createWidget(self):
         """Create the widget for the panel"""
         pass
 
-
     def __new__(self,S, ):
         """T.__new__(S, ...) -> a new object with type S, a subtype of T"""
         pass
 
-
     def __str__(self):
         """x.__str__() <==> str(x)"""
         pass
-
 
     def addKnob(self,k):
         """self.addKnob(k) -> None.
@@ -2402,7 +2057,6 @@ Add knob k to this node or panel.
 """
         pass
 
-
     def removeKnob(self,k):
         """self.removeKnob(k) -> None.
 Remove knob k from this node or panel. Throws a ValueError exception if k is not found on the node.
@@ -2410,7 +2064,6 @@ Remove knob k from this node or panel. Throws a ValueError exception if k is not
 @return: None.
 """
         pass
-
 
     def knobs(self):
         """self.knobs() -> dict
@@ -2424,8 +2077,7 @@ For example:
 
 @return: Dictionary of all knobs.
 """
-        pass
-
+        return {'':Knob(),}
 
     def readKnobs(self,s):
         """self.readKnobs(s) -> None.
@@ -2436,39 +2088,32 @@ Read the knobs from a string (TCL syntax).
         pass
 
 class LinkableKnobInfo(object):
-
     def knob(self):
         """self.knob() -> Knob
 Returns the knob that may be linked to."""
-        pass
-
+        return Knob()
 
     def __setattr__(self):
         """x.__setattr__('name', value) <==> x.name = value"""
         pass
-
 
     def enabled(self):
         """self.enabled() -> Boolean
 Returns whether the knob is currently enabled or not."""
         pass
 
-
     def __getattribute__(self,name):
         """x.__getattribute__('name') <==> x.name"""
         pass
-
 
     def __delattr__(self,name):
         """x.__delattr__('name') <==> del x.name"""
         pass
 
-
     def absolute(self):
         """self.absolute() -> Boolean
 Returns whether the values of this knob should be treated as absolute or relative. This may be useful for positions."""
         pass
-
 
 class ProgressTask(object):
 
@@ -2479,18 +2124,15 @@ i is an integer representing the current progress
 """
         pass
 
-
     def isCancelled(self):
         """self.isCancelled() -> True if the user has requested the task to be cancelled.
 
 """
         pass
 
-
     def __new__(self,S, ):
         """T.__new__(S, ...) -> a new object with type S, a subtype of T"""
         pass
-
 
     def setMessage(self,s):
         """self.setMessage(s) -> None.
@@ -2499,25 +2141,21 @@ set the message for the progress task
 """
         pass
 
-
 class RunInMainThread(object):
 
     def request(self):
         """None"""
         pass
 
-
     def result(self):
         """None"""
         pass
-
 
 class ToolBar(object):
 
     def __new__(self,S, ):
         """T.__new__(S, ...) -> a new object with type S, a subtype of T"""
         pass
-
 
     def addSeparator(self,**kwargs):
         """self.addSeparator(**kwargs) -> The separator that was created.
@@ -2526,7 +2164,7 @@ Add a separator to this menu/toolbar.
 index     The position to insert the new separator in, in the menu/toolbar.
 @return: The separator that was created.
 """
-        pass
+        return MenuItem()
 
 
     def menu(self,name):
@@ -2537,8 +2175,7 @@ Finds a submenu or command with a particular name.
 """
         return Menu()
 
-
-    def addCommand(self):
+    def addCommand(self, name, command, shortcut, icon, tooltip, index, readonly):
         """self.addCommand(name, command, shortcut, icon, tooltip, index, readonly) -> The menu/toolbar item that was added to hold the command.
 Add a new command to this menu/toolbar. Note that when invoked, the command is automatically enclosed in an undo group, so that undo/redo functionality works. Optional arguments can be specified by name.
 Note that if the command argument is not specified, then the command will be auto-created as a "nuke.createNode()" using the name argument as the node to create.
@@ -2559,7 +2196,6 @@ fileMenu.addCommand('NewCommand', 'print 10', shortcut='t')
 """
         pass
 
-
     def addMenu(self,**kwargs):
         """self.addMenu(**kwargs) -> The submenu that was added.
 Add a new submenu.
@@ -2572,12 +2208,10 @@ Add a new submenu.
 """
         pass
 
-
     def name(self):
         """self.name() -> String
 Returns the name of the menu item."""
-        pass
-
+        return ''
 
     def removeItem(self,name):
         """self.removeItem(name) -> None
@@ -2587,12 +2221,10 @@ Removes a submenu or command with a particular name. If the containing menu beco
 """
         pass
 
-
     def items(self):
         """self.items() -> None
 Returns a list of sub menu items."""
         pass
-
 
     def findItem(self,name):
         """self.findItem(name) -> Menu or None
@@ -2600,8 +2232,7 @@ Finds a submenu or command with a particular name.
 @param name: The name to search for.
 @return: The submenu or command we found, or None if we could not find anything.
 """
-        pass
-
+        return Menu()
 
     def clearMenu(self):
         """self.clearMenu()
@@ -2618,137 +2249,109 @@ class Undo(object):
         """True if disable() has been called"""
         pass
 
-
     def undoDescribe(self):
         """Return short description of undo n."""
-        pass
-
+        return ''
 
     def cancel(self):
         """Undoes any actions recorded in the current set and throws it away."""
         pass
 
-
     def redo(self):
         """Redoes 0'th redo."""
         pass
 
-
     def undoSize(self):
         """Number of undo's that can be done."""
-        pass
-
+        return 0
 
     def end(self):
         """Complete current undo set and add it to the undo list."""
         pass
 
-
     def __new__(self,S, ):
         """T.__new__(S, ...) -> a new object with type S, a subtype of T"""
         pass
-
 
     def redoDescribe(self):
         """Return short description of redo n."""
         pass
 
-
     def __enter__(self):
         """None"""
         pass
-
 
     def redoDescribeFully(self):
         """Return long description of redo n."""
         pass
 
-
     def new(self):
         """Same as end();begin()."""
         pass
-
 
     def redoTruncate(self):
         """Destroy any redo's greater or equal to n."""
         pass
 
-
     def undoTruncate(self):
         """Destroy any undo's greater or equal to n."""
         pass
-
 
     def begin(self):
         """Begin a new user-visible group of undo actions."""
         pass
 
-
     def enable(self):
         """Undoes the previous disable()"""
         pass
-
-
     def __exit__(self):
         """None"""
         pass
-
 
     def undo(self):
         """Undoes 0'th undo."""
         pass
 
-
     def disable(self):
         """Prevent recording undos until matching enable()"""
         pass
 
-
     def redoSize(self):
         """Number of redo's that can be done."""
-        pass
-
+        return 0
 
     def name(self):
         """Name current undo set."""
-        pass
-
+        return ''
 
     def undoDescribeFully(self):
         """Return long description of undo n."""
         pass
 
 class View(object):
-
     def __new__(self,S, ):
         """T.__new__(S, ...) -> a new object with type S, a subtype of T"""
         pass
-
 
     def __str__(self):
         """x.__str__() <==> str(x)"""
         pass
 
-
     def value(self):
         """self.value() -> Value of view.
 @return: Value of view.
 """
-        pass
-
+        return 0
 
     def __init__(self):
         """x.__init__(...) initializes x; see x.__class__.__doc__ for signature"""
         pass
 
-
     def string(self):
         """self.string() -> Name of view.
 @return: Name of view.
 """
-        pass
-
-
+        return ''
 
 class ViewerProcess(object):
 
@@ -2760,7 +2363,6 @@ Unregister a ViewerProcess. This is a class method.
 """
         pass
 
-
     def node(self):
         """nuke.ViewerProcess.node(name, viewer) -> Node.
 Returns a ViewerProcess node. Default is to return the current selected one. This is a class method.
@@ -2768,10 +2370,9 @@ Returns a ViewerProcess node. Default is to return the current selected one. Thi
 @param viewer: Optional viewer name.
 @return: Node.
 """
-        pass
+        return Node()
 
-
-    def register(self):
+    def register(self, name, call, args, kwargs):
         """nuke.ViewerProcess.register(name, call, args, kwargs) -> None.
 Register a ViewerProcess. This is a class method.
 @param name: Menu name.
@@ -2782,7 +2383,6 @@ Register a ViewerProcess. This is a class method.
 """
         pass
 
-
     def registeredNames(self):
         """nuke.ViewerProcess.registeredNames() -> List.
 Returns a list containing the names of all currently regisered ViewerProcesses.
@@ -2790,17 +2390,13 @@ Returns a list containing the names of all currently regisered ViewerProcesses.
 """
         pass
 
-
-
 class ViewerWindow(object):
-
     def node(self):
         """self.node() -> Node.
 Returns the Viewer node currently associated with this window.
 @return: Node.
 """
-        pass
-
+        return Node()
 
     def activeInput(self,secondary=False):
         """self.activeInput(secondary=False) -> int
@@ -2809,27 +2405,21 @@ Returns the currently active input of the viewer - i. e. the one with its image 
 to return the primary input.
 @return: int: The currently active input of the viewer, starting with 0 for the first, or None if no input is active.
 """
-        pass
-
+        return 0
 
     def play(self):
         """Play forward (1) or reverse (0)."""
         pass
 
-
     def previousView(self):
         """self.previousView() -> switch to previous view in settings Views list.
-
 """
         pass
-
 
     def nextView(self):
         """self.nextView() -> switch to next view in settings Views list.
-
 """
         pass
-
 
     def getGeometryNodes(self):
         """self.getGeometry() -> None
@@ -2838,13 +2428,11 @@ Returns the a list of geometry nodes attached with this viewer
 """
         pass
 
-
     def stop(self):
         """Stop playing."""
         pass
 
-
-    def activateInput(self):
+    def activateInput(self,input, secondary=False):
         """self.activateInput(input, secondary=False) -> None
 Set the given viewer input to be active - i. e. show its image in the output window.
 @param input: The viewer input number, starting with 0 for the first.  If the input is not
@@ -2855,13 +2443,10 @@ False to connect it as the primary input (the default).
 """
         pass
 
-
     def setView(self,s):
         """self.setView(s) -> set 'current' multi-view view to 's'.
-
 """
         pass
-
 
     def frameControl(self,i):
         """self.frameControl(i) -> True.
@@ -2886,19 +2471,15 @@ i is an integer indicating viewer frame control 'button' to execute:
 """
         pass
 
-
     def view(self):
         """self.view() -> string name of 'current' multi-view view.
-
 """
         pass
 
 # KNOB
 
-
 class Array_Knob(Knob):
-
-    def clearAnimated(self):
+    def clearAnimated(self, index, view):
         """self.clearAnimated(index, view) -> True if succeeded, False otherwise.
 Delete animation.
 @param index: Optional index.
@@ -2907,8 +2488,7 @@ Delete animation.
 """
         pass
 
-
-    def removeKey(self):
+    def removeKey(self, index, view):
         """self.removeKey(index, view) -> True if succeeded, False otherwise.
 Remove key.
 @param index: Optional index.
@@ -2917,8 +2497,7 @@ Remove key.
 """
         pass
 
-
-    def setValueAt(self):
+    def setValueAt(self, value, time, index, view):
         """self.setValueAt(value, time, index, view) -> bool.
 Set value of element 'index' at time for view. If the knob is animated, it will set a new keyframe or change an existing one. Index and view are optional. Return True if successful.
 @param value: Floating point value.
@@ -2929,15 +2508,13 @@ Set value of element 'index' at time for view. If the knob is animated, it will 
 """
         pass
 
-
     def frame(self):
         """self.frame() -> Frame number.
 @return: Frame number.
 """
-        pass
+        return 0
 
-
-    def removeKeyAt(self):
+    def removeKeyAt(self, time, index, view):
         """self.removeKeyAt(time, index, view) -> True if succeeded, False otherwise.
 Remove keyframe at specified time, optional index and view. Return True if successful.
 @param time: Time.
@@ -2947,20 +2524,17 @@ Remove keyframe at specified time, optional index and view. Return True if succe
 """
         pass
 
-
     def height(self):
         """self.height() -> Height of array of values.
 @return: Height of array of values.
 """
-        pass
-
+        return 0
 
     def minimum(self):
         """self.min() -> Minimum value.
 @return: Minimum value.
 """
-        pass
-
+        return 0
 
     def unsplitView(self,view):
         """self.unsplitView(view) -> None.
@@ -2970,27 +2544,24 @@ Unsplit the view so that it shares a value with other views.
 """
         pass
 
-
     def array(self):
         """self.array() -> List of knob values.
 @return: List of knob values.
 """
-        pass
-
+        return [0,]
 
     def getIntegral(self):
         """Return integral at time interval [t1, t2] and index 'i'."""
         pass
-
 
     def singleValue(self,view):
         """self.singleValue(view) -> True if holds a single value.
 @param view: Optional view. Default is current view.
 @return: True if holds a single value.
 """
-        pass
+        return [0,0]
 
-    def isKeyAt(self):
+    def isKeyAt(self, time, index, view):
         """self.isKeyAt(time, index, view) -> True if succeeded, False otherwise.
 Returns True if there is a keyframe at specified time, optional index and view, otherwise returns False.
 @param time: Time.
@@ -3011,7 +2582,7 @@ Returns True if there is a keyframe at specified time, optional index and view, 
         """T.__new__(S, ...) -> a new object with type S, a subtype of T"""
         pass
 
-    def setKeyAt(self):
+    def setKeyAt(self, time, index, view):
         """self.setKeyAt(time, index, view) -> None.
 Set a key on element 'index', at time and view.
 @param time: Time.
@@ -3025,17 +2596,17 @@ Set a key on element 'index', at time and view.
         """self.min() -> Minimum value.
 @return: Minimum value.
 """
-        pass
+        return 0
 
     def defaultValue(self):
         """self.defaultValue() -> Default value.
 @return: Default value.
 """
-        pass
+        return 0
 
     def getKeyTime(self):
         """Return time of the keyframe at time 't' and channel 'c'."""
-        pass
+        return 0
 
     def deleteAnimation(self,curve):
         """self.deleteAnimation(curve) -> None. Raises ValueError if not found.
@@ -3055,7 +2626,7 @@ Deletes the AnimationCurve.
         """Return number of keys at channel 'c'."""
         return 0
 
-    def valueAt(self):
+    def valueAt(self, time, index, view):
         """self.valueAt(time, index, view) -> Floating point or List of floating point values (in case some are different).
 Return value for this knob at specified time, optional index and view.
 @param time: Time.
@@ -3063,19 +2634,19 @@ Return value for this knob at specified time, optional index and view.
 @param view: Optional view.
 @return: Floating point or List of floating point values (in case some are different).
 """
-        pass
+        return 0.0
 
     def arraySize(self):
         """self.arraySize() -> Number of elements in array.
 @return: Number of elements in array.
 """
-        pass
+        return 0
 
     def max(self):
         """self.max() -> Maximum value.
 @return: Maximum value.
 """
-        pass
+        return 0
 
     def setSingleValue(self,b, view):
         """self.setSingleValue(b, view) -> None.
@@ -3093,7 +2664,7 @@ Return the value of the knob in script syntax.
 @param context: Optional context, default is current, None will be "contextless" (all views, all keys) as in a .nk file.
 @return: String.
 """
-        pass
+        return ''
 
     def notDefault(self):
         """self.notDefault() -> True if any of the values is not set to the default, False otherwise.
@@ -3101,7 +2672,7 @@ Return the value of the knob in script syntax.
 """
         pass
 
-    def splitView(self,view):
+    def splitView(self, view):
         """self.splitView(view) -> None.
 Split the view away from the current knob value.
 @param view: Optional view. Default is current view.
@@ -3128,7 +2699,7 @@ Set index to value at time and view.
 """
         pass
 
-    def copyAnimations(self,curves, view):
+    def copyAnimations(self, curves, view):
         """self.copyAnimations(curves, view) -> None.
 Copies the AnimationCurves from curves to this object. The view is optional and defaults to the current view.
 @param curves: AnimationCurve list.
@@ -3148,13 +2719,13 @@ Copies the AnimationCurves from curves to this object. The view is optional and 
         """self.dimensions() -> Dimensions in array.
 @return: Dimensions in array.
 """
-        pass
+        return 0
 
     def vect(self):
         """self.vect() -> List of knob values.
 @return: List of knob values.
 """
-        pass
+        return [0,]
 
     def animations(self,view):
         """self.animations(view) -> AnimationCurve list.
@@ -3168,7 +2739,7 @@ a = k.animations()
 a[0].setKey(0, 11)
 a[0].setKey(10, 20)
 """
-        pass
+        return [AnimationCurve(),]
 
     def setAnimated(self, index, view):
         """self.setAnimated(index, view) -> True if succeeded, False otherwise.
@@ -3179,8 +2750,7 @@ Create an Animation object. Return True if successful, in which case caller must
 """
         pass
 
-
-    def getDerivative(self):
+    def getDerivative(self, t, i):
         """Return derivative at time 't' and index 'i'."""
         pass
 
@@ -3201,7 +2771,7 @@ Return the AnimationCurve for the  channel 'chan' and view 'view'. The view argu
 @param view: Optional view.
 @return: AnimationCurve or None.
 """
-        pass
+        return AnimationCurve()
 
     def resize(self, w, h):
         """self.resize(w, h) -> True if successful, False otherwise.
@@ -3229,11 +2799,11 @@ Return value for this knob at specified time, optional index and view.
 @param view: Optional view.
 @return: Floating point or List of floating point values (in case some are different).
 """
-        pass
+        return 0.0
 
-    def getNthDerivative(self):
+    def getNthDerivative(self, t, i):
         """Return n'th derivative at time 't' and index 'i'."""
-        pass
+        return 0
 
     def isKey(self, index, view):
         """self.isKey(index, view) -> True if succeeded, False otherwise.
@@ -3255,7 +2825,7 @@ Set value of the knob to a user defined script (TCL syntax, as in .nk file). Ret
         """self.max() -> Maximum value.
 @return: Maximum value.
 """
-        pass
+        return 0
 
     def value(self, index, view, time):
         """self.value(index, view, time) -> Floating point or List of floating point values (in case some are different).
@@ -3264,22 +2834,22 @@ Set value of the knob to a user defined script (TCL syntax, as in .nk file). Ret
 @param time: Optional time.
 @return: Floating point or List of floating point values (in case some are different).
 """
-        pass
+        return 0.0
 
-    def getValue(self):
+    def getValue(self, index, view, time):
         """self.value(index, view, time) -> Floating point or List of floating point values (in case some are different).
 @param index: Optional index. Default is 0.
 @param view: Optional view.
 @param time: Optional time.
 @return: Floating point or List of floating point values (in case some are different).
 """
-        pass
+        return 0.0
 
     def getKeyIndex(self):
         """Return index of the keyframe at time 't' and channel 'c'."""
         pass
 
-    def copyAnimation(self):
+    def copyAnimation(self, channel, curve, view):
         """self.copyAnimation(channel, curve, view) -> None.
 Copies the i'th channel of the AnimationCurve curve to this object. The view is optional and defaults to the current view.
 @param channel: The channel index.
@@ -3294,7 +2864,6 @@ class Axis_Knob(Knob):
         """self.uniformScale() -> Double_Knob
 Return uniform scale knob."""
         return Double_Knob()
-
 
     def rotate(self):
         """self.rotate() -> XYZ_Knob
@@ -3312,12 +2881,10 @@ Return rotation knob."""
 Return skew knob."""
         return XYZ_Knob()
 
-
     def value(self):
         """self.value() -> _nukemath.Matrix4
 Return the transform matrix formed by combining the input knob values for translate, rotate, scale, skew and pivot."""
-        pass
-
+        return math.Matrix4()
 
     def scale(self):
         """self.scale() -> Scale_Knob
@@ -3325,13 +2892,11 @@ Return the transform matrix formed by combining the input knob values for transl
 Return scale knob."""
         return Scale_Knob()
 
-
     def pivot(self):
         """self.pivot() -> XYZ_Knob
 
 Return pivot knob."""
         return XYZ_Knob()
-
 
     def translate(self):
         """self.translate() -> XYZ_Knob
@@ -3346,7 +2911,7 @@ Return translation knob."""
 class Channel_Knob(Knob):
     def inputNumber(self):
         """self.inputNumber() -> int"""
-        pass
+        return 0
 
     def __new__(self,S, ):
         """T.__new__(S, ...) -> a new object with type S, a subtype of T"""
@@ -3382,11 +2947,9 @@ Get the name of the selected channel.
         """self.checkMarks() -> bool"""
         pass
 
-
     def channelSelector(self):
         """self.channelSelector() -> bool"""
         pass
-
 
     def depth(self):
         """self.depth() -> int
@@ -3457,7 +3020,7 @@ Return value of knob."""
 Return value of knob."""
         return Format()
 
-    def toScript(self):
+    def toScript(self, quote, context=None):
         """toScript(quote, context=current) -> string.
 
 Return the value of the knob in script syntax.
@@ -3497,7 +3060,7 @@ Returns the selection weights for each vertex as a float. If you access the resu
     def getGeometry(self):
         """self.getGeometry() -> _geo.GeometryList
 Get the geometry which this knob can select from."""
-        pass
+        return geo.GeometryList()
 
     def __delattr__(self,name):
         """x.__delattr__('name') <==> del x.name"""
@@ -3617,7 +3180,7 @@ Initialise from script s."""
 Initialise from script s."""
         pass
 
-    def value(self):
+    def value(self, quote, context=None):
         """toScript(quote, context=current) -> string.
 Return the value of the knob in script syntax.
 Pass True for quote to return results quoted in {}.
@@ -3628,7 +3191,7 @@ Pass None for context to get results for all views and key times (as stored in a
         """"""
         pass
 
-    def toScript(self):
+    def toScript(self, quote, context=None):
         """toScript(quote, context=current) -> string.
 Return the value of the knob in script syntax.
 Pass True for quote to return results quoted in {}.
@@ -3658,7 +3221,7 @@ class Obsolete_Knob(Knob):
         pass
 
 class Password_Knob(Knob):
-    def setValue(self):
+    def setValue(self, val, view='default'):
         """self.setValue(val, view='default') -> None
 Set value of knob.
 @param val: The new value.
@@ -3735,7 +3298,7 @@ Get the value of this knob as a string.
 @param oc: Optional parameter specifying the output context.
 @return: String value.
 """
-        pass
+        return ''
 
     def value(self,oc):
         """self.value(oc) -> str
@@ -3792,7 +3355,7 @@ class Transform2d_Knob(Knob):
         """value(oc) -> matrix
 
 Return transformation matrix. The argument oc is an OutputContext. Both arguments are optional."""
-        pass
+        return math.Matrix4()
 
     def __new__(self,S, ):
         """T.__new__(S, ...) -> a new object with type S, a subtype of T"""
@@ -3845,18 +3408,18 @@ Set the bounding box from the given box.
 
     def names(self):
         """Return name for dimension 'i'"""
-        pass
+        return ''
 
     def setR(self):
         """Set value for R extent."""
-        pass
+        return 0
 
     def toDict(self):
         """self.toDict() -> dict.
 
 Returns the bounding box as a dict with x, y, r, and t keys.
 @return: dict with x, y, r and t keys"""
-        return {}
+        return {'':1,}
 
     def y(self):
         """Return value for Y position."""
@@ -3880,7 +3443,7 @@ Returns the bounding box as a dict with x, y, r, and t keys.
 
     def t(self):
         """Return value for T extent."""
-        pass
+        return 0
 
 class Boolean_Knob(Array_Knob):
     def value(self):
@@ -3926,7 +3489,7 @@ class Box3_Knob(Array_Knob):
 
     def value(self):
         """Return value for dimension 'i'"""
-        pass
+        return 0
 
     def n(self,ear):
         """Return value for N position. N (near) is the minimum Z extent of the box."""
@@ -3986,10 +3549,10 @@ Return input number."""
         """x.__init__(...) initializes x; see x.__class__.__doc__ for signature"""
         pass
 
-    def names(self,n):
+    def names(self, n):
         """names(n) -> string
 Return name for dimension n. The argument n is an integer."""
-        pass
+        return ''
 
 class IArray_Knob(Array_Knob):
 
@@ -4056,19 +3619,19 @@ class Keyer_Knob(Array_Knob):
         """"""
         pass
 
-    def value(self):
+    def value(self, outputCtx, n):
         """self.value(outputCtx, n) -> float
 Get the value of argument n.
 @param outputCtx: The OutputContext to evaluate the argument in.
 @param n: The index of the argument to get the value of.
 @return: The value of argument n."""
-        pass
+        return 0.0
 
     def names(self,n):
         """self.names(n) -> string
 @param n: The index of the name to return.
 @return: The name at position n."""
-        pass
+        return ''
 
     def highSoft(self):
         """"""
@@ -4088,25 +3651,25 @@ class XY_Knob(Array_Knob):
         """T.__new__(S, ...) -> a new object with type S, a subtype of T"""
         pass
 
-    def value(self):
+    def value(self, n, oc):
         """value(n, oc) -> float
 Return value for dimension n. The optional argument oc is an OutputContext."""
-        pass
+        return 0.0
 
     def names(self,n):
         """names(n) -> string
 Return name for dimension n. The argument n is an integer."""
-        return 0
+        return ''
 
     def y(self,oc):
         """y(oc) -> float
 Return value for y. The optional oc argument is an OutputContext"""
-        return 0
+        return 0.0
 
     def x(self,oc):
         """x(oc) -> float
 Return value for x. The optional oc argument is an OutputContext"""
-        return 0
+        return 0.0
 
     def __init__(self):
         """x.__init__(...) initializes x; see x.__class__.__doc__ for signature"""
@@ -4143,7 +3706,7 @@ class Unsigned_Knob(Array_Knob):
 Get the value of this knob as an integer.
 @return: int
 """
-        pass
+        return 0
 
     def setValue(self,val):
         """self.setValue(val) -> bool
@@ -4167,10 +3730,10 @@ class Scale_Knob(Array_Knob):
         """T.__new__(S, ...) -> a new object with type S, a subtype of T"""
         pass
 
-    def value(self):
+    def value(self, n, oc):
         """value(n, oc) -> float
 Return value for dimension n. The optional argument oc is an OutputContext."""
-        pass
+        return 0.0
 
     def names(self,n):
         """names(n) -> string
@@ -4181,17 +3744,17 @@ Return name for dimension n. The argument n is an integer."""
     def y(self,oc):
         """y(oc) -> float
 Return value for y. The optional oc argument is an OutputContext"""
-        return 0
+        return 0.0
 
     def x(self,oc):
         """x(oc) -> float
 Return value for x. The optional oc argument is an OutputContext"""
-        return 0
+        return 0.0
 
     def z(self,oc):
         """z(oc) -> float
 Return value for z. The optional oc argument is an OutputContext"""
-        return 0
+        return 0.0
 
     def __init__(self):
         """x.__init__(...) initializes x; see x.__class__.__doc__ for signature"""
@@ -4253,7 +3816,7 @@ Return parent."""
         """value(n, oc) -> float
 
 Return value for dimension n. The optional argument oc is an OutputContext."""
-        return 0
+        return 0.0
 
     def names(self,n):
         """names(n) -> string
@@ -4266,20 +3829,20 @@ Return name for dimension n. The argument n is an integer."""
         """y(oc) -> float
 
 Return value for y. The optional oc argument is an OutputContext"""
-        return 0
+        return 0.0
 
 
     def x(self,oc):
         """x(oc) -> float
 
 Return value for x. The optional oc argument is an OutputContext"""
-        return 0
+        return 0.0
 
     def z(self,oc):
         """z(oc) -> float
 
 Return value for z. The optional oc argument is an OutputContext"""
-        return 0
+        return 0.0
 
     def __init__(self):
         """x.__init__(...) initializes x; see x.__class__.__doc__ for signature"""
@@ -4341,7 +3904,7 @@ k.setValue('exr')
         """self.numValues() -> int
 
 Return number of values. Deprecated."""
-        pass
+        return 0
 
     def value(self):
         """self.value() -> String.
@@ -4352,13 +3915,13 @@ w = nuke.nodes.Write()
 k = w['file_type']
 k.value()
 """
-        pass
+        return ''
 
     def enumName(self,n):
         """self.enumName(n) -> string
 
 Return name of enumeration n. The argument n is an integer and in the range of 0 and numValues. Deprecated."""
-        pass
+        return ''
 
     def values(self):
         """self.values() -> List of strings.
@@ -4387,7 +3950,6 @@ k.setValues(['exr'])
         """x.__init__(...) initializes x; see x.__class__.__doc__ for signature"""
         pass
 
-
 class OneView_Knob(Enumeration_Knob):
     def __new__(self,S, ):
         """T.__new__(S, ...) -> a new object with type S, a subtype of T"""
@@ -4398,7 +3960,7 @@ class Pulldown_Knob(Enumeration_Knob):
         """commands(n) -> string
 
 Return command n. The argument n is an integer and in the range of 0 and numValues."""
-        pass
+        return ''
 
     def __new__(self,S, ):
         """T.__new__(S, ...) -> a new object with type S, a subtype of T"""
@@ -4408,11 +3970,11 @@ Return command n. The argument n is an integer and in the range of 0 and numValu
         """numValues() -> int
 
 Return number of values."""
-        pass
+        return 0
 
     def value(self):
         """None"""
-        pass
+        return 0.0
 
     def setValues(self,items):
         """self.setValues(items) -> None.
@@ -4432,7 +3994,7 @@ k = w['kname']
         """itemName(n) -> string
 
 Return name of item n. The argument n is an integer and in the range of 0 and numValues."""
-        pass
+        return ''
 
     def __init__(self):
         """x.__init__(...) initializes x; see x.__class__.__doc__ for signature"""
@@ -4468,13 +4030,13 @@ Set the new command for this knob.
 
 Get the current command.
 @return: The current command as a string, or None if there is no current command."""
-        pass
+        return ''
 
     def command(self):
         """self.command() -> str
 Get the current command.
 @return: The current command as a string, or None if there is no current command."""
-        pass
+        return ''
 
     def setCommand(self,cmd):
         """self.setCommand(cmd) -> None
@@ -4577,7 +4139,6 @@ Assign string to knob.
         """T.__new__(S, ...) -> a new object with type S, a subtype of T"""
         pass
 
-
     def fromScript(self,s):
         """self.fromScript(s) -> None.
 Assign string to knob.
@@ -4586,22 +4147,19 @@ Assign string to knob.
 """
         pass
 
-
     def value(self):
         """self.getEvaluatedValue() -> String.
 Returns the string on this knob, will be normalized to technical notation if sequence (%4d).
 @return: String.
 """
-        pass
-
+        return ''
 
     def getValue(self):
         """self.getEvaluatedValue() -> String.
 Returns the string on this knob, will be normalized to technical notation if sequence (%4d).
 @return: String.
 """
-        pass
-
+        return ''
 
     def getEvaluatedValue(self,oc):
         """self.getValue(oc) -> String.
@@ -4609,11 +4167,9 @@ Returns the string on this knob, will be normalized to technical notation if seq
 @parm oc: the output context to use, if None the knob uiContext will be used.
 @return: String.
 """
-        pass
+        return ''
 
  # NODES
-
-
 
 class Group(Node):
     def node(self,s):
@@ -4622,12 +4178,11 @@ Locate a node by name.
 @param s: A string.
 @return: Node with name s or None.
 """
-        pass
+        return Node()
 
     def __exit__(self):
         """None"""
         pass
-
 
     def begin(self):
         """self.begin() -> Group.
@@ -4636,11 +4191,9 @@ All python code that follows will be executed in the context of node. All names 
 """
         return Group()
 
-
     def __enter__(self):
         """None"""
-        pass
-
+        return Group()
 
     def run(self,callable):
         """self.run(callable) -> Result of callable.
@@ -4657,7 +4210,7 @@ Number of nodes in group.
 """
         return 0
 
-    def connectSelectedNodes(self):
+    def connectSelectedNodes(self, backward, inputA):
         """self.connectSelectedNodes(backward, inputA) -> None.
 Connect the selected nodes.
 @param backward.
@@ -4683,7 +4236,6 @@ Selected nodes.
     def __reduce_ex__(self):
         """None"""
         pass
-
 
     def output(self):
         """self.output() -> Node or None.
@@ -4716,7 +4268,7 @@ List of nodes in group.
         return [Node(),]
 
 
-    def splaySelectedNodes(self):
+    def splaySelectedNodes(self, backward, inputA):
         """self.splaySelectedNodes(backward, inputA) -> None.
 Splay the selected nodes.
 @param backward.
@@ -4731,14 +4283,14 @@ class Gizmo(Group):
 Gizmo filename.
 @return: String.
 """
-        pass
+        return ''
 
     def command(self):
         """self.command() -> String.
 Gizmo command.
 @return: String.
 """
-        pass
+        return ''
 
     def makeGroup(self):
         """self.makeGroup() -> Group
@@ -4763,18 +4315,15 @@ class Root(Group):
 Last frame.
 @return: Integer.
 """
-        pass
-
+        return 0
 
     def __str__(self):
         """x.__str__() <==> str(x)"""
         pass
 
-
     def maximumInputs(self):
         """None"""
-        pass
-
+        return 0
 
     def modified(self):
         """self.modified() -> True if modified, False otherwise.
@@ -4783,34 +4332,28 @@ Get or set the 'modified' flag in a script
 """
         pass
 
-
     def channels(self):
         """nuke.Root.channels() -> Channel list.
 Class method.
 @return: Channel list.
 """
-        pass
+        return ['',]
 
-
-    def setInput(self):
+    def setInput(self, i, node):
         """None"""
         pass
-
 
     def canSetInput(self):
         """None"""
         pass
 
-
     def maximumOutputs(self):
         """None"""
-        pass
-
+        return 0
 
     def minimumInputs(self):
         """None"""
-        pass
-
+        return 0
 
     def firstFrame(self):
         """self.firstFrame() -> Integer.
@@ -4826,16 +4369,13 @@ Class method.
 """
         return [Layer(), ]
 
-
     def __new__(self,S, ):
         """T.__new__(S, ...) -> a new object with type S, a subtype of T"""
         pass
 
-
     def connectInput(self):
         """None"""
         pass
-
 
     def fps(self):
         """self.fps() -> Integer.
@@ -4864,7 +4404,6 @@ Add view.
 """
         pass
 
-
     def deleteView(self,s):
         """self.deleteView(s) -> None.
 Delete view.
@@ -4873,18 +4412,16 @@ Delete view.
 """
         pass
 
-
     def inputs(self):
         """None"""
-        pass
+        return 0
 
 
     def __getitem__(self,y):
         """x.__getitem__(y) <==> x[y]"""
         pass
 
-
-    def mergeFrameRange(self):
+    def mergeFrameRange(self, a, b):
         """self.mergeFrameRange(a, b) -> None.
 Merge frame range.
 @param a: Low-end of interval range.
@@ -4892,7 +4429,6 @@ Merge frame range.
 @return: None.
 """
         pass
-
 
     def setModified(self,b):
         """self.setModified(b) -> None.
@@ -4903,18 +4439,15 @@ Setting the value will turn the indicator in the title bar on/off and will start
 """
         pass
 
-
     def proxy(self):
         """self.proxy() -> True if proxy is set, False otherwise.
 @return: True if proxy is set, False otherwise.
 """
         pass
 
-
     def clones(self):
         """None"""
-        pass
-
+        return 0
 
     def setView(self,s):
         """self.setView(s) -> None.
@@ -4924,7 +4457,6 @@ Set view.
 """
         pass
 
-
     def setFrame(self,n):
         """self.setFrame(n) -> None.
 Set frame.
@@ -4933,11 +4465,9 @@ Set frame.
 """
         pass
 
-
     def optionalInput(self):
         """None"""
         pass
-
 
 class Viewer(Node):
 
@@ -4949,7 +4479,6 @@ Returns None if the Viewer has no window yet.
 """
         return {}
 
-
     def setRoi(self, box):
         """self.setRoi(box) -> None.
 Set the region of interest in pixel space.
@@ -4957,18 +4486,15 @@ Set the region of interest in pixel space.
 """
         pass
 
-
     def __getitem__(self,y):
         """x.__getitem__(y) <==> x[y]"""
         return 0
-
 
     def playbackRange(self):
         """self.playbackRange() -> FrameRange.
 Return the frame range that's currently set to be played back in the viewer.@return: FrameRange.
 """
         return FrameRange()
-
 
     def roiEnabled(self):
         """self.roiEnabled() -> bool
@@ -4978,11 +4504,9 @@ Returns None if the Viewer has no window yet.
 """
         pass
 
-
     def __len__(self):
         """x.__len__() <==> len(x)"""
         pass
-
 
 # MENU
 
@@ -5004,7 +4528,6 @@ index     The position to insert the new separator in, in the menu/toolbar.
 """
         pass
 
-
     def menu(self,name):
         """self.menu(name) -> Menu or None
 Finds a submenu or command with a particular name.
@@ -5013,8 +4536,7 @@ Finds a submenu or command with a particular name.
 """
         return Menu()
 
-
-    def addCommand(self):
+    def addCommand(self, name, command, shortcut, icon, tooltip, index, readonly):
         """self.addCommand(name, command, shortcut, icon, tooltip, index, readonly) -> The menu/toolbar item that was added to hold the command.
 Add a new command to this menu/toolbar. Note that when invoked, the command is automatically enclosed in an undo group, so that undo/redo functionality works. Optional arguments can be specified by name.
 Note that if the command argument is not specified, then the command will be auto-created as a "nuke.createNode()" using the name argument as the node to create.
@@ -5035,7 +4557,6 @@ fileMenu.addCommand('NewCommand', 'print 10', shortcut='t')
 """
         pass
 
-
     def addMenu(self,**kwargs):
         """self.addMenu(**kwargs) -> The submenu that was added.
 Add a new submenu.
@@ -5048,7 +4569,6 @@ Add a new submenu.
 """
         pass
 
-
     def removeItem(self,name):
         """self.removeItem(name) -> None
 Removes a submenu or command with a particular name. If the containing menu becomes empty, it will be removed too.
@@ -5057,12 +4577,10 @@ Removes a submenu or command with a particular name. If the containing menu beco
 """
         pass
 
-
     def items(self):
         """self.items() -> None
 Returns a list of sub menu items."""
         return [MenuItem,]
-
 
     def findItem(self,name):
         """self.findItem(name) -> Menu or None
@@ -5072,7 +4590,6 @@ Finds a submenu or command with a particular name.
 """
         return Menu()
 
-
     def clearMenu(self):
         """self.clearMenu()
 Clears a menu.
@@ -5081,7 +4598,6 @@ Clears a menu.
 @return: true if cleared, false if menu not found
 """
         pass
-
 
 class Element(object):
     locked=True
@@ -5103,18 +4619,15 @@ class Element(object):
         """
         pass
 
-
 # FUNC
 
 def IrToken():
     """Nuke internal. Not for public use."""
     pass
 
-
 def __filterNames(name):
     """None"""
     pass
-
 
 def activeViewer():
     """activeViewer() -> Viewer
@@ -5124,7 +4637,6 @@ is not the same as the Viewer node, this is the viewer UI element.
 
 @return: Object representing the active Viewer"""
     return Viewer()
-
 
 def addAfterBackgroundFrameRender(call,args,kwargs):
     """Add code to execute after each frame of a background render.
@@ -5142,7 +4654,6 @@ def addAfterBackgroundFrameRender(call,args,kwargs):
   """
     pass
 
-
 def addAfterBackgroundRender(call,args,kwargs):
     """Add code to execute after any background renders.
   The call must be in the form of:
@@ -5156,16 +4667,13 @@ def addAfterBackgroundRender(call,args,kwargs):
   """
     pass
 
-
 def addAfterFrameRender(call,args,kwargs,nodeClass):
     """Add code to execute after each frame of a render"""
     pass
 
-
 def addAfterRender(call,args,kwargs,nodeClass):
     """Add code to execute after any renders"""
     pass
-
 
 def addAutoSaveDeleteFilter(filter):
     """addAutoSaveDeleteFilter(filter) -> None
@@ -5178,7 +4686,6 @@ def addAutoSaveDeleteFilter(filter):
   This function should return the filename to delete or return None if no file should be deleted."""
     pass
 
-
 def addAutoSaveFilter(filter):
     """addAutoSaveFilter(filter) -> None
 
@@ -5189,7 +4696,6 @@ def addAutoSaveFilter(filter):
   @param filter: A filter function.  The first argument to the filter is the current autosave filename.
   The filter should return the filename to save the autosave to."""
     pass
-
 
 def addAutoSaveRestoreFilter(filter):
     """addAutoSaveRestoreFilter(filter) -> None
@@ -5202,14 +4708,12 @@ def addAutoSaveRestoreFilter(filter):
   This function should return the filename to load autosave from or it should return None if the autosave file should be ignored."""
     pass
 
-
 def addAutolabel(call,args,kwargs,nodeClass):
     """Add code to execute on every node to produce the text to draw on it
   in the DAG. Any value other than None is converted to a string and used
   as the text. None indicates that previously-added functions should
   be tried"""
     pass
-
 
 def addBeforeBackgroundRender(call,args,kwargs):
     """Add code to execute before starting any background renders.
@@ -5224,16 +4728,13 @@ def addBeforeBackgroundRender(call,args,kwargs):
   """
     pass
 
-
 def addBeforeFrameRender(call,args,kwargs,nodeClass):
     """Add code to execute before each frame of a render"""
     pass
 
-
 def addBeforeRender(call,args,kwargs,nodeClass):
     """Add code to execute before starting any renders"""
     pass
-
 
 def addFavoriteDir(name, directory, type, icon, tooltip, key):
     """addFavoriteDir(name, directory, type, icon, tooltip, key) -> None.
@@ -5250,7 +4751,6 @@ Add a path to the file choosers favorite directory list. The path name can conta
 """
     pass
 
-
 def addFilenameFilter(call,args,kwargs,nodeClass):
     """Add a function to modify filenames before Nuke passes them to
   the operating system. The first argument to the function is the
@@ -5258,7 +4758,6 @@ def addFilenameFilter(call,args,kwargs,nodeClass):
   returning the string unchanged. All added functions are called
   in backwards order."""
     pass
-
 
 def addFormat(s):
     """addFormat(s) -> Format or None.
@@ -5268,8 +4767,7 @@ Create a new image format, which will show up on the pull-down menus for image f
 @param s: String in TCL format "w h ?x y r t? ?pa? name".
 @return: Format or None.
 """
-    pass
-
+    return Format()
 
 def addKnobChanged(call,args,kwargs,nodeClass,node):
     """Add code to execute when the user changes a knob
@@ -5280,7 +4778,6 @@ def addKnobChanged(call,args,kwargs,nodeClass,node):
   should happen even when the panel is closed."""
     pass
 
-
 def addNodePresetExcludePaths( paths ):
     """addNodePresetExcludePaths( paths ) -> None
 @param paths Sequence of paths to exclude
@@ -5288,36 +4785,29 @@ Adds a list of paths that will be excluded from Node preset search paths.
 @return: None."""
     pass
 
-
 def addOnCreate(call,args,kwargs,nodeClass):
     """Add code to execute when a node is created or undeleted"""
     pass
-
 
 def addOnDestroy(call,args,kwargs,nodeClass):
     """Add code to execute when a node is destroyed"""
     pass
 
-
 def addOnScriptClose(call,args,kwargs,nodeClass):
     """Add code to execute before a script is closed"""
     pass
-
 
 def addOnScriptLoad(call,args,kwargs,nodeClass):
     """Add code to execute when a script is loaded"""
     pass
 
-
 def addOnScriptSave(call,args,kwargs,nodeClass):
     """Add code to execute before a script is saved"""
     pass
 
-
 def addOnUserCreate(call,args,kwargs,nodeClass):
     """Add code to execute when user creates a node"""
     pass
-
 
 def addToolsetExcludePaths( paths ):
     """addToolsetExcludePaths( paths ) -> None
@@ -5326,13 +4816,11 @@ Adds a list of paths that will be excluded from Toolset search paths.
 @return: None."""
     pass
 
-
 def addUpdateUI(call,args,kwargs,nodeClass):
     """Add code to execute on every node when things change. This is done
   during idle, you cannot rely on it being done before it starts updating
   the viewer"""
     pass
-
 
 def addValidateFilename(call,args,kwargs,nodeClass):
     """Add a function to validate a filename in Write nodes. The first argument
@@ -5340,7 +4828,6 @@ def addValidateFilename(call,args,kwargs,nodeClass):
   or not. If a callback is provided, it will control whether the Render button of Write nodes
   and the Execute button of WriteGeo nodes is enabled or not."""
     pass
-
 
 def addView(name):
     """addView(s) -> None
@@ -5354,26 +4841,21 @@ Adds a new view to the list of views.
 """
     pass
 
-
 def afterBackgroundFrameRender(context):
     """None"""
     pass
-
 
 def afterBackgroundRender(context):
     """None"""
     pass
 
-
 def afterFrameRender():
     """None"""
     pass
 
-
 def afterRender():
     """None"""
     pass
-
 
 def allNodes():
     """allNodes(filter, group) -> List.
@@ -5385,7 +4867,6 @@ nuke.root().nodes().
 @param group: Optional. If the group is omitted the current group (ie the group the user picked a menu item from the toolbar of) is used.
 @return: List"""
     return [Node(),]
-
 
 def animation(object, *commands):
     """animation(object, *commands) -> None
@@ -5426,14 +4907,12 @@ See also: animations
 @return: None"""
     pass
 
-
 def animationEnd():
     """animationEnd() -> float.
 
 Returns the last frame (or x value) for the currently selected animations.
 @return: The end frame."""
     return 0
-
 
 def animationIncrement():
     """animationIncrement() -> float
@@ -5442,14 +4921,12 @@ Returns a recommended interval between samples of the currently selected animati
 @return: The recommended interval."""
     return 0
 
-
 def animationStart():
     """animationStart() -> float
 
 Returns the starting frame (or x value) for the currently selected animations.
 @return: The start frame."""
     return 0
-
 
 def animations():
     """animations() -> tuple
@@ -5464,22 +4941,19 @@ See also: animation, animationStart, animationEnd, animationIncrement
 @return: A tuple of animatable things."""
     return (None,)
 
-
-def applyPreset():
+def applyPreset(nodeName, presetName):
     """applyPreset(nodeName, presetName) -> None
 Applies a given preset to the current node.
 @param presetName: Name of the preset to use.
 @return: bool."""
     pass
 
-
-def applyUserPreset():
+def applyUserPreset(nodeName, presetName):
     """applyUserPreset(nodeName, presetName) -> None
 Applies a given user preset to the current node.
 @param presetName: Name of the preset to use.
 @return: bool."""
     pass
-
 
 def ask(prompt):
     """ask(prompt) -> bool
@@ -5490,26 +4964,21 @@ Show a Yes/No dialog.
 @return: True if Yes, False otherwise."""
     pass
 
-
 def autoSaveDeleteFilter(filename):
     """Internal function.  Use addAutoSaveDeleteFilter to add a callback"""
     pass
-
 
 def autoSaveFilter(filename):
     """Internal function.  Use addAutoSaveFilter to add a callback"""
     pass
 
-
 def autoSaveRestoreFilter(filename):
     """Internal function.  Use addAutoSaveRestoreFilter to add a callback"""
     pass
 
-
 def autolabel():
     """None"""
     pass
-
 
 def autoplace(node):
     """autoplace(n) -> None.
@@ -5522,7 +4991,6 @@ Automatically place nodes, so they do not overlap.
 @return: None"""
     pass
 
-
 def autoplaceSnap(node):
     """autoplaceSnap(n) -> None
 
@@ -5532,21 +5000,17 @@ Move node to the closest grid position.
 @return: None"""
     pass
 
-
 def beforeBackgroundRender(context):
     """None"""
     pass
-
 
 def beforeFrameRender():
     """None"""
     pass
 
-
 def beforeRender():
     """None"""
     pass
-
 
 def cacheUsage():
     """cacheUsage() -> int
@@ -5555,8 +5019,7 @@ Get the total amount of memory currently used by the cache.
 
 @return: Current memory usage in bytes.
 """
-    pass
-
+    return 0
 
 def cancel():
     """cancel() -> None
@@ -5564,7 +5027,6 @@ Cancel an in-progress operation. This has the same effect as hitting cancel on t
 
 @return: None"""
     pass
-
 
 def channels(node_parameter=None):
     """channels(n=None) -> (string)
@@ -5577,7 +5039,6 @@ List channels. The n argument is a Nuke node and if given only the channels outp
 @return: A list of channel names."""
     return ''
 
-
 def choice(title, prompt, options, default = 0):
     """choice(title, prompt, options, default = 0) -> index
 
@@ -5588,7 +5049,7 @@ Shows a dialog box with the given title and prompt text, and a combo box contain
 @param options: A list of strings for the user to choose from.
 @param default: The index (starting from zero) of the option to select first.
 @return: An integer index (starting from zero) of the choice the user selected, or None if the dialog was cancelled."""
-    pass
+    return 0
 
 
 def clearDiskCache():
@@ -5598,8 +5059,7 @@ Clear the disk cache of all files.
 """
     pass
 
-
-def clone():
+def clone(n, args, inpanel):
     """clone(n, args, inpanel) -> Node
 
 Create a clone node that behaves identical to the original. The node argument is the node to be cloned, args and inpanel are optional arguments similar to createNode.
@@ -5612,7 +5072,6 @@ have different positions and connections in the render tree. Any clone, includin
 @return: Node"""
     return Node()
 
-
 def cloneSelected(action):
     """cloneSelected(action) -> bool
 
@@ -5621,7 +5080,6 @@ This makes a clone of all selected nodes, preserving connections between them, a
 @param action: Optional and if 'copy' it cuts the resulting clones to the clipboard.
 @return: True if succeeded, False otherwise."""
     pass
-
 
 def collapseToGroup(show=True):
     """collapseToGroup(show=True) -> Group
@@ -5633,7 +5091,6 @@ Moves the currently selected nodes to a new group, maintaining their previous co
 """
     return Group()
 
-
 def connectNodes():
     """connectNodes() -> None
 
@@ -5641,7 +5098,6 @@ Deprecated. Use Group.connectSelectedNodes.
 
 @return: None"""
     pass
-
 
 def connectViewer(inputNum, node):
     """connectViewer(inputNum, node) -> None
@@ -5653,7 +5109,6 @@ Some viewer in the current group is found, if there are no viewers one is create
 @param node: The Node to connect to the input.
 @return: None"""
     pass
-
 
 def createNode(inpanel=True):
     """createNode(node, args, inpanel) -> Node.
@@ -5667,7 +5122,6 @@ Creates a node of the specified type and adds it to the DAG.
 """
     return Node()
 
-
 def createToolset(filename=None, overwrite=-1):
     """createToolset(filename=None, overwrite=-1) -> None
 
@@ -5676,7 +5130,6 @@ Creates a tool preset based on the currently selected nodes.
 @param filename: Saves the preset as a script with the given file name.
  @param overwrite: If 1 (true) always overwrite; if 0 (false) never overwrite;  otherwise, in GUI mode ask the user, in terminal do same as False. Default  is -1, meaning 'ask the user'."""
     pass
-
 
 def critical(message):
     """critical(message)-> None
@@ -5687,7 +5140,6 @@ Puts the message into the error console, treating it like an error. Also pops up
 @return: None."""
     pass
 
-
 def debug(message):
     """debug(message)-> None
 
@@ -5697,7 +5149,6 @@ Puts the message into the error console, treating it like a debug message, which
 @return: None."""
     pass
 
-
 def defaultFontPathname():
     """defaultFontPathname() -> str
 
@@ -5705,8 +5156,7 @@ Get the path to Nukes default font.
 
 @return: Path to the font.
 """
-    pass
-
+    return ''
 
 def defaultNodeColor(s):
     """defaultNodeColor(s) -> int
@@ -5717,7 +5167,6 @@ Get the default node colour.
 @return: The color as a packed integer (0xRRGGBB00)."""
     pass
 
-
 def delete(n):
     """delete(n) -> None
 
@@ -5727,8 +5176,7 @@ The named node is deleted. It can be recovered with an undo.
 @return: None"""
     pass
 
-
-def deletePreset():
+def deletePreset(nodeClassName, presetName):
     """deletePreset(nodeClassName, presetName) -> None
 Deletes a pre-created node preset
 @param nodeClassName: Name of the node class to create a preset for.
@@ -5736,15 +5184,13 @@ Deletes a pre-created node preset
 @return: bool."""
     pass
 
-
-def deleteUserPreset():
+def deleteUserPreset(nodeClassName, presetName):
     """deleteUserPreset(nodeClassName, presetName) -> None
 Deletes a pre-created user node preset
 @param nodeClassName: Name of the node class to create a preset for.
 @param presetName: Name of the preset to create.
 @return: bool."""
     pass
-
 
 def deleteView(s):
     """deleteView(s) -> None
@@ -5756,7 +5202,6 @@ Deletes a view from the list of views.
 @param s: View name.
 @return: None"""
     pass
-
 
 def dependencies(nodes,what):
     """ List all nodes referred to by the nodes argument. 'what' is an optional integer (see below).
@@ -5797,8 +5242,7 @@ Example:
   @param what: Or'ed constant of nuke.EXPRESSIONS, nuke.INPUTS and nuke.HIDDEN_INPUTS to select the types of dependent nodes. The default is to look for all types of connections.
   @param evaluateAll: Specifies whether a full tree evaluation will take place. Defaults to True.
   @return: List of nodes. """
-    pass
-
+    return [Node(),]
 
 def display(script, node, title=None, width=None):
     """display(s, node, title, width) -> None.
@@ -5817,7 +5261,6 @@ The window will have an 'update' button to run the script again.
 """
     pass
 
-
 def endGroup():
     """endGroup() -> None
 
@@ -5829,7 +5272,6 @@ Changes the current group to the parent of the current group. Does nothing if th
 """
     pass
 
-
 def error(message):
     """error(message)-> None
 
@@ -5838,7 +5280,6 @@ Puts the message into the error console, treating it like an error.
 @param message: String parameter.
 @return: None."""
     pass
-
 
 def execute(nameOrNode, start, end, incr, views, continueOnError = False):
     """execute(nameOrNode, start, end, incr, views, continueOnError = False) -> None.
@@ -5859,7 +5300,6 @@ If Nuke is run with the GUI up, this will pop up a progress meter. If the user h
 @return: None"""
     pass
 
-
 def executeBackgroundNuke(exe_path, nodes, frameRange, views, limits, continueOnError = False, flipbookToRun = False, flipbookOptions = {}):
     """executeBackgroundNuke(exe_path, nodes, frameRange, views, limits, continueOnError = False, flipbookToRun = , flipbookOptions = {}) -> None
 Run an instance of Nuke as a monitored sub process. Returns an integer that's used as unique id for the started task. If it failed to launch this will be -1.
@@ -5871,8 +5311,7 @@ Run an instance of Nuke as a monitored sub process. Returns an integer that's us
 @param flipbookToRun: The name of the flipbook application to run after the render, or an empty string if not desired.
 @param flipbookOptions: A dictionary with options to pass to the flipbook. These should include roi and pixelAspect.
 @return: Int."""
-    pass
-
+    return 0
 
 def executeInMainThread(call,args,kwargs):
     """ Execute the callable 'call' with optional arguments 'args' and named arguments 'kwargs' i
@@ -5880,13 +5319,11 @@ n
       Nuke's main thread and return immediately. """
     pass
 
-
 def executeInMainThreadWithResult(call,args,kwargs):
     """ Execute the callable 'call' with optional arguments 'args' and named arguments 'kwargs' i
 n
       Nuke's main thread and wait for the result to become available. """
     pass
-
 
 def executeMultiple(nodes, ranges, views, continueOnError=False):
     """executeMultiple(nodes, ranges, views, continueOnError=False) -> None
@@ -5904,7 +5341,6 @@ If the user types ^C it will abort the execute() and raise a 'cancelled' error.
 @return: None"""
     pass
 
-
 def exists(s):
     """exists(s) -> bool
 
@@ -5915,7 +5351,6 @@ Function for backwards-compatibility with TCL.
 @return: True if exists, False otherwise."""
     pass
 
-
 def expandSelectedGroup():
     """expandSelectedGroup() -> None
 
@@ -5923,7 +5358,6 @@ Moves all nodes from the currently selected group node into its parent group, ma
 
 @return: None"""
     pass
-
 
 def expr(s):
     """expression(s) -> float
@@ -5940,8 +5374,7 @@ expression. Outside an animation expression y returns zero.
 @param s: The expression, as a string.
 @return: The result.
 """
-    pass
-
+    return 0.0
 
 def expression(s):
     """expression(s) -> float
@@ -5958,8 +5391,7 @@ expression. Outside an animation expression y returns zero.
 @param s: The expression, as a string.
 @return: The result.
 """
-    pass
-
+    return 0.0
 
 def extractSelected():
     """extractSelected() -> None
@@ -5968,7 +5400,6 @@ Disconnects the selected nodes in the group from the tree, and shifts them to th
 
 @return: None"""
     pass
-
 
 def filename():
     """filename(node, i) -> str
@@ -5990,13 +5421,11 @@ the result of calling execute() on the group.
 @param i: Optional nuke.REPLACE. Will replace %%04d style sequences with the current frame number.
 @return: Filename, or None if no filenames are found.
 """
-    pass
-
+    return ''
 
 def filenameFilter(filename):
     """None"""
     pass
-
 
 def forceClone():
     """forceClone() -> bool
@@ -6004,7 +5433,6 @@ def forceClone():
 @return: True if succeeded, False otherwise.
 """
     pass
-
 
 def forceLoad(n):
     """forceLoad(n) -> None
@@ -6015,14 +5443,12 @@ Force the plugin to be fully instantiated.
 @return: None"""
     pass
 
-
 def formats():
     """formats() -> list
 
 @return: List of all available formats.
 """
-    pass
-
+    return [Format(),]
 
 def frame(i):
     """frame(i) -> Current frame.
@@ -6034,8 +5460,7 @@ Returns the current frame. Normally this is the frame number set in the root nod
 @param i: Optional frame number.
 @return: Current frame.
 """
-    pass
-
+    return 0
 
 def fromNode(n):
     """fromNode(n) -> String.
@@ -6046,7 +5471,7 @@ This function is most useful when combining Python and TCL scripts for backwards
 @param n: A Node.
 @return: String.
 """
-    pass
+    return ''
 
 
 def getAllUserPresets():
@@ -6054,7 +5479,6 @@ def getAllUserPresets():
 gets a list of all current user presets
 @return: a list of tuples containing all nodename/presetname pairs."""
     pass
-
 
 def getClipname(prompt, pattern=None, default=None, multiple=False):
     """getClipname(prompt, pattern=None, default=None, multiple=False) -> list of strings or string
@@ -6068,8 +5492,7 @@ into a single entry called a 'clip'.
 @param default: Optional default filename and path.
 @param multiple: Optional boolean convertible object to allow for multiple  selection.
 @return: If multiple is True, the user input is returned as a list of  strings, otherwise as a single string. If the dialog is cancelled, the  return value is None."""
-    pass
-
+    return ['',]
 
 def getColor(initial):
     """getColor(initial) -> int
@@ -6081,8 +5504,7 @@ The format of the color values is packed 8bit rgb multiplied by 256 (ie in hex: 
 @param initial: Optional initial color. Integer with components packed as above.
 @return: The selected color.
 """
-    pass
-
+    return 0
 
 def getDeletedPresets():
     """getDeletedPresets() -> None
@@ -6090,8 +5512,7 @@ gets a list of all currently deleted presets
 @return: a pyDict containing all nodename/presetname pairs."""
     pass
 
-
-def getFileNameList():
+def getFileNameList(dir, splitSequences = False, extraInformation = False, returnDirs=True, returnHidden=False):
     """getFileNameList( dir, splitSequences = False, extraInformation = False, returnDirs=True, returnHidden=False ) -> str
 @param dir the directory to get sequences from
 @param splitSequences whether to split sequences or not
@@ -6100,8 +5521,7 @@ def getFileNameList():
 @param returnHidden whether to return hidden files and directories.
 Retrieves the filename list .
 @return: Array of files."""
-    pass
-
+    return ['',]
 
 def getFilename(message, pattern=None, default=None, favorites=None, type=None, multiple=False):
     """getFilename(message, pattern=None, default=None, favorites=None, type=None, multiple=False) -> list of strings or single string
@@ -6116,7 +5536,7 @@ Pops up a file chooser dialog box. You can use the pattern to restrict the displ
 @param multiple: Optional boolean convertible object to allow for multiple  selection. If this is True, the return value will be a list of strings; if  not, it will be a single string. The default is
 @return: If multiple is True, the user input is returned as a list of  strings, otherwise as a single string. If the dialog was cancelled, the  return value will be None.
 """
-    pass
+    return ['',]
 
 
 def getFramesAndViews(label, default=None, maxviews=0):
@@ -6128,10 +5548,10 @@ Pops up a dialog with fields for a frame range and view selection.
 @param default: Optional value for the input field.
 @param maxviews: Optional max number of views.
 @return: List of ranges and views."""
-    pass
+    return [0, ['',],]
 
 
-def getInput():
+def getInput(prompt, default):
     """getInput(prompt, default) -> str
 
 Pops up a dialog box with a text field for an arbitrary string.
@@ -6139,7 +5559,7 @@ Pops up a dialog box with a text field for an arbitrary string.
 @param prompt: Present the user with this message.
 @param default: Default value for the input text field.
 @return: String from text field or None if dialog is cancelled."""
-    pass
+    return ''
 
 
 def getNodeClassName():
@@ -6148,14 +5568,13 @@ gets the class name for the currently selected node
 @return: a string containing the name."""
     pass
 
-
 def getNodePresetExcludePaths():
     """getNodePresetExcludePaths() -> string list
 
 Gets a list of all paths that are excluded from the search for node presets.
 
 @return: List of paths."""
-    pass
+    return ['',]
 
 
 def getPaneFor( panelName ):
@@ -6166,7 +5585,7 @@ Note that the panelName must be exact as described in the layout.xml file or the
 For example, 'Properties.1' or 'Viewer.1 or 'co.uk.thefoundry.WebBrowser'
 
 @return: The pane or None."""
-    pass
+    return Panel()
 
 
 def getPresetKnobValues():
@@ -6177,13 +5596,11 @@ gets a list of knob values for a given preset
 @return: a pyDict containing all knob name/value pairs."""
     pass
 
-
 def getPresets():
     """getPresets() -> None
 gets a list of all presets for the currently selected node's class
 @return: a pyList containing all nodename/presetname pairs."""
     pass
-
 
 def getPresetsMenu(Node):
     """getPresetsMenu(Node) -> Menu or None
@@ -6191,7 +5608,6 @@ Gets the presets menu for the currently selected node.
 @return: The menu, or None if it doesn't exist.
 """
     return Menu()
-
 
 def getReadFileKnob(node):
     """getReadFileKnob(node) -> knob
@@ -6203,15 +5619,13 @@ def getReadFileKnob(node):
 @return: A PyObject containing the read knob if it exists, NULL otherwise"""
     return Knob()
 
-
 def getToolsetExcludePaths():
     """getToolsetExcludePaths() -> string list
 
 Gets a list of all paths that are excluded from the search for node presets.
 
 @return: List of paths."""
-    pass
-
+    return ['',]
 
 def getUserPresetKnobValues():
     """getUserPresetKnobValues() -> None
@@ -6221,13 +5635,11 @@ gets a list of knob values for a given preset
 @return: a pyDict containing all knob name/value pairs."""
     pass
 
-
 def getUserPresets(Node):
     """getUserPresets(Node) -> None
 gets a list of all user presets for the currently selected node's class
 @return: a pyList containing all nodename/presetname pairs."""
     pass
-
 
 def hotkeys():
     """hotkeys() -> str
@@ -6235,15 +5647,14 @@ def hotkeys():
 Returns the Nuke key assignments as a string formatted for use in nuke.display().
 
 @return: A formatted string."""
-    pass
+    return ''
 
 
 def import_module(name,filterRule):
     """None"""
     pass
 
-
-def inputs():
+def inputs(node, i):
     """inputs(n, i) -> int
 
 Deprecated. Use Node.inputs.
@@ -6255,8 +5666,7 @@ inputs to the new value. For most nodes this will have no effect on the value of
 @param n: Node.
 @param i: Optional number of inputs requested.
 @return: Number of inputs."""
-    pass
-
+    return 0
 
 def invertSelection():
     """invertSelection() -> None
@@ -6266,7 +5676,6 @@ Selects all unselected nodes, and deselects all selected ones.
 @return: None.
 """
     pass
-
 
 def knob(name, value, getType, getClass):
     """knob(name, value, getType, getClass) -> None
@@ -6320,13 +5729,11 @@ If both the getType and getClass arguments are present and are True, getType tak
 """
     pass
 
-
 def knobChanged():
     """None"""
     pass
 
-
-def knobDefault():
+def knobDefault(classknob, value):
     """knobDefault(classknob, value) -> str
 
 Set a default value for knobs in nodes that belong to the
@@ -6350,8 +5757,7 @@ nuke.knobDefault("Read.exr.compression", "2")
 @param classknob: String in the form "class.knob" where "class" is the class of Node, i.e. Blur, and "knob" is the name of the knob. This can also include a file extension, as in "class.extension.knob"
 @param value: Optional string to convert to the default value.
 @return: None or String with the default value."""
-    pass
-
+    return ''
 
 def knobTooltip(classknob, value):
     """knobTooltip(classknob, value) -> None
@@ -6367,7 +5773,6 @@ Example:
 @return: None"""
     pass
 
-
 def layers(node=None):
     """layers(node=None) -> string list.
 
@@ -6375,8 +5780,7 @@ Lists the layers in a node. If no node is provided this will list all known laye
 
 @param node: Optional node parameter.
 @return: A list of layer names."""
-    pass
-
+    return ['',]
 
 def load(s):
     """load(s) -> None
@@ -6393,8 +5797,7 @@ nothing will also try to append '.tcl' and '.py'.
 """
     pass
 
-
-def loadToolset():
+def loadToolset(filename=None, overwrite=-1):
     """loadToolset(filename=None, overwrite=-1) -> None
 
 Loads the tool preset with the given file name.
@@ -6402,7 +5805,6 @@ Loads the tool preset with the given file name.
 @param filename: name of preset script file to load
  """
     pass
-
 
 def localisationEnabled(knob):
     """localisationEnabled(knob) -> bool
@@ -6414,14 +5816,12 @@ def localisationEnabled(knob):
 @return: true if enabled, false otherwise"""
     return True
 
-
 def localiseFiles(readKnobs):
     """localiseFiles(readKnobs) -> None
 creates localisations of all files pointed to by the given read knobs
 @param readKnobs: List of read knobs.
 @return: None."""
     pass
-
 
 def makeGroup(show=True):
     """makeGroup(show=True) -> Group
@@ -6432,8 +5832,7 @@ Creates a new group containing copies of all the currently selected nodes. Note 
 @return: The new Group node."""
     return Group()
 
-
-def memory():
+def memory(cmd, value):
     """memory(cmd, value) -> str or int
 Get or set information about memory usage.
 
@@ -6449,8 +5848,7 @@ The cmd parameter specifies what memory information to retrieve. It can be one o
 - free_count [num]         Get or set the free count.
 - new_handler_count [num]  Get or set the new handler count.
 """
-    pass
-
+    return 0
 
 def menu(name):
     """menu(name) -> Menu
@@ -6471,7 +5869,6 @@ Find and return the Menu object with the given name. Current valid menus are:
 @raise RuntimeError: if Nuke isn't in GUI mode."""
     return Menu()
 
-
 def message(prompt):
     """message(prompt) -> None
 
@@ -6480,7 +5877,6 @@ Show an info dialog box. Pops up an info box (with a 'i' and the text message) a
 @param prompt: Present user with this message.
 @return: None"""
     pass
-
 
 def modified(status):
     """modified(status) -> True if modified, False otherwise.
@@ -6494,7 +5890,6 @@ Get or set the 'modified' flag in a script. Setting the value will turn the indi
 """
     pass
 
-
 def nodeCopy(s):
     """nodeCopy(s) -> bool
 
@@ -6505,7 +5900,6 @@ Copy all selected nodes into a file or the clipboard.
 """
     pass
 
-
 def nodeDelete(s):
     """nodeDelete(s) -> True if any nodes were deleted, False otherwise.
 
@@ -6514,7 +5908,6 @@ Removes all selected nodes from the DAG.
 @return: True if any nodes were deleted, False otherwise.
 """
     pass
-
 
 def nodePaste(s):
     """nodePaste(s) -> Node
@@ -6527,14 +5920,12 @@ a nodeCopy command. The 's' argument can be '%clipboard%' to paste the operating
 @return: Node"""
     return Node()
 
-
 def nodesSelected():
     """nodesSelected() -> None
 
 returns true if any nodes are currently selected
 """
     pass
-
 
 def numvalue(knob, default=0):
     """numvalue(knob, default=infinity) -> float
@@ -6545,8 +5936,7 @@ This is the same as the value() command except it will always return a number. F
 @param knob: A knob.
 @param default: Optional default value to return if the knob's value cannot  be converted to a number.
 @return: A numeric value for the knob, or the default value (if any)."""
-    pass
-
+    return 0.0
 
 def oculaPresent():
     """oculaPresent() -> bool
@@ -6555,7 +5945,6 @@ Check whether Ocula is present.
 
 @return: True if Ocula is present, False if not."""
     pass
-
 
 def ofxAddPluginAliasExclusion(fullOfxEffectName):
     """ofxAddPluginAliasExclusion(fullOfxEffectName) -> None
@@ -6570,7 +5959,6 @@ This does not change saving or loading of Nuke scripts with that plugin used in 
 """
     pass
 
-
 def ofxMenu():
     """ofxMenu() -> bool
 
@@ -6582,15 +5970,13 @@ of them to the main menu.
 """
     pass
 
-
 def ofxPluginPath():
     """nuke.ofxPluginPath() -> String list
 
 List of all the directories Nuke searched for OFX plugins in.
 
 @return: String list"""
-    pass
-
+    return ['',]
 
 def ofxRemovePluginAliasExclusion(fullOfxEffectName):
     """ofxRemovePluginAliasExclusion(fullOfxEffectName) -> None
@@ -6601,41 +5987,33 @@ Example: nuke.ofxRemovePluginAliasExclusion('OFXuk.co.thefoundry.noisetools.deno
 """
     pass
 
-
 def onCreate():
     """None"""
     pass
-
 
 def onDestroy():
     """None"""
     pass
 
-
 def onScriptClose():
     """None"""
     pass
-
 
 def onScriptLoad():
     """None"""
     pass
 
-
 def onScriptSave():
     """None"""
     pass
-
 
 def onUserCreate():
     """None"""
     pass
 
-
 def output_redirector():
     """Internal to Nuke. Not for public use."""
     pass
-
 
 def pan():
     """pan() -> array with x, then y
@@ -6647,8 +6025,7 @@ print n[1]
 
 @return: Array of x, y.
 """
-    pass
-
+    return [0,0]
 
 def pluginAddPath(args,addToSysPath):
     """ Adds all the paths to the beginning of the Nuke plugin path.
@@ -6658,14 +6035,12 @@ def pluginAddPath(args,addToSysPath):
       It also adds the paths to the sys.path, if addToSysPath is True."""
     pass
 
-
 def pluginAppendPath(args,addToSysPath):
     """ Add a filepath to the end of the Nuke plugin path.  If the path
       already exists in the list of plugin paths, it will remain at its
       current position.
       It also appends the paths to the sys.path, if addToSysPath is True."""
     pass
-
 
 def pluginExists(name):
     """pluginExists(name) -> True if found, or False if not.
@@ -6681,15 +6056,13 @@ nothing will also try to append '.tcl' and '.py'.
 """
     pass
 
-
 def pluginInstallLocation():
     """pluginInstallLocation() -> string list
 
 The system-specific locations that Nuke will look in for third-party plugins.
 
 @return: List of paths."""
-    pass
-
+    return ['',]
 
 def pluginPath():
     """pluginPath() -> string list
@@ -6699,10 +6072,9 @@ List all the directories Nuke will search in for plugins.
 The built-in default is ~/.nuke and the 'plugins' directory from the same location the NUKE executable file is in. Setting the environment variable $NUKE_PATH to a colon-separated list of directories will replace the ~/.nuke with your own set of directories, but the plugins directory is always on the end.
 
 @return: List of paths."""
-    pass
+    return ['',]
 
-
-def plugins():
+def plugins(switches=0, *pattern):
     """plugins(switches=0, *pattern)-> list of str
 
 Returns a list of every loaded plugin or every plugin available. By default each plugin is returned as the full pathname of the plugin file.
@@ -6723,8 +6095,7 @@ with the full paths of all loaded plugins.
 @param switches: Optional parameter. Bitwise OR of nuke.ALL, nuke.NODIR.
 @param pattern: Zero or more glob patterns.
 @return: List of plugins."""
-    pass
-
+    return ['',]
 
 def recentFile(index):
     """recentFile(index) -> str
@@ -6735,8 +6106,7 @@ Returns a filename from the recent-files list.
 @return: A file path.
 @raise ValueError: if the index is negative.
 @raise RuntimeError: if there is no entry in the recent files list for the specified index."""
-    pass
-
+    return ''
 
 def redo():
     """redo() -> None
@@ -6746,63 +6116,51 @@ Perform the most recent redo.
 @return: None"""
     pass
 
-
 def removeAfterBackgroundFrameRender(call,args,kwargs):
     """Remove a previously-added callback with the same arguments."""
     pass
-
 
 def removeAfterBackgroundRender(call,args,kwargs):
     """Remove a previously-added callback with the same arguments."""
     pass
 
-
 def removeAfterFrameRender(call,args,kwargs,nodeClass):
     """Remove a previously-added callback with the same arguments."""
     pass
-
 
 def removeAfterRender(call,args,kwargs,nodeClass):
     """Remove a previously-added callback with the same arguments."""
     pass
 
-
 def removeAutoSaveDeleteFilter(filter):
     """Remove a previously-added callback with the same arguments."""
     pass
-
 
 def removeAutoSaveFilter(filter):
     """Remove a previously-added callback with the same arguments."""
     pass
 
-
 def removeAutoSaveRestoreFilter(filter):
     """Remove a previously-added callback with the same arguments."""
     pass
-
 
 def removeAutolabel(call,args,kwargs,nodeClass):
     """Remove a previously-added callback with the same arguments."""
     pass
 
-
 def removeBeforeBackgroundRender(call,args,kwargs):
     """Remove a previously-added callback with the same arguments."""
     pass
-
 
 def removeBeforeFrameRender(call,args,kwargs,nodeClass):
     """Remove a previously-added callback with the same arguments."""
     pass
 
-
 def removeBeforeRender(call,args,kwargs,nodeClass):
     """Remove a previously-added callback with the same arguments."""
     pass
 
-
-def removeFavoriteDir():
+def removeFavoriteDir(name, type):
     """removeFavoriteDir(name, type) -> None.
 
 Remove a directory path from the favorites list.
@@ -6812,58 +6170,47 @@ Remove a directory path from the favorites list.
 @return: None"""
     pass
 
-
 def removeFilenameFilter(call,args,kwargs,nodeClass):
     """Remove a previously-added callback with the same arguments."""
     pass
-
 
 def removeFilenameValidate(call,args,kwargs,nodeClass):
     """Remove a previously-added callback."""
     pass
 
-
 def removeKnobChanged(call,args,kwargs,nodeClass,node):
     """Remove a previously-added callback with the same arguments."""
     pass
-
 
 def removeOnCreate(call,args,kwargs,nodeClass):
     """Remove a previously-added callback with the same arguments."""
     pass
 
-
 def removeOnDestroy(call,args,kwargs,nodeClass):
     """Remove a previously-added callback with the same arguments."""
     pass
-
 
 def removeOnScriptClose(call,args,kwargs,nodeClass):
     """Remove a previously-added callback with the same arguments."""
     pass
 
-
 def removeOnScriptLoad(call,args,kwargs,nodeClass):
     """Remove a previously-added callback with the same arguments."""
     pass
-
 
 def removeOnScriptSave(call,args,kwargs,nodeClass):
     """Remove a previously-added callback with the same arguments."""
     pass
 
-
 def removeOnUserCreate(call,args,kwargs,nodeClass):
     """Remove a previously-added callback with the same arguments."""
     pass
-
 
 def removeUpdateUI(call,args,kwargs,nodeClass):
     """Remove a previously-added callback with the same arguments."""
     pass
 
-
-def render():
+def render(nameOrNode, start, end, incr, views, continueOnError = False):
     """execute(nameOrNode, start, end, incr, views, continueOnError = False) -> None.
 execute(nameOrNode, frameRangeSet, views, continueOnError = False) -> None.
 
@@ -6882,14 +6229,12 @@ If Nuke is run with the GUI up, this will pop up a progress meter. If the user h
 @return: None"""
     pass
 
-
 def restoreWindowLayout(i):
     """restoreWindowLayout(i) -> None.
 Restores a saved window layout.
 @param i: Layout number
 @return: None"""
     pass
-
 
 def root():
     """root() -> node
@@ -6899,8 +6244,7 @@ Get the DAG's root node. Always succeeds.
 @return: The root node. This will never be None."""
     return Node()
 
-
-def runIn():
+def runIn(object, cmd):
     """runIn(object, cmd) -> bool
 
 Execute commands with a given node/knob/field as the 'context'.
@@ -6912,8 +6256,7 @@ This means that all names are evaluated relative to this object, and commands th
 """
     pass
 
-
-def sample():
+def sample(node, chan, x, y, dx, dy):
     """sample(n, c, x, y, dx, dy) -> float.
 
 Get pixel values from an image. Deprecated, use Node.sample instead.
@@ -6928,7 +6271,7 @@ This requires the image to be calculated, so performance may be very bad if this
 @param dy: Optional size of the area to sample (Y coordinate).
 @return: Floating point value.
 """
-    pass
+    return 0.0
 
 
 def saveUserPreset(node, presetName):
@@ -6937,7 +6280,6 @@ Saves a node's current knob values as a user preset.
 @param presetName: Name of the preset to create.
 @return: bool."""
     pass
-
 
 def saveWindowLayout(i=-1):
     """saveWindowLayout(i=-1) -> None
@@ -6949,41 +6291,33 @@ Saves the current window layout.
 """
     pass
 
-
 def scriptClear():
     """Clears a Nuke script."""
     pass
-
 
 def scriptClose():
     """Close the current script or group. Returns True if successful."""
     pass
 
-
 def scriptExit():
     """Exit Nuke."""
     pass
-
 
 def scriptNew():
     """Start a new script. Returns True if successful."""
     pass
 
-
 def scriptOpen():
     """Opens a new script containing the contents of the named file."""
     pass
-
 
 def scriptReadFile():
     """Read nodes from a file."""
     pass
 
-
 def scriptReadText():
     """Read nodes from a string."""
     pass
-
 
 def scriptSave(filename=None):
     """scriptSave(filename=None) -> bool
@@ -6994,7 +6328,6 @@ Saves the current script to the current file name. If there is no current file n
 @return: True if the file was saved, otherwise an exception is thrown."""
     pass
 
-
 def scriptSaveAs(filename=None, overwrite=-1):
     """scriptSaveAs(filename=None, overwrite=-1) -> None
 
@@ -7004,16 +6337,13 @@ Saves the current script with the given file name if supplied, or (in GUI mode) 
 @param overwrite: If 1 (true) always overwrite; if 0 (false) never overwrite;  otherwise, in GUI mode ask the user, in terminal do same as False. Default  is -1, meaning 'ask the user'."""
     pass
 
-
 def scriptSource():
     """Same as scriptReadFile()."""
     pass
 
-
 def script_directory():
     """None"""
     pass
-
 
 def selectAll():
     """selectAll() -> None
@@ -7023,11 +6353,9 @@ Select all nodes in the DAG.
 @return: None"""
     pass
 
-
 def selectConnectedNodes():
     """ Selects all nodes in the tree of the selected node. """
     pass
-
 
 def selectPattern():
     """selectPattern() -> None
@@ -7036,7 +6364,6 @@ Selects nodes according to a regular expression matching pattern, entered throug
 
 @return: None"""
     pass
-
 
 def selectSimilar(matchType=None):
     """selectSimilar(matchType) -> None
@@ -7047,7 +6374,6 @@ Selects nodes that match a node in the current selection based on matchType crit
 @return: None.
 """
     pass
-
 
 def selectedNode():
     """selectedNode() -> Node.
@@ -7061,7 +6387,6 @@ If none, or the last event was not a hotkey, this produces a 'No node selected' 
 """
     return Node()
 
-
 def selectedNodes(filter=None):
     """selectedNodes(filter) -> List.
 
@@ -7072,8 +6397,7 @@ Returns a list of all selected nodes in the current group. An attempt is made to
 """
     return [Node(),]
 
-
-def setPreset():
+def setPreset(nodeClassName, presetName, knobValues):
     """setPreset(nodeClassName, presetName, knobValues) -> None
 Create a node preset for the given node using the supplied knob values
 @param nodeClassName: Name of the node class to create a preset for.
@@ -7082,8 +6406,7 @@ Create a node preset for the given node using the supplied knob values
 @return: bool."""
     pass
 
-
-def setUserPreset():
+def setUserPreset(nodeClassName, presetName, knobValues):
     """setUserPreset(nodeClassName, presetName, knobValues) -> None
 Create a node preset for the given node using the supplied knob values
 @param nodeClassName: Name of the node class to create a preset for.
@@ -7092,8 +6415,7 @@ Create a node preset for the given node using the supplied knob values
 @return: bool."""
     pass
 
-
-def show():
+def show(node=None, forceFloat=None):
     """show(n, forceFloat) -> None
 
 Opens a window for each named node, as though the user double-clicked on them.  For normal operators this opens the
@@ -7104,18 +6426,15 @@ control panel, for viewers it opens the viewer, for groups it opens the control 
 @return: None"""
     pass
 
-
-def showDag(n):
+def showDag(group):
     """showDag(n) -> None
-
 Show the tree view of a group node or opens a node control panel.
 
 @param n: Group.
 @return: None"""
     pass
 
-
-def showInfo(n):
+def showInfo(node):
     """showInfo(n) -> str
 
 Returns a long string of debugging information about each node and
@@ -7125,8 +6444,7 @@ contents or format being the same in different versions of Nuke.
 @param n: Optional node argument.
 @return: String.
 """
-    pass
-
+    return ''
 
 def showSettings():
     """showSettings() -> None
@@ -7136,7 +6454,6 @@ Show the settings of the current group.
 @return: None"""
     pass
 
-
 def splayNodes():
     """splayNodes() -> None
 
@@ -7145,23 +6462,19 @@ Deprecated. Use Group.splaySelectedNodes.
 @return: None"""
     pass
 
-
 def stderr_redirector():
     """Internal to Nuke. Not for public use."""
     pass
-
 
 def tabClose():
     """Close the active dock tab. Returns True if successful."""
     pass
 
-
 def tabNext():
     """Make the next tab in this dock active. Returns True if successful."""
     pass
 
-
-def tcl():
+def tcl(s, *args):
     """tcl(s, *args) -> str.
 
 Run a tcl command. The arguments must be strings and passed to the command. If no arguments are given and the command has whitespace in it then it is instead interpreted as a tcl program (this is deprecated).
@@ -7170,8 +6483,7 @@ Run a tcl command. The arguments must be strings and passed to the command. If n
 @param args: The arguments to pass in to the TCL code.
 @return: Result of TCL command as string.
 """
-    pass
-
+    return ''
 
 def thisClass():
     """thisClass() -> None
@@ -7181,7 +6493,6 @@ Get the class name of the current node. This equivalent to calling nuke.thisNode
 @return: The class name for the current node."""
     pass
 
-
 def thisGroup():
     """thisGroup() -> Group
 
@@ -7190,7 +6501,6 @@ Returns the current context Group node.
 @return: The group node."""
     return Group()
 
-
 def thisKnob():
     """thisKnob() -> Knob
 
@@ -7198,7 +6508,6 @@ Returns the current context knob if any.
 
 @return: Knob or None"""
     return Knob()
-
 
 def thisNode():
     """thisNode() -> Node.
@@ -7209,15 +6518,13 @@ Return the current context node.
 """
     return Node()
 
-
 def thisPane():
     """thisPane() -> the active pane.
 
 Returns the active pane. This is only valid during a pane menu callback or window layout restoration.
 
 @return: The active pane."""
-    pass
-
+    return Panel()
 
 def thisParent():
     """thisParent() -> Node
@@ -7226,15 +6533,13 @@ Returns the current context Node parent.
 
 @return: A node.
 """
-    pass
-
+    return Node()
 
 def thisView():
     """thisView() -> str
 Get the name of the current view.
 @return: The current view name as a string."""
-    pass
-
+    return ''
 
 def toNode(s):
     """toNode(s) -> Node
@@ -7245,9 +6550,6 @@ Search for a node in the DAG by name and return it as a Python object.
 @return: Node or None if it does not exist."""
     return Node()
 
-def threading():
-    pass
-
 def toggleFullscreen():
     """toggleFullscreen() -> None
 
@@ -7255,7 +6557,6 @@ Toggles between windowed and fullscreen mode.
 
 @return: None"""
     pass
-
 
 def toggleViewers():
     """toggleViewers() -> None
@@ -7265,8 +6566,7 @@ Toggles all the viewers on and off.
 @return: None"""
     pass
 
-
-def toolbar():
+def toolbar(name, create=True):
     """toolbar(name, create=True)-> ToolBar
 
 Find and return the ToolBar object with the given name. The name of the built-in nodes toolbar is 'Nodes'.
@@ -7278,7 +6578,7 @@ A RuntimeException is thrown if not in GUI mode.
     return ToolBar()
 
 
-def tprint(text):
+def tprint(text, sep=' ', end='\n', file=None):
     """tprint(value, ..., sep=' ', end='\n', file=sys.stdout) -> None
 
 Prints the values to a stream, or to stdout by default.
@@ -7291,7 +6591,6 @@ Prints the values to a stream, or to stdout by default.
 """
     pass
 
-
 def undo():
     """undo() -> None
 
@@ -7301,23 +6600,19 @@ Perform the most recent undo.
 """
     pass
 
-
 def updateUI():
     """None"""
     pass
-
 
 def validateFilename(filename):
     """None"""
     pass
 
-
-def value():
+def value(knob, default):
     """value(knob, default) -> string.
 
 The value function returns the current value of a knob. The knob argument is a string referring to a knob and default is an optional default value to be returned in case of an error. Unlike knob(), this will evaluate animation at the current frame, and expand brackets and dollar signs in string knobs."""
-    pass
-
+    return ''
 
 def views():
     """views() -> List.
@@ -7327,13 +6622,11 @@ List of all the globally existing views.
 @return: List"""
     return (View(),)
 
-
 def waitForThreadsToFinish():
     """waitForThreadsToFinish() -> str
 Returns true if Nuke should wait for any Python threads to finish before exitting.
 @return: True or False."""
-    pass
-
+    return ''
 
 def warning(message):
     """warning(message)-> None
@@ -7344,7 +6637,7 @@ Puts the message into the error console, treating it like a warning.
 @return: None."""
     pass
 
-def zoom():
+def zoom(scale, center, group):
     """zoom(scale, center, group) -> float
 
 Change the zoom and pan of a group's display. The scale argument is the new zoom factor.
@@ -7362,8 +6655,4 @@ The new scale factor will be returned, or None if the function is run in a non-G
 @param group: Optional Group. This is ignored at present.
 @return: Current zoom factor or None if not in a GUI context.
 """
-    pass
-
-
-def al():
-    return None
+    return 0.0

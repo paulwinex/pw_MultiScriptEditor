@@ -3,6 +3,7 @@ from PySide.QtGui import *
 import os
 import numBarWidget, inputWidget
 reload(inputWidget)
+reload(numBarWidget)
 from managers import context
 
 
@@ -29,6 +30,7 @@ class tabWidgetClass(QTabWidget):
         self.desk = QApplication.desktop()
         # variables
         self.p = parent
+        self.lastSearch = [0, None]
 
         #connects
         self.currentChanged.connect(self.hideAllCompleters)
@@ -54,6 +56,7 @@ class tabWidgetClass(QTabWidget):
         cont.edit.saveSignal.connect(self.p.saveSession)
         # cont.edit.executeSignal.connect(self.p.executeSelected)
         self.addTab(cont, name)
+        cont.edit.moveCursor(QTextCursor.Start)
         self.setCurrentIndex(self.count()-1)
         return cont.edit
 
@@ -84,7 +87,47 @@ class tabWidgetClass(QTabWidget):
         for i in range(self.count()):
             self.widget(i).edit.completer.hideMe()
 
+    def current(self):
+        return self.widget(self.currentIndex()).edit
 
+############################## editor commands
+    def undo(self):
+        self.current().undo()
+
+    def redo(self):
+        self.current().redo()
+
+    def cut(self):
+        self.current().cut()
+
+    def copy(self):
+        self.current().copy()
+
+    def paste(self):
+        self.current().paste()
+
+    def search(self, text=None):
+        if text:
+            if text == self.lastSearch[0]:
+                self.lastSearch[1] += 1
+            else:
+                self.lastSearch = [text, 0]
+            self.lastSearch[1] = self.current().selectWord(text, self.lastSearch[1])
+
+    def replace(self, parts):
+        find, rep = parts
+        self.lastSearch = [find, 0]
+        self.lastSearch[1] = self.current().selectWord(find, self.lastSearch[1], rep)
+        self.current().selectWord(find, self.lastSearch[1])
+
+    def replaceAll(self, pat):
+        find, rep = pat
+        text = self.current().toPlainText()
+        text = text.replace(find, rep)
+        self.current().setPlainText(text)
+
+    def comment(self):
+        self.current().commentSelected()
 
 class container(QWidget):
     def __init__(self, text, parent, desk):
@@ -97,10 +140,10 @@ class container(QWidget):
         self.edit.executeSignal.connect(parent.executeSelected)
         if text:
             self.edit.addText(text)
-        if not context == 'hou':
+        # if not context == 'hou':
             # line number
-            self.lineNum = numBarWidget.lineNumberBarClass(self.edit, self)
-            hbox.addWidget(self.lineNum)
+        self.lineNum = numBarWidget.lineNumberBarClass(self.edit, self)
+        hbox.addWidget(self.lineNum)
         hbox.addWidget(self.edit)
 
 

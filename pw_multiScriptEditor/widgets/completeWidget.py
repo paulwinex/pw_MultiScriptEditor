@@ -30,58 +30,75 @@ class completeMenuClass(QListWidget):
         text = design.editorStyle()
         self.setStyleSheet(text)
 
-    def updateCompleteList(self, lines=None):
+    def updateCompleteList(self, lines=None, extra=None):
         self.clear()
-        if lines:
+        if lines or extra:
             self.showMe()
-            for i in [x for x in lines if not x.name == 'mro']:
-                item = QListWidgetItem(i.name)
-                # f = item.font()
-                # f.setItalic(1)
-                # item.setFont(f)
-                item.setData(32, i)
-                self.addItem(item)
+            if lines:
+                for i in [x for x in lines if not x.name == 'mro']:
+                    item = QListWidgetItem(i.name)
+                    item.setData(32, i)
+                    self.addItem(item)
+            if extra:
+
+                font = self.font()
+                font.setItalic(1)
+                font.setPointSize(font.pointSize()*0.8)
+                for e in extra:
+                    item = QListWidgetItem(e.name)
+                    item.setData(32, e)
+                    item.setFont(font)
+                    self.addItem(item)
+
             font = QFont("monospace", self.lineHeight, False)
             fm = QFontMetrics (font)
-            width = fm.width(' ') *  max([len(x.name) for x in lines]) + 30
+            width = fm.width(' ') *  max([len(x.name) for x in lines or extra]) + 40
 
             self.resize(max(250,width), 250)
+            self.setCurrentRow(0)
         else:
             self.hideMe()
+
+    def applyCurrentComplete(self):
+        i = self.selectedItems()
+        if i:
+            comp = i[0].data(32)
+            self.sendText(comp)
+        self.hideMe()
 
     def keyPressEvent(self, event):
         if event.key() == Qt.Key_Escape:
             self.close()
+        # elif event.text():
+        #     self.editor().setFocus()
         elif event.key() == Qt.Key_Return or event.key() == Qt.Key_Enter:
             self.editor().setFocus()
-            i = self.selectedItems()
-            if i:
-                comp = i[0].data(32)
-                self.sendText(comp)
-            self.hideMe()
+            self.applyCurrentComplete()
             return event
         elif event.key() == Qt.Key_Up:
             sel = self.selectedItems()
             if sel:
                 i = self.row(sel[0])
                 if i == 0:
-                    super(completeMenuClass, self).keyPressEvent(event)
+                    QListWidget.keyPressEvent(self, event)
                     self.setCurrentRow(self.count()-1)
                     return
-
         elif event.key() == Qt.Key_Down:
             sel = self.selectedItems()
             if sel:
                 i = self.row(sel[0])
                 if i+1 == self.count():
-                    super(completeMenuClass, self).keyPressEvent(event)
+                    QListWidget.keyPressEvent(self, event)
                     self.setCurrentRow(0)
                     return
         elif event.key() == Qt.Key_Backspace:
             self.editor().setFocus()
             self.editor().activateWindow()
+        elif event.text():
+            self.editor().keyPressEvent(event)
+            return
 
-        super(completeMenuClass, self).keyPressEvent(event)
+        QListWidget.keyPressEvent(self, event)
 
     def sendText(self, comp):
         self.editor().insertText(comp)
@@ -92,13 +109,13 @@ class completeMenuClass(QListWidget):
     def activateCompleter(self, key=False):
         self.activateWindow()
         if not key==Qt.Key_Up:
-            self.setCurrentRow(0)
+            self.setCurrentRow(min(1, self.count()-1))
         else:
             self.setCurrentRow(self.count()-1)
 
     def showMe(self):
+
         self.show()
 
     def hideMe(self):
         self.hide()
-

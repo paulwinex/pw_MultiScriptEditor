@@ -124,16 +124,20 @@
     </rect>
    </property>
    <widget class="QMenu" name="file_menu">
+    <property name="tearOffEnabled">
+     <bool>true</bool>
+    </property>
     <property name="title">
      <string>File</string>
     </property>
     <addaction name="saveSeccion_act"/>
     <addaction name="save_act"/>
     <addaction name="load_act"/>
-    <addaction name="separator"/>
-    <addaction name="exit_act"/>
    </widget>
    <widget class="QMenu" name="help_menu">
+    <property name="tearOffEnabled">
+     <bool>true</bool>
+    </property>
     <property name="title">
      <string>Help</string>
     </property>
@@ -141,19 +145,38 @@
     <addaction name="shortcuts_act"/>
     <addaction name="donate_act"/>
     <addaction name="separator"/>
+    <addaction name="printHelp_act"/>
     <addaction name="about_act"/>
    </widget>
    <widget class="QMenu" name="tools_menu">
-    <property name="title">
-     <string>Tools</string>
+    <property name="tearOffEnabled">
+     <bool>true</bool>
     </property>
+    <property name="title">
+     <string>Edit</string>
+    </property>
+    <addaction name="undo_act"/>
+    <addaction name="redo_act"/>
+    <addaction name="separator"/>
+    <addaction name="copy_act"/>
+    <addaction name="cut_act"/>
+    <addaction name="paste_act"/>
+    <addaction name="separator"/>
     <addaction name="tabToSpaces_act"/>
+    <addaction name="comment_cat"/>
+    <addaction name="find_act"/>
    </widget>
    <widget class="QMenu" name="options_menu">
+    <property name="tearOffEnabled">
+     <bool>true</bool>
+    </property>
     <property name="title">
      <string>Options</string>
     </property>
     <widget class="QMenu" name="theme_menu">
+     <property name="tearOffEnabled">
+      <bool>true</bool>
+     </property>
      <property name="title">
       <string>Theme</string>
      </property>
@@ -164,6 +187,9 @@
     <addaction name="settingsFile_act"/>
    </widget>
    <widget class="QMenu" name="run_menu">
+    <property name="tearOffEnabled">
+     <bool>true</bool>
+    </property>
     <property name="title">
      <string>Run</string>
     </property>
@@ -172,9 +198,9 @@
     <addaction name="clearHistory_act"/>
    </widget>
    <addaction name="file_menu"/>
-   <addaction name="options_menu"/>
-   <addaction name="run_menu"/>
    <addaction name="tools_menu"/>
+   <addaction name="run_menu"/>
+   <addaction name="options_menu"/>
    <addaction name="help_menu"/>
   </widget>
   <action name="clearHistory_act">
@@ -255,6 +281,46 @@
   <action name="execSel_act">
    <property name="text">
     <string>Execute Selected</string>
+   </property>
+  </action>
+  <action name="copy_act">
+   <property name="text">
+    <string>Copy</string>
+   </property>
+  </action>
+  <action name="cut_act">
+   <property name="text">
+    <string>Cut</string>
+   </property>
+  </action>
+  <action name="paste_act">
+   <property name="text">
+    <string>Paste</string>
+   </property>
+  </action>
+  <action name="find_act">
+   <property name="text">
+    <string>Find and Replace</string>
+   </property>
+  </action>
+  <action name="undo_act">
+   <property name="text">
+    <string>Undo</string>
+   </property>
+  </action>
+  <action name="redo_act">
+   <property name="text">
+    <string>Redo</string>
+   </property>
+  </action>
+  <action name="printHelp_act">
+   <property name="text">
+    <string>Print Help</string>
+   </property>
+  </action>
+  <action name="comment_cat">
+   <property name="text">
+    <string>Comment</string>
    </property>
   </action>
  </widget>

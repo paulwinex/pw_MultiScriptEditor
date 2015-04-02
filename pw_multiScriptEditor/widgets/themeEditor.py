@@ -188,7 +188,7 @@ if __name__ == '__main__':
     app = QApplication([])
     w = themeEditorClass()
     w.show()
-    qss = os.path.join(os.path.dirname(os.path.dirname(__file__)),'style', 'style.qss')
+    qss = os.path.join(os.path.dirname(os.path.dirname(__file__)),'style', 'style.css')
     if os.path.exists(qss):
         w.setStyleSheet(open(qss).read())
     app.exec_()

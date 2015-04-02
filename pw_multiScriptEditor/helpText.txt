@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<h2>
+			Multi Script Editor v%s</h2>
+		<p>
+			By PaulWinex paulwinex.ru</p>
+		<h3>
+			Editor Variables:</h3>
+		<ul>
+			<li>
+				<strong>self_main</strong>: (QWidget) main widget</li>
+			<li>
+				<strong>self_output</strong>: (QWidget) output widget</li>
+			<li>
+				<strong>self_version</strong>: (string) current version</li>
+			<li>
+				<strong>self_context</strong>: (string or None) current context</li>
+			<li>
+				<strong>self_help</strong>: (function) show this text</li>
+		</ul>
+		<p><br/></p>
+	</body>
+</html>

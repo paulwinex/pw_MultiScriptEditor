@@ -15,8 +15,8 @@ class PythonHighlighterClass (QSyntaxHighlighter):
             self.colors = design.getColors()
 
         # Multi line comments
-        self.tri_single = (QRegExp("'''"), 1, self.getStyle(self.colors['comment']))
-        self.tri_double = (QRegExp('"""'), 2, self.getStyle(self.colors['comment']))
+        self.tri_single = (QRegExp("'''"), 1, self.getStyle(self.colors['docstring']))
+        self.tri_double = (QRegExp('"""'), 2, self.getStyle(self.colors['docstring']))
 
         rules = []
         # Keywords

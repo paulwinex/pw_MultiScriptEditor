@@ -19,10 +19,12 @@ def showHoudini(clear=False, ontop=False, name=None, floating=False, position=()
 # NUKE
 def showNuke(panel=False):
     from .managers import _nuke
+    reload(_nuke)
     _nuke.show(panel)
 
 
 # MAYA
-def showMaya():
+def showMaya(dock=False):
     from .managers import _maya
-    _maya.show()
+    reload (_maya)
+    _maya.show(dock)

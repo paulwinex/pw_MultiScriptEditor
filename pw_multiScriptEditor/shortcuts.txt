@@ -1,0 +1,20 @@
+Execute selected                            >   CTRL + ENTER
+Execute All                                 >   CTRL + SHIFT + ENTER
+Indent Selection                            >   TAB
+Unindent Selection                          >   SHIFT + TAB
+Activate Completer                          >   UP or DOWN
+Deactivate Completer                        >   BACKSPACE or ane char
+Hide Completer                              >   ESC
+Autocomplete code                           >   ENTER (in Completer)
+Autocomplete first                          >   ENTER or TAB in Editor
+Font Size                                   >   CTRL + MouseWheel
+Scroll Code Left-Right                      >   ALT + MouseWheel
+Duplicate line or selected text             >   CTRL + D
+Comment/Uncomment line or selected lines    >   ALT + Q
+Undo                                        >   CTRL + Z
+Redo                                        >   CTRL + Y
+Copy                                        >   CTRL + C
+Paste                                       >   CTRL + V
+Cut                                         >   CTRL + X
+Find and Replace                            >   CTRL + F
+Wrap dropped nodes (Maya and Houdini)       >   MMB Drag + ALT
