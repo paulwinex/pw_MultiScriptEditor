@@ -399,23 +399,18 @@ class inputClass(QTextEdit):
     ########################### DROP
     def dragEnterEvent(self, event):
         event.acceptProposedAction()
-        # if not event.mimeData().hasText():
-        #     event.mimeData().setText(managers.mayaDragTempData)
         QTextEdit.dragEnterEvent(self,event)
 
     def dragMoveEvent(self, event):
         event.acceptProposedAction()
-        # QTextEdit.dragMoveEvent(self,event)
-        # if event.mimeData().hasText():
         QTextEdit.dragMoveEvent(self,event)
 
     def dragLeaveEvent(self, event):
-        event.accept()
-        # if event.mimeData().hasText():
+        event.acceptProposedAction()
         QTextEdit.dragLeaveEvent(self,event)
 
     def dropEvent(self, event):
-        event.accept()
+        event.acceptProposedAction()
         if managers.context in managers.dropEvents and event.mimeData().hasText():
             mim = event.mimeData()
             text = mim.text()

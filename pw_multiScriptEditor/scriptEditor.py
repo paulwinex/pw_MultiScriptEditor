@@ -67,7 +67,7 @@ class scriptEditorClass(QMainWindow, ui.Ui_scriptEditor):
         self.settingsFile_act.triggered.connect(self.openSettingsFile)
         self.splitter.splitterMoved.connect(self.adjustColmpeters)
         self.donate_act.triggered.connect(lambda :self.openLink('donate'))
-        self.openManual_act.triggered.connect(lambda :self.openLink('tutorials'))
+        self.openManual_act.triggered.connect(lambda :self.openLink('manual'))
         self.about_act.triggered.connect(self.about)
         self.shortcuts_act.triggered.connect(self.shortcuts)
         self.printHelp_act.triggered.connect(self.mse_help)

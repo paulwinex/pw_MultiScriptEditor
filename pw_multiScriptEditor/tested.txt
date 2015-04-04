@@ -1,0 +1,16 @@
+Supported applications:
+    Maya
+    Houdini
+    Nuke
+
+Tested on:
+    Windows 7x64 Maya 2015
+    Windows 7x64 Maya 2014
+    Windows 7x64 Maya 2013
+    Windows 7x64 Houdini 13
+    Windows 7x64 Houdini 14
+    Windows 7x64 Nuke 8
+    Windows 7x64 Nuke 9
+    Kubuntu Houdini 13
+    Kubuntu Houdini 14
+    Ubuntu 12.4

@@ -1,1 +1,1 @@
-pythonw.exe scriptEditor.py %*
+start pythonw.exe scriptEditor.py %*

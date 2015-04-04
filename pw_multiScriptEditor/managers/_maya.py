@@ -146,4 +146,15 @@ def wrapDroppedText(namespace, text, event):
                 pass
     return text
 
+def contextMenu(parent):
+    m = mayaMenuClass(parent)
+    return m
+
+class mayaMenuClass(QMenu):
+    def __init__(self, parent):
+        super(mayaMenuClass, self).__init__('Maya', parent)
+        self.par = parent
+        a = QAction('Still Empty...', parent)
+        a.setEnabled(0)
+        self.addAction(a)
 

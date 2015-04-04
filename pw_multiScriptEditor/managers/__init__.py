@@ -38,7 +38,10 @@ def mayaCompleter(*args):
 def mayaDropEvent(*args):
     from managers import _maya
     return _maya.wrapDroppedText(*args)
-
+def getMayaContextMenu(*args):
+    from managers import _maya
+    reload(_maya)
+    return _maya.contextMenu(*args)
 ###################################################################
 
 
@@ -50,7 +53,8 @@ contextCompleters = dict(
 
 contextMenus = dict(
     hou=getHoudiniContextMenu,
-    nuke=getNukeContextMenu
+    nuke=getNukeContextMenu,
+    maya=getMayaContextMenu
 )
 
 dropEvents = dict(
