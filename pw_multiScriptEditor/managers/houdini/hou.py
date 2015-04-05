@@ -563,6 +563,7 @@ class paneTabType(object):
     TreeView=None
     HelpBrowser=None
     PythonPanel=None
+    PythonShell=None
     ParmSpreadsheet=None
     LightLinker=None
     AssetBrowser=None
@@ -5906,6 +5907,17 @@ class PaneTab(object):
         See also hou.PaneTab.setLinkGroup.
         """
 
+    def cd(self):
+        pass
+    def currentNode(self):
+        return Node()
+    def pwd(self):
+        return Node()
+    def setCurrentNode(self, node):
+        pass
+    def setPwd(self, node):
+        pass
+
 class PathBasedPaneTab(PaneTab):
     """
     hou.PathBasedPaneTab
@@ -8319,7 +8331,7 @@ class Desktop(object):
             pane command        """
         return PaneTab()
 
-    def createFloatingPane(self): return 
+    # def createFloatingPane(self, pane_tab_type, position=(), size=()): return
     def floatingPanels(self):
         """
         floatingPanels(self) -> tuple of hou.FloatingPanel
@@ -17521,6 +17533,40 @@ class NodeTypeCategory(object):
 
     def _asVoidPointer(self): return
 
+def nodeTypeCategories():
+    return NodeTypeCategory()
+def objNodeTypeCategory():
+    return NodeTypeCategory()
+def sopNodeTypeCategory():
+    return NodeTypeCategory()
+def popNodeTypeCategory():
+    return NodeTypeCategory()
+def dopNodeTypeCategory():
+    return NodeTypeCategory()
+def cop2NodeTypeCategory():
+    return NodeTypeCategory()
+def shopNodeTypeCategory():
+    return NodeTypeCategory()
+def vopNodeTypeCategory():
+    return NodeTypeCategory()
+def ropNodeTypeCategory():
+    return NodeTypeCategory()
+def chopNodeTypeCategory():
+    return NodeTypeCategory()
+def popNetNodeTypeCategory():
+    return NodeTypeCategory()
+def cop2NetNodeTypeCategory():
+    return NodeTypeCategory()
+def vopNetNodeTypeCategory():
+    return NodeTypeCategory()
+def chopNetNodeTypeCategory():
+    return NodeTypeCategory()
+def managerNodeTypeCategory():
+    return NodeTypeCategory()
+def rootNodeTypeCategory():
+    return NodeTypeCategory()
+
+
 class OrboltURLHandler(object):
 
     def __init__(self): raise AttributeError, "No constructor defined"
@@ -22936,7 +22982,7 @@ class Shelf(ShelfElement):
         """
         tools(self) -> tuple of Tools
         """
-        return Tools()
+        return (Tool(),)
 
     def setTools(self, tools):
         """
@@ -22999,7 +23045,7 @@ class ShelfSet(ShelfElement):
         """
         shelves(self) -> tuple of Shelf
         """
-        return Shelf()
+        return (Shelf(),)
 
     def setShelves(self, shelves):
         """
@@ -25473,7 +25519,7 @@ class ui(object):
         return True
 
     def getDragSourceData(self): return
-    def _createQtIcon(name, width=32, height=32):
+    def createQtIcon(name, width=32, height=32):
         """
         createQtIcon(name, width=32, height=32)
 

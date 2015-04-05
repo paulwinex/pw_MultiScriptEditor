@@ -35,22 +35,19 @@ def showWindow():
     editor.show()
 
 
+dockName = 'pw_scriptEditorDock'
+name = 'pw_scriptEditor'
+def clearDoc():
+    if pm.dockControl(dockName, q=1, ex=1):
+        pm.deleteUI(dockName)
 
 def showDickControl():
-    name = 'pw_scriptEditor'
     if pm.window(name, q=1, ex=1):
         pm.deleteUI(name)
     from pw_multiScriptEditor import scriptEditor
     reload(scriptEditor)
     editor = scriptEditor.scriptEditorClass(parent=getMayaWindow())
-
-    name = 'pw_scriptEditor'
-    dockName = 'pw_scriptEditorDock'
-
-    if pm.dockControl(dockName, q=1, ex=1):
-        pm.deleteUI(dockName)
-
-
+    clearDoc()
     pm.dockControl(dockName, area='left',
                  content=editor.objectName(),
                  width=700,
@@ -154,7 +151,107 @@ class mayaMenuClass(QMenu):
     def __init__(self, parent):
         super(mayaMenuClass, self).__init__('Maya', parent)
         self.par = parent
-        a = QAction('Still Empty...', parent)
-        a.setEnabled(0)
+        a = QAction('Save to shelf', parent, triggered=self.saveToShelfDialog)
         self.addAction(a)
+
+    def saveToShelfDialog(self):
+        dial = saveToShelfClass(self.par)
+        dial.exec_()
+
+
+class mayaIconsClass(QListWidget):
+    def __init__(self, parent):
+        super(mayaIconsClass, self).__init__()
+        self.par = parent
+        self.setWindowFlags(Qt.Tool)
+        self.setViewMode(QListView.IconMode)
+        self.setIconSize(QSize(32,32))
+        self.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.setResizeMode(QListWidget.ResizeMode.Adjust)
+        self.fillIcons()
+
+    def fillIcons(self):
+        res, files = self.getIcons()
+        self.par.out.showMessage( "%s icons found" % len(res+files))
+        for ico in sorted(res):
+            item = QListWidgetItem(self)
+            item.setIcon(QIcon(':/'+ico))
+            item.setData(32, ':/'+ico)
+            self.addItem(item)
+        for f in sorted(files, key=lambda x: os.path.splitext(x)[0]):
+            item = QListWidgetItem(self)
+            item.setIcon(QIcon(f))
+            item.setData(32, f)
+            self.addItem(item)
+
+
+    def getIcons(self):
+        res = [ x for x in pm.resourceManager(nameFilter="*") if os.path.splitext(x)[1] in ['.png', '.svg'] ]
+        files = []
+        for env in 'XBMLANGPATH', 'MAYA_FILE_ICON_PATH':
+            if os.getenv(env):
+                paths = os.getenv(env).split(os.pathsep)
+                for p in paths:
+                    files += self.findInPath(p)
+        return res, files
+
+    def findInPath(self, path):
+        result = []
+        for path, dirs, files in os.walk(path):
+            for f in files:
+                if os.path.splitext(f)[1] in ['.png', '.svg'] :
+                    result.append(os.path.join(path, f).replace('\\','/'))
+        return result
+
+class saveToShelfClass(QDialog):
+    def __init__(self, parent):
+        super(saveToShelfClass, self).__init__(parent)
+        self.par = parent
+        self.setWindowFlags(Qt.Tool)
+        self.setObjectName('maya_create_shelfButton')
+        self.setWindowTitle('Save script to shelf')
+        self.verticalLayout = QVBoxLayout(self)
+        self.gridLayout = QGridLayout()
+        self.label = QLabel('Label')
+        self.gridLayout.addWidget(self.label, 0, 0, 1, 1)
+        self.lineEdit = QLineEdit(self)
+        self.gridLayout.addWidget(self.lineEdit, 0, 1, 1, 1)
+        self.verticalLayout.addLayout(self.gridLayout)
+        self.listWidget = mayaIconsClass(parent)
+        self.verticalLayout.addWidget(self.listWidget)
+        self.pushButton = QPushButton('Save to shelf')
+        self.verticalLayout.addWidget(self.pushButton)
+
+        self.pushButton.clicked.connect(self.createButton)
+
+        center = parent.geometry().center()
+        self.resize(450, 400)
+        geo = self.geometry()
+        geo.moveCenter(self.mapToGlobal(center))
+        self.setGeometry(geo)
+
+    def createButton(self):
+        # topShelf = pm.mel.eval('$nul = $gShelfTopLevel')
+        topShelf = pm.melGlobals['gShelfTopLevel']
+        currentShelf = pm.tabLayout(topShelf, q=1, st=1)
+
+        label = self.lineEdit.text()
+        sel = self.listWidget.selectedItems()
+        if sel:
+            icon = sel[0].data(32)
+        else:
+            icon = 'pythonFamily.png'
+        command = self.par.tab.getCurrentText()
+        pm.shelfButton (
+            parent=currentShelf,
+            command=command,
+            sourceType="python",
+            label=label,
+            imageOverlayLabel=label,
+            image1=icon,
+            style=pm.shelfLayout(currentShelf, query=1, style=1),
+            width=pm.shelfLayout(currentShelf,query=1, cellWidth=1),
+            height=pm.shelfLayout(currentShelf, query=1, cellHeight=1)
+            )
+        self.accept()
 

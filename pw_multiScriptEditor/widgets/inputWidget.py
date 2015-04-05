@@ -406,7 +406,7 @@ class inputClass(QTextEdit):
         QTextEdit.dragMoveEvent(self,event)
 
     def dragLeaveEvent(self, event):
-        event.acceptProposedAction()
+        event.accept()
         QTextEdit.dragLeaveEvent(self,event)
 
     def dropEvent(self, event):

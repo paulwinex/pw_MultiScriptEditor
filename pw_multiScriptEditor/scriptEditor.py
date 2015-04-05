@@ -148,6 +148,9 @@ class scriptEditorClass(QMainWindow, ui.Ui_scriptEditor):
         self.close()
         if __name__ == '__main__':
             sys.exit()
+        # if managers.context == 'maya':
+        #     from managers import _maya
+        #     _maya.clearDoc()
 
     def appContextMenu(self):
         if managers.context in managers.contextMenus:
