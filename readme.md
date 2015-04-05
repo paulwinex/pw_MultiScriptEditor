@@ -13,12 +13,13 @@ or embedded in another application. The main purpose for integration - the abili
   - Interactive performance of the selected code by pressing Ctrl + Enter
   - Adjust the color theme of the code editor
   - Code completion (module [jedi](https://github.com/davidhalter/jedi))
+  - Context completion for different functions like existing nodes and path in scene
 
 ### Existing integration modules
 
   - Houdini 13 and 14 (using [hqt.py](http://github.com/paulwinex/hqt ) module)
   - Nuke 8,9
-  - Maya 2014, 2015
+  - Maya 2014-2016
     
 If necessary, you can extend this to make your own integration module.
 The main pre condition - Should be used Python2.7.
