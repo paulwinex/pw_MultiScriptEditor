@@ -17,6 +17,20 @@ QWidget:focus
     border: 1px solid  #838383;
 }
 
+QWidget:item:hover
+{
+    background-color: #504f4f;
+    color: white;
+    outline: none
+}
+
+QWidget:item:selected
+{
+    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1,
+    stop: 0 #78879b, stop: 1 #78879b);
+   outline: none
+}
+
 /**************MAINWINDOW*************/
 
 QMainWindow::separator
@@ -533,20 +547,6 @@ QComboBox::drop-down:pressed, QDateEdit::drop-down:pressed, QDateTimeEdit::drop-
    background-color: #404040;
 }
 
-
-QWidget:item:hover
-{
-    background-color: #504f4f;
-    color: white;
-    outline: none
-}
-
-QWidget:item:selected
-{
-    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1,
-    stop: 0 #78879b, stop: 1 #78879b);
-   outline: none
-}
 
 
 QComboBox QAbstractItemView {

@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'D:\Dropbox\Dropbox\pw_prefs\RnD\tools\pw_scriptEditor\pw_multiScriptEditor\widgets\scriptEditor.ui'
 #
-# Created: Wed Apr 01 22:57:24 2015
+# Created: Sun Apr 05 23:24:46 2015
 #      by: pyside-uic 0.2.15 running on PySide 1.2.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -26,26 +26,6 @@ class Ui_scriptEditor(object):
         self.verticalLayout = QtGui.QVBoxLayout(self.frame_2)
         self.verticalLayout.setContentsMargins(3, 3, 3, 3)
         self.verticalLayout.setObjectName("verticalLayout")
-        self.frame = QtGui.QFrame(self.frame_2)
-        self.frame.setFrameShape(QtGui.QFrame.NoFrame)
-        self.frame.setFrameShadow(QtGui.QFrame.Raised)
-        self.frame.setObjectName("frame")
-        self.horizontalLayout_2 = QtGui.QHBoxLayout(self.frame)
-        self.horizontalLayout_2.setSpacing(2)
-        self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
-        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
-        self.executeAll_btn = QtGui.QPushButton(self.frame)
-        self.executeAll_btn.setObjectName("executeAll_btn")
-        self.horizontalLayout_2.addWidget(self.executeAll_btn)
-        self.executeSel_btn = QtGui.QPushButton(self.frame)
-        self.executeSel_btn.setObjectName("executeSel_btn")
-        self.horizontalLayout_2.addWidget(self.executeSel_btn)
-        self.clearHistory_btn = QtGui.QPushButton(self.frame)
-        self.clearHistory_btn.setObjectName("clearHistory_btn")
-        self.horizontalLayout_2.addWidget(self.clearHistory_btn)
-        spacerItem = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.horizontalLayout_2.addItem(spacerItem)
-        self.verticalLayout.addWidget(self.frame)
         self.splitter = QtGui.QSplitter(self.frame_2)
         self.splitter.setOrientation(QtCore.Qt.Vertical)
         self.splitter.setObjectName("splitter")
@@ -84,6 +64,9 @@ class Ui_scriptEditor(object):
         self.run_menu.setTearOffEnabled(True)
         self.run_menu.setObjectName("run_menu")
         scriptEditor.setMenuBar(self.menubar)
+        self.toolBar = QtGui.QToolBar(scriptEditor)
+        self.toolBar.setObjectName("toolBar")
+        scriptEditor.addToolBar(QtCore.Qt.TopToolBarArea, self.toolBar)
         self.clearHistory_act = QtGui.QAction(scriptEditor)
         self.clearHistory_act.setObjectName("clearHistory_act")
         self.save_act = QtGui.QAction(scriptEditor)
@@ -163,26 +146,23 @@ class Ui_scriptEditor(object):
         self.menubar.addAction(self.run_menu.menuAction())
         self.menubar.addAction(self.options_menu.menuAction())
         self.menubar.addAction(self.help_menu.menuAction())
+        self.toolBar.addAction(self.execAll_act)
+        self.toolBar.addAction(self.execSel_act)
+        self.toolBar.addSeparator()
+        self.toolBar.addAction(self.clearHistory_act)
 
         self.retranslateUi(scriptEditor)
         QtCore.QMetaObject.connectSlotsByName(scriptEditor)
 
     def retranslateUi(self, scriptEditor):
         scriptEditor.setWindowTitle(QtGui.QApplication.translate("scriptEditor", "MainWindow", None, QtGui.QApplication.UnicodeUTF8))
-        self.executeAll_btn.setToolTip(QtGui.QApplication.translate("scriptEditor", "Execute all code in current tab\n"
-"", None, QtGui.QApplication.UnicodeUTF8))
-        self.executeAll_btn.setText(QtGui.QApplication.translate("scriptEditor", "Execute All", None, QtGui.QApplication.UnicodeUTF8))
-        self.executeSel_btn.setToolTip(QtGui.QApplication.translate("scriptEditor", "Execute selected code in current tab\n"
-"", None, QtGui.QApplication.UnicodeUTF8))
-        self.executeSel_btn.setText(QtGui.QApplication.translate("scriptEditor", "Execute Selected", None, QtGui.QApplication.UnicodeUTF8))
-        self.clearHistory_btn.setToolTip(QtGui.QApplication.translate("scriptEditor", "Clear output window", None, QtGui.QApplication.UnicodeUTF8))
-        self.clearHistory_btn.setText(QtGui.QApplication.translate("scriptEditor", "Clear", None, QtGui.QApplication.UnicodeUTF8))
         self.file_menu.setTitle(QtGui.QApplication.translate("scriptEditor", "File", None, QtGui.QApplication.UnicodeUTF8))
         self.help_menu.setTitle(QtGui.QApplication.translate("scriptEditor", "Help", None, QtGui.QApplication.UnicodeUTF8))
         self.tools_menu.setTitle(QtGui.QApplication.translate("scriptEditor", "Edit", None, QtGui.QApplication.UnicodeUTF8))
         self.options_menu.setTitle(QtGui.QApplication.translate("scriptEditor", "Options", None, QtGui.QApplication.UnicodeUTF8))
         self.theme_menu.setTitle(QtGui.QApplication.translate("scriptEditor", "Theme", None, QtGui.QApplication.UnicodeUTF8))
         self.run_menu.setTitle(QtGui.QApplication.translate("scriptEditor", "Run", None, QtGui.QApplication.UnicodeUTF8))
+        self.toolBar.setWindowTitle(QtGui.QApplication.translate("scriptEditor", "toolBar", None, QtGui.QApplication.UnicodeUTF8))
         self.clearHistory_act.setText(QtGui.QApplication.translate("scriptEditor", "Clear Output", None, QtGui.QApplication.UnicodeUTF8))
         self.save_act.setText(QtGui.QApplication.translate("scriptEditor", "Save Script", None, QtGui.QApplication.UnicodeUTF8))
         self.load_act.setText(QtGui.QApplication.translate("scriptEditor", "Load Script", None, QtGui.QApplication.UnicodeUTF8))

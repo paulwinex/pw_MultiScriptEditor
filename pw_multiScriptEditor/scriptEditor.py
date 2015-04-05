@@ -45,20 +45,13 @@ class scriptEditorClass(QMainWindow, ui.Ui_scriptEditor):
                               'self_help': self.mse_help,
                               'self_context':managers.context})
         self.session = sessionManager.sessionManagerClass()
-
-        def fixButton(btn, ico):
-            btn.setText('')
-            btn.setFixedSize(QSize(32,32))
-            btn.setIconSize(QSize(24,24))
-            btn.setIcon(QIcon(icons[ico]))
-        fixButton(self.executeAll_btn, 'all')
-        fixButton(self.executeSel_btn, 'sel')
-        fixButton(self.clearHistory_btn, 'clear')
-
+        self.execAll_act.setIcon(QIcon(icons['all']))
+        self.execSel_act.setIcon(QIcon(icons['sel']))
+        self.clearHistory_act.setIcon(QIcon(icons['clear']))
+        self.toolBar.setIconSize(QSize(32,32))
+        self.menubar.setNativeMenuBar(False)
         # connects
-        self.executeAll_btn.clicked.connect(self.executeAll)
-        self.executeSel_btn.clicked.connect(self.executeSelected)
-        self.clearHistory_btn.clicked.connect(self.clearHistory)
+
         self.save_act.triggered.connect(self.saveScript)
         self.load_act.triggered.connect(self.loadScript)
         self.exit_act.triggered.connect(self.close)
