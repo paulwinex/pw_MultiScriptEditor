@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'D:\Dropbox\Dropbox\pw_prefs\RnD\tools\pw_scriptEditor\pw_multiScriptEditor\widgets\scriptEditor.ui'
 #
-# Created: Sun Apr 05 23:24:46 2015
+# Created: Mon Apr 06 09:46:03 2015
 #      by: pyside-uic 0.2.15 running on PySide 1.2.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -148,7 +148,6 @@ class Ui_scriptEditor(object):
         self.menubar.addAction(self.help_menu.menuAction())
         self.toolBar.addAction(self.execAll_act)
         self.toolBar.addAction(self.execSel_act)
-        self.toolBar.addSeparator()
         self.toolBar.addAction(self.clearHistory_act)
 
         self.retranslateUi(scriptEditor)
