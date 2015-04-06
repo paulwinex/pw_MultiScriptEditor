@@ -152,7 +152,6 @@
    </attribute>
    <addaction name="execAll_act"/>
    <addaction name="execSel_act"/>
-   <addaction name="separator"/>
    <addaction name="clearHistory_act"/>
   </widget>
   <action name="clearHistory_act">
