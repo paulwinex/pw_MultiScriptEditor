@@ -1,6 +1,6 @@
 # Multi Script Editor v2.0.3
 
-![alt tag](http://www.paulwinex.ru/wp-content/uploads/2015/03/mse_git.png)
+![alt tag](http://www.paulwinex.ru/wp-content/uploads/2015/04/mse_banner.jpg)
 
 ## [Go to site](http://www.paulwinex.ru/multi-script-editor-v2-0/)
 
