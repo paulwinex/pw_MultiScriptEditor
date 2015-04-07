@@ -25,7 +25,7 @@ defaultColors = dict(
         completer_alt_background= (65,65,65),
         completer_hover_background= (85,85,85),
         completer_selected_background= (123,123,123),
-        default=(128,128,128)
+        default=(210,210,210)
 )
 
 
