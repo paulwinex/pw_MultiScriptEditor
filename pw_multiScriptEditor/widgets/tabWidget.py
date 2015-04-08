@@ -51,6 +51,11 @@ class tabWidgetClass(QTabWidget):
         if result[1]:
             self.setTabText(index, result[0])
 
+    def currentTabName(self):
+        index = self.currentIndex()
+        text = self.tabText(index)
+        return text
+
     def addNewTab(self, name='New Tab', text = None):
         cont = container(text, self.p, self.desk)#, self.completer)
         cont.edit.saveSignal.connect(self.p.saveSession)

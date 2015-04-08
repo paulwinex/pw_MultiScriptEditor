@@ -10,7 +10,7 @@ or embedded in another application. The main purpose for integration - the abili
 ### Key features
 
   - Preserve and load of tabs and code in them
-  - Interactive performance of the selected code by pressing Ctrl + Enter
+  - Interactive execute of the selected code by pressing Ctrl + Enter
   - Adjust the color theme of the code editor
   - Code completion (module [jedi](https://github.com/davidhalter/jedi))
   - Context completion for different functions like existing nodes and path in scene
@@ -24,7 +24,29 @@ or embedded in another application. The main purpose for integration - the abili
 If necessary, you can extend this to make your own integration module.
 The main pre condition - Should be used Python2.7.
  
+
+### Houdini features
+  - Code completion for all modules and return types (remastered hou library)
+  - Context completion for functions CreateNode, CreateInputNode and CreateOutputNode with existing houdini node types
+  - Context completion string for absolute houdini internal path and node parameters. To use this complete start string with "/ or '/
+  - Drag&Dropping Houdini nodes and parameters fills in their path. Use Alt modifier to wrap node or parameter as code like in Houdini Python Shell.
+  - Reading and writing to PythonSOP code and asset sections 
  
+### Nuke features
+  - Code completion for all modules and return types (remastered nuke library)
+  - Context completion for createNode with existing Nuke node types
+  - Context completion for function toNode with existing nodes in current script
+  - Converting selected nodes to code with function nuke.toNode
+  - Searching and converting nodes to code from clipboard
+  - Reading and writing from PythonKnobs code
+   
+### Maya features
+  - Save code to shelf and accept dropped shelf button code, like default Maya script editor
+  - Drag&Dropping Maya nodes fills in their path. Use Alt modifier to wrap node or parameter as code. Import PyMEL before doing this!
+  - Context completion for function PyNode with existing nodes in current scene
+  - Context completion for function pm.createNode and cmds.createNode with existing Maya node types
+
+
 # How to install
 
 ### Standalone
@@ -41,7 +63,7 @@ The main pre condition - Should be used Python2.7.
 
 ```python
 import sys
-paths = ['path/to/MultiScriptEditor_module','path/to/default/python27/lib/with/PySide']
+paths = ['path/to/folder/with/MultiScriptEditor_module','path/to/default/python27/lib/with/PySide']
 # example ['c:/houdini/python/lib', 'c:/python27/Lib/site-packages']
 for path in paths:
     if not path in sys.path:
@@ -57,7 +79,7 @@ pw_multiScriptEditor.showHoudini(ontop=1)
   
 ```python
 import sys
-path = 'path/to/MultiScriptEditor_module'
+path = 'path/to/folder/with/MultiScriptEditor_module'
 # example c:/houdini/python/lib
 if not path in sys.path:
     sys.path.append(path)
@@ -73,7 +95,7 @@ Also you can use .pypanel file without hqt module
   - Create shelf button with code
 ```python
 import sys
-path = 'path/to/MultiScriptEditor_module'
+path = 'path/to/folder/with/MultiScriptEditor_module'
 # example c:/maya/python/lib
 if not path in sys.path:
     sys.path.append(path)
@@ -89,7 +111,7 @@ pw_multiScriptEditor.showMaya(dock=True)
 import nuke
 menubar = nuke.menu("Nuke")
 toolMenu = menubar.addMenu('&Tools')
-path = 'path/to/MultiScriptEditor_module'
+path = 'path/to/folder/with/MultiScriptEditor_module'
 # example c:/nuke/python/lib
 if not path in sys.path:
     sys.path.append(path)

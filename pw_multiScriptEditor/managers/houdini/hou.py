@@ -516,7 +516,7 @@ class menuType(object):
 
     def __init__(self): raise AttributeError, "No constructor defined"
 
-class paneTabType(object):
+class paneTabType(PythonPanel, HelpBrowser):
     """
     hou.paneTabType
 
@@ -5740,7 +5740,136 @@ class Pane(object):
             pane command        """
         return Pane()
 
-class PaneTab(object):
+class PythonPanel(object):
+    """
+    hou.PythonPanel
+
+    Class representing a pane tab that can display an embedded PySide or
+    PyQt  interface.
+
+    See also hou.pypanel and hou.PythonPanelInterface.
+
+
+    PySide and PyQt interfaces can only be created from the main Houdini
+    application thread.  You cannot call any method in this class from a
+    separate thread (i.e. do not call from a Python Shell).
+    """
+
+    def __init__(self): raise AttributeError, "No constructor defined"
+    def setInterface(self,interface):
+        """
+        setInterface(self,interface)
+
+        Show the specified interface in the Python Panel.  interface is a
+        hou.PythonPanelInterface object.
+
+        Raises hou.OperationFailed if interface is not an installed  Python
+        Panel interface.
+        """
+
+    def showToolbar(self, show):
+        """
+        showToolbar(self, show)
+
+        Show or hide the toolbar.  show must be either True or False.
+        """
+
+    def isToolbarShown(self):
+        """
+        isToolbarShown() -> bool
+
+        Return True if the toolbar is shown and False otherwise.
+        """
+        return True
+
+    def expandToolbar(self, on): return
+    def isToolbarExpanded(self):
+        """
+        isToolbarExpanded() -> bool
+
+        Return True if the toolbar is expanded and False otherwise.
+        """
+        return True
+
+class HelpBrowser(PaneTab):
+    """
+    hou.HelpBrowser
+
+    Class representing a help browser pane tab.  Provides methods for
+    controlling the help browser.
+
+    REPLACES
+      * helpbrowser
+
+
+    """
+
+    def __init__(self): raise AttributeError, "No constructor defined"
+    def displayHelp(self, node_type):
+        """
+        displayHelp(self, node_type)
+
+        Loads the help for the specified node type.
+
+        Raises HOM_ObjectWasDeleted if the help browser pane tab was deleted.
+        """
+        return _hou.HelpBrowser_displayHelp(*args)
+
+    def displayHelpPath(self, help_path):
+        """
+        displayHelpPath(self, help_path)
+        """
+
+    def homePage(self):
+        """
+        homePage(self) -> str
+
+        Returns the home page URL of this help browser.
+
+        Raises HOM_ObjectWasDeleted if the help browser pane tab was deleted.
+        """
+        return ''
+
+    def setHomePage(self, home_page):
+        """
+        setHomePage(self, home_page)
+
+        Sets the home page for this help browser to the specified URL.
+
+        Raises HOM_ObjectWasDeleted if the help browser pane tab was deleted,
+        and raises HOM_Error if home_page is not given.
+        """
+
+    def url(self):
+        """
+        url(self) -> str
+
+        Return the current URL of this help browser.
+
+        Raises HOM_ObjectWasDeleted if the help browser pane tab was deleted.
+        """
+        return ''
+
+    def setUrl(self, url):
+        """
+        setUrl(self, url)
+
+        Loads the specified URL.
+
+        Raises HOM_ObjectWasDeleted if the help browser pane tab was deleted,
+        and raises HOM_Error if url is not given.
+        """
+
+    def showUI(self, show):
+        """
+        showUI(self, show)
+
+        Shows or hides the help browser's navigation controls.
+
+        Raises HOM_ObjectWasDeleted if the help browser pane tab was deleted.
+        """
+
+class PaneTab(PythonPanel, HelpBrowser):
     """
     hou.PaneTab
 
@@ -14298,83 +14427,6 @@ class HDASection(object):
         REPLACES
             otcontentdelete command        """
 
-class HelpBrowser(PaneTab):
-    """
-    hou.HelpBrowser
-
-    Class representing a help browser pane tab.  Provides methods for
-    controlling the help browser.
-
-    REPLACES
-      * helpbrowser
-
-
-    """
-
-    def __init__(self): raise AttributeError, "No constructor defined"
-    def displayHelp(self, node_type):
-        """
-        displayHelp(self, node_type)
-
-        Loads the help for the specified node type.
-
-        Raises HOM_ObjectWasDeleted if the help browser pane tab was deleted.
-        """
-        return _hou.HelpBrowser_displayHelp(*args)
-
-    def displayHelpPath(self, help_path):
-        """
-        displayHelpPath(self, help_path)
-        """
-
-    def homePage(self):
-        """
-        homePage(self) -> str
-
-        Returns the home page URL of this help browser.
-
-        Raises HOM_ObjectWasDeleted if the help browser pane tab was deleted.
-        """
-        return ''
-
-    def setHomePage(self, home_page):
-        """
-        setHomePage(self, home_page)
-
-        Sets the home page for this help browser to the specified URL.
-
-        Raises HOM_ObjectWasDeleted if the help browser pane tab was deleted,
-        and raises HOM_Error if home_page is not given.
-        """
-
-    def url(self):
-        """
-        url(self) -> str
-
-        Return the current URL of this help browser.
-
-        Raises HOM_ObjectWasDeleted if the help browser pane tab was deleted.
-        """
-        return ''
-
-    def setUrl(self, url):
-        """
-        setUrl(self, url)
-
-        Loads the specified URL.
-
-        Raises HOM_ObjectWasDeleted if the help browser pane tab was deleted,
-        and raises HOM_Error if url is not given.
-        """
-
-    def showUI(self, show):
-        """
-        showUI(self, show)
-
-        Shows or hides the help browser's navigation controls.
-
-        Raises HOM_ObjectWasDeleted if the help browser pane tab was deleted.
-        """
 
 class hipFile(object):
     """
@@ -21112,56 +21164,6 @@ class PrimGroup(object):
 
     def option(self): return
 
-class PythonPanel(PaneTab):
-    """
-    hou.PythonPanel
-
-    Class representing a pane tab that can display an embedded PySide or
-    PyQt  interface.
-
-    See also hou.pypanel and hou.PythonPanelInterface.
-
-
-    PySide and PyQt interfaces can only be created from the main Houdini
-    application thread.  You cannot call any method in this class from a
-    separate thread (i.e. do not call from a Python Shell).
-    """
-
-    def __init__(self): raise AttributeError, "No constructor defined"
-    def setInterface(self,interface):
-        """
-        setInterface(self,interface)
-
-        Show the specified interface in the Python Panel.  interface is a
-        hou.PythonPanelInterface object.
-
-        Raises hou.OperationFailed if interface is not an installed  Python
-        Panel interface.
-        """
-
-    def showToolbar(self, show):
-        """
-        showToolbar(self, show)
-
-        Show or hide the toolbar.  show must be either True or False.
-        """
-
-    def isToolbarShown(self):
-        """
-        isToolbarShown() -> bool
-
-        Return True if the toolbar is shown and False otherwise.
-        """
-        return True
-
-    def expandToolbar(self, on): return
-    def isToolbarExpanded(self):
-        """
-        isToolbarExpanded() -> bool
-
-        Return True if the toolbar is expanded and False otherwise.
-        """
-        return True
 
 class pypanel(object):
     """
@@ -28168,6 +28170,7 @@ class Node(SopNode, ChopNode, CopNode, ShopNode, DopNode, PopNetNode, RopNode, S
         return True
 
     def isCompiled(self): return
+
     def hdaModule(self):
         """
         hm(self) -> hou.HDAModule

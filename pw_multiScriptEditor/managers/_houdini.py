@@ -73,7 +73,7 @@ def completer(line):
     # node types
     func = ['createNode', 'createInputNode', 'createOutputNode']
     for f in func:
-        p = r"\.%s\(['\"](\w*)$" % f
+        p = r"\.%s\(.*['\"](\w*)$" % f
         m = re.search(p, line)
         if m:
             name = m.group(1)
@@ -121,8 +121,8 @@ class houdiniMenuClass(hqt.QMenu):
     def __init__(self, parent):
         super(houdiniMenuClass, self).__init__('Houdini', parent)
         self.par = parent
-        self.addAction(hqt.QAction('Save To Node', parent, triggered=self.saveToNode))
         self.addAction(hqt.QAction('Read From Node', parent, triggered=self.readFromNode))
+        self.addAction(hqt.QAction('Save To Node', parent, triggered=self.saveToNode))
 
 
     def readFromNode(self):
@@ -151,8 +151,14 @@ class houdiniMenuClass(hqt.QMenu):
             res = self.getSectionsFromNode(sel[0])
             if res:
                 text = self.par.tab.getCurrentText()
+                curr = self.par.tab.currentTabName()
+                section = curr.split('|')[-1]
                 keys = res.keys()
-                s = hou.ui.selectFromList(keys, exclusive=1)
+                if section in keys:
+                    d = (keys.index(section),)
+                else:
+                    d = ()
+                s = hou.ui.selectFromList(keys,  default_choices=d,exclusive=1)
                 if s:
                     source = res[keys[s[0]]]
                     if isinstance(source, hou.Parm):

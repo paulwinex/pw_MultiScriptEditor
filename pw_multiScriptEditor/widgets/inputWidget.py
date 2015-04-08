@@ -106,7 +106,6 @@ class inputClass(QTextEdit):
                             self.completer.updateCompleteList(script.completions())
                         except:
                             self.completer.updateCompleteList()
-                        return
                     else:
                         self.completer.updateCompleteList()
             else:
@@ -260,8 +259,8 @@ class inputClass(QTextEdit):
             newEnd = cursor.position()
             cursor.setPosition(start)
             cursor.setPosition(newEnd, QTextCursor.KeepAnchor)
-            self.setTextCursor(cursor)
             self.document().documentLayout().blockSignals(False)
+            self.setTextCursor(cursor)
             self.update()
 
     def commentSelected(self):
@@ -276,12 +275,12 @@ class inputClass(QTextEdit):
         cursor.setPosition(end,QTextCursor.KeepAnchor)
         cursor.movePosition(QTextCursor.MoveOperation.EndOfLine,QTextCursor.KeepAnchor)
         text = cursor.selection().toPlainText()
-        cursor.removeSelectedText()
+        self.document().documentLayout().blockSignals(False)
+        # cursor.removeSelectedText()
         text, offset = self.addRemoveComments(text)
         cursor.insertText(text)
         cursor.setPosition(min(pos+offset, len(self.toPlainText())))
         self.setTextCursor(cursor)
-        self.document().documentLayout().blockSignals(False)
         self.update()
 
     def addRemoveComments(self, text):
@@ -298,15 +297,16 @@ class inputClass(QTextEdit):
         return result, ofs
 
     def insertText(self, comp):
-        self.document().documentLayout().blockSignals(True)
         cursor = self.textCursor()
+        self.document().documentLayout().blockSignals(True)
         cursor.insertText(comp.complete)
         cursor = self.fixLine(cursor, comp)
-        self.setTextCursor(cursor)
         self.document().documentLayout().blockSignals(False)
+        self.setTextCursor(cursor)
         self.update()
 
     def fixLine(self, cursor, comp):
+        # self.document().documentLayout().blockSignals(True)
         pos = cursor.position()
         linePos = cursor.positionInBlock()
 
@@ -331,6 +331,7 @@ class inputClass(QTextEdit):
 
         res = before + comp.name + br + end
 
+        # self.document().documentLayout().blockSignals(False)
         cursor.beginEditBlock()
         cursor.insertText(res)
         cursor.endEditBlock()
