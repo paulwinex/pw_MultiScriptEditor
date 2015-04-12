@@ -37,7 +37,10 @@ class tabWidgetClass(QTabWidget):
 
     def closeTab(self, i):
         if self.count() > 1:
-            self.removeTab(i)
+            if QMessageBox.question(self, 'Close Tab',
+                                   'Close this tab?\n'+self.tabText(i),
+                                   QMessageBox.Yes|QMessageBox.No) == QMessageBox.Yes:
+                self.removeTab(i)
 
     def openMenu(self):
         menu = QMenu(self)

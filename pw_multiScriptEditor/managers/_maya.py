@@ -151,6 +151,8 @@ class mayaMenuClass(QMenu):
     def __init__(self, parent):
         super(mayaMenuClass, self).__init__('Maya', parent)
         self.par = parent
+        self.setTearOffEnabled(1)
+        self.setWindowTitle('MSE %s Maya' % self.par.ver)
         a = QAction('Save to shelf', parent, triggered=self.saveToShelfDialog)
         self.addAction(a)
 

@@ -97,8 +97,8 @@ class nukeContextMenu(QMenu):
     def __init__(self, parent):
         super(nukeContextMenu, self).__init__('Nuke')
         self.par = parent
-        # a.setShortcut('Alt+Return')
-        # a.setShortcutContext(Qt.ApplicationShortcut)
+        self.setTearOffEnabled(1)
+        self.setWindowTitle('MSE %s Nuke' % self.par.ver)
         self.addAction(QAction('Read PyScript Knob', parent, triggered=self.readPyScriptKnob))
         self.addAction(QAction('Save To PyScript Knob', parent, triggered=self.saveToKnob))
         self.addSeparator()

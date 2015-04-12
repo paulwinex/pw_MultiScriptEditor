@@ -121,6 +121,8 @@ class houdiniMenuClass(hqt.QMenu):
     def __init__(self, parent):
         super(houdiniMenuClass, self).__init__('Houdini', parent)
         self.par = parent
+        self.setTearOffEnabled(1)
+        self.setWindowTitle('MSE %s Houdini' % self.par.ver)
         self.addAction(hqt.QAction('Read From Node', parent, triggered=self.readFromNode))
         self.addAction(hqt.QAction('Save To Node', parent, triggered=self.saveToNode))
 

@@ -34,6 +34,10 @@ class scriptEditorClass(QMainWindow, ui.Ui_scriptEditor):
         self.out_ly.addWidget(self.out)
         self.tab = tabWidget.tabWidgetClass(self)
         self.in_ly.addWidget(self.tab)
+
+        for m in self.file_menu, self.tools_menu, self.options_menu, self.run_menu, self.help_menu:
+            m.setWindowTitle('MSE '+self.ver)
+
         #variables
         self.s = settingsManager.scriptEditorClass()
         self.namespace = {}
