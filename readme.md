@@ -44,7 +44,7 @@ The main pre condition - Should be used Python2.7.
    
 ### Maya features
   - Save code to shelf and accept dropped shelf button code, like default Maya script editor
-  - Drag&Dropping Maya nodes fills in their path. Use Alt modifier to wrap node or parameter as code. Import PyMEL before doing this!
+  - Drag&Dropping Maya nodes fills in their names. Use Alt modifier to wrap node as code. Import PyMEL before doing this!
   - Context completion for function PyNode with existing nodes in current scene
   - Context completion for function pm.createNode and cmds.createNode with existing Maya node types
 
