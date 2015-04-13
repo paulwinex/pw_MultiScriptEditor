@@ -2,7 +2,9 @@
 
 ![alt tag](http://www.paulwinex.ru/wp-content/uploads/2015/04/mse_banner.jpg)
 
-## [Go to site](http://www.paulwinex.ru/multi-script-editor-v2-0/)
+## [paulwinex.ru](http://www.paulwinex.ru/multi-script-editor-v2-0/)
+
+## [Tutorials](https://vimeo.com/channels/multiscripteditor)
 
 This is a cross application, cross platform and open source Python editor, which can be run as a standalone application 
 or embedded in another application. The main purpose for integration - the ability to script in Python.

@@ -72,12 +72,24 @@ def completer(line):
         else:
             auto = nuke_nodes
         return [contextCompleterClass(x, x[l:], True) for x in auto], None
+
+    p2 = r"nuke\.allNodes\(.*(filter=)*['\"](\w*)$"
+    m = re.search(p2, line)# or re.search(p2, line)
+    if m:
+        name = m.group(2)
+        l = len(name)
+        if name:
+            auto = [x for x in nuke_nodes if x.lower().startswith(name.lower())]
+        else:
+            auto = nuke_nodes
+        return [contextCompleterClass(x, x[l:], True) for x in auto], None
+
     # exists nodes
     p3 = r"nuke\.toNode\(['\"](\w*)$"
     m = re.search(p3, line)
     if m:
         name = m.group(1)
-        nuke.tprint(name)
+        # nuke.tprint(name)
         nodes = [x.name() for x in nuke.allNodes()] #recurseGroups=True
         if name:
             result = [x for x in nodes if x.lower().startswith(name.lower())]
@@ -180,3 +192,5 @@ class selectDialog(QDialog):
         super(selectDialog, self).closeEvent( *args, **kwargs)
 
 
+# p2 = r"nuke\.allNodes\(.*(filter=)*['\"](\w*)$"
+# re.search(p2, 'nuke.allNodes(filter="G').group(2)

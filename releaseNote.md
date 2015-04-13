@@ -27,9 +27,10 @@
     - save script to PythonButtonKnob
     - get selected nodes as code "nuke.toNode('<nodeName>')"
     - search nodes in clipboard text
-  - added autocomplete for "toNode" function in Nuke with existing nodes
+  - added autocomplete for "toNode" function with existing nodes
+  - added autocomplete for "allNodes" function with all node types (parameter "filter=")
   - finished default Nuke autocomplete modules. Now all functions return correct types
-  - no need to import main module (nuke) to make completer worked
+  - no need to import main module (import nuke) to make completer worked
 
 #### Maya
 
