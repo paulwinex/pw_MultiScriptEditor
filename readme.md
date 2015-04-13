@@ -2,7 +2,7 @@
 
 ![alt tag](http://www.paulwinex.ru/wp-content/uploads/2015/04/mse_banner.jpg)
 
-## [paulwinex.ru](http://www.paulwinex.ru/multi-script-editor-v2-0/)
+#### [paulwinex.ru](http://www.paulwinex.ru/multi-script-editor-v2-0/)
 
 ## [Tutorials](https://vimeo.com/channels/multiscripteditor)
 
