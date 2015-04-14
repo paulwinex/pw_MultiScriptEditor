@@ -112,6 +112,7 @@ class inputClass(QTextEdit):
                 self.completer.updateCompleteList()
 
     def moveCompleter(self):
+        # self.p.out.showMessage('move')
         rec = self.cursorRect()
         # pt = self.mapToGlobal(QPoint(rec.bottomRight().x(), rec.y()+self.completer.lineHeight))
         pt = self.mapToGlobal(rec.bottomRight())

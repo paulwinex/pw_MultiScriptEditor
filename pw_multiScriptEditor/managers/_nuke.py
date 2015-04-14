@@ -62,7 +62,7 @@ def showWindow():
 
 def completer(line):
     # node types
-    p1 = r"nuke\.createNode\(['\"](\w*)$"
+    p1 = r"nuke\.createNode\(\w*['\"](\w*)$"
     m = re.search(p1, line)# or re.search(p2, line)
     if m:
         name = m.group(1)
@@ -73,7 +73,8 @@ def completer(line):
             auto = nuke_nodes
         return [contextCompleterClass(x, x[l:], True) for x in auto], None
 
-    p2 = r"nuke\.allNodes\(.*(filter=)*['\"](\w*)$"
+    # p2 = r"nuke\.allNodes\(.*(filter=)*['\"](\w*)$"
+    p2 = r"nuke\.allNodes\(\w*(filter=)*['\"]{1}(\w*)$"
     m = re.search(p2, line)# or re.search(p2, line)
     if m:
         name = m.group(2)
@@ -85,7 +86,7 @@ def completer(line):
         return [contextCompleterClass(x, x[l:], True) for x in auto], None
 
     # exists nodes
-    p3 = r"nuke\.toNode\(['\"](\w*)$"
+    p3 = r"nuke\.toNode\(\w*['\"](\w*)$"
     m = re.search(p3, line)
     if m:
         name = m.group(1)

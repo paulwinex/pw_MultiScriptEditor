@@ -114,8 +114,8 @@ class completeMenuClass(QListWidget):
             self.setCurrentRow(self.count()-1)
 
     def showMe(self):
-
         self.show()
+        self.e.moveCompleter()
 
     def hideMe(self):
         self.hide()
