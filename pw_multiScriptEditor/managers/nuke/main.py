@@ -4,7 +4,7 @@ import math, geo
 class KnobType(object):
     pass
 
-class _Knob(object):
+class Knob(object):
     """
     Fake class for default methods in all Knobs. Not Nuke default class !!!!
     Used for auto comlete
@@ -246,7 +246,7 @@ Show or hide the knob.
     def animation(self, i):
         return AnimationCurve()
 
-class Font_Knob(_Knob):
+class Font_Knob(Knob):
 
     def value(self):
         """None"""
@@ -256,7 +256,7 @@ class Font_Knob(_Knob):
         """None"""
         pass
 
-class Array_Knob(_Knob):
+class Array_Knob(Knob):
     def clearAnimated(self, index, view):
         """self.clearAnimated(index, view) -> True if succeeded, False otherwise.
 Delete animation.
@@ -637,7 +637,7 @@ Copies the i'th channel of the AnimationCurve curve to this object. The view is 
 """
         pass
 
-class Axis_Knob(_Knob):
+class Axis_Knob(Knob):
     def uniformScale(self):
         """self.uniformScale() -> Double_Knob
 Return uniform scale knob."""
@@ -686,7 +686,7 @@ Return translation knob."""
         """x.__init__(...) initializes x; see x.__class__.__doc__ for signature"""
         pass
 
-class Channel_Knob(_Knob):
+class Channel_Knob(Knob):
     def inputNumber(self):
         """self.inputNumber() -> int"""
         return 0
@@ -764,12 +764,12 @@ Test if a channel is enabled.
         """x.__init__(...) initializes x; see x.__class__.__doc__ for signature"""
         pass
 
-class BeginTabGroup_Knob(_Knob):
+class BeginTabGroup_Knob(Knob):
     def __new__(self,S, ):
         """T.__new__(S, ...) -> a new object with type S, a subtype of T"""
         pass
 
-class Format_Knob(_Knob):
+class Format_Knob(Knob):
     def setValue(self,format):
         """setValue(format) -> True if succeeded, False otherwise.
 
@@ -820,7 +820,7 @@ Pass None for context to get results for all views and key times (as stored in a
 Return name of knob."""
         return ''
 
-class GeoSelect_Knob(_Knob):
+class GeoSelect_Knob(Knob):
 
     def __setattr__(self):
         """x.__setattr__('name', value) <==> x.name = value"""
@@ -844,7 +844,7 @@ Get the geometry which this knob can select from."""
         """x.__delattr__('name') <==> del x.name"""
         pass
 
-class Help_Knob(_Knob):
+class Help_Knob(Knob):
     def __new__(self,S, ):
         """T.__new__(S, ...) -> a new object with type S, a subtype of T"""
         pass
@@ -853,7 +853,7 @@ class Help_Knob(_Knob):
         """x.__init__(...) initializes x; see x.__class__.__doc__ for signature"""
         pass
 
-class Histogram_Knob(_Knob):
+class Histogram_Knob(Knob):
     def __new__(self,S, ):
         """T.__new__(S, ...) -> a new object with type S, a subtype of T"""
         pass
@@ -862,7 +862,7 @@ class Histogram_Knob(_Knob):
         """x.__init__(...) initializes x; see x.__class__.__doc__ for signature"""
         pass
 
-class Link_Knob(_Knob):
+class Link_Knob(Knob):
     def setValue(self):
         """setValue() -> None
 
@@ -902,7 +902,7 @@ Return value of knob."""
 """
         pass
 
-class LookupCurves_Knob(_Knob):
+class LookupCurves_Knob(Knob):
     def delCurve(self,curve):
         """self.delCurve(curve) -> None
 Deletes a curve.
@@ -937,7 +937,7 @@ Adds a curve.
         """x.__init__(...) initializes x; see x.__class__.__doc__ for signature"""
         pass
 
-class MultiView_Knob(_Knob):
+class MultiView_Knob(Knob):
     def toScriptPrefix(self):
         """"""
         pass
@@ -984,7 +984,7 @@ Pass None for context to get results for all views and key times (as stored in a
         """x.__init__(...) initializes x; see x.__class__.__doc__ for signature"""
         pass
 
-class Obsolete_Knob(_Knob):
+class Obsolete_Knob(Knob):
 
     def setValue(self):
         """None"""
@@ -998,7 +998,7 @@ class Obsolete_Knob(_Knob):
         """x.__init__(...) initializes x; see x.__class__.__doc__ for signature"""
         pass
 
-class Password_Knob(_Knob):
+class Password_Knob(Knob):
     def setValue(self, val, view='default'):
         """self.setValue(val, view='default') -> None
 Set value of knob.
@@ -1029,7 +1029,7 @@ Return text associated with knob."""
         """x.__init__(...) initializes x; see x.__class__.__doc__ for signature"""
         pass
 
-class String_Knob(_Knob):
+class String_Knob(Knob):
 
     def splitView(self,view):
         """self.splitView(view) -> None.
@@ -1098,7 +1098,7 @@ Unsplit the view so that it shares a value with other views.
         """x.__init__(...) initializes x; see x.__class__.__doc__ for signature"""
         pass
 
-class Tab_Knob(_Knob):
+class Tab_Knob(Knob):
     def setValue(self):
         """None"""
         pass
@@ -1111,7 +1111,7 @@ class Tab_Knob(_Knob):
         """None"""
         pass
 
-class Text_Knob(_Knob):
+class Text_Knob(Knob):
     def value(self):
         """None"""
         return ''
@@ -1128,7 +1128,7 @@ class Text_Knob(_Knob):
         """x.__init__(...) initializes x; see x.__class__.__doc__ for signature"""
         pass
 
-class Transform2d_Knob(_Knob):
+class Transform2d_Knob(Knob):
     def value(self,oc):
         """value(oc) -> matrix
 
@@ -1143,7 +1143,7 @@ Return transformation matrix. The argument oc is an OutputContext. Both argument
         """x.__init__(...) initializes x; see x.__class__.__doc__ for signature"""
         pass
 
-class ViewView_Knob(_Knob):
+class ViewView_Knob(Knob):
     def __new__(self,S, ):
         """T.__new__(S, ...) -> a new object with type S, a subtype of T"""
         pass
@@ -1152,11 +1152,21 @@ class ViewView_Knob(_Knob):
         """x.__init__(...) initializes x; see x.__class__.__doc__ for signature"""
         pass
 
-class EndTabGroup_Knob(_Knob):
+class EndTabGroup_Knob(Knob):
 
     def __new__(self,S, ):
         """T.__new__(S, ...) -> a new object with type S, a subtype of T"""
         pass
+
+class Disable_Knob(Knob):
+    pass
+
+class Radio_Knob(Knob):
+    pass
+class FreeType_Knob(Knob):
+    pass
+class SceneView_Knob(Knob):
+    pass
 
 class BBox_Knob(Array_Knob):
 
@@ -1948,17 +1958,9 @@ Returns the string on this knob, will be normalized to technical notation if seq
 
  # NODES
 
-class Disable_Knob(_Knob):
-    pass
 
-class Radio_Knob(_Knob):
-    pass
-class FreeType_Knob(_Knob):
-    pass
-class SceneView_Knob(_Knob):
-    pass
 
-class Knob(AColor_Knob, Array_Knob, Axis_Knob, BBox_Knob, BeginTabGroup_Knob, Bitmask_Knob, Boolean_Knob, Box3_Knob,
+class _Knob(AColor_Knob, Array_Knob, Axis_Knob, BBox_Knob, BeginTabGroup_Knob, Bitmask_Knob, Boolean_Knob, Box3_Knob,
            CascadingEnumeration_Knob, ChannelMask_Knob, Channel_Knob, ColorChip_Knob, Color_Knob, Disable_Knob,
            Double_Knob, EndTabGroup_Knob, Enumeration_Knob, EvalString_Knob, Eyedropper_Knob, File_Knob, Font_Knob,
            Format_Knob, FreeType_Knob, GeoSelect_Knob, Help_Knob, Histogram_Knob, IArray_Knob, Int_Knob, Keyer_Knob,
