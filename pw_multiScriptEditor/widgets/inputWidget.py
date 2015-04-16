@@ -2,8 +2,6 @@ from PySide.QtCore import *
 from PySide.QtGui import *
 import re
 import jedi
-# https://github.com/davidhalter/jedi
-# http://jedi.jedidjah.ch/en/latest/
 from pythonSyntax import syntaxHighLighter
 reload(syntaxHighLighter)
 import completeWidget
@@ -28,6 +26,9 @@ class inputClass(QTextEdit):
     executeSignal = Signal()
     saveSignal = Signal()
     def __init__(self, parent, desk=None):
+
+        # https://github.com/davidhalter/jedi
+        # http://jedi.jedidjah.ch/en/latest/
         super(inputClass, self).__init__(parent)
         self.p = parent
         self.desk = desk
@@ -86,7 +87,7 @@ class inputClass(QTextEdit):
                 pos = tc.position()
                 if managers.context in managers.contextCompleters:
                     line = text[:pos].split('\n')[-1]
-                    comp, extra = managers.contextCompleters[managers.context ](line)
+                    comp, extra = managers.contextCompleters[managers.context ](line, self.p.namespace)
                     if comp or extra:
                         context_completer = True
                         self.completer.updateCompleteList(comp, extra)

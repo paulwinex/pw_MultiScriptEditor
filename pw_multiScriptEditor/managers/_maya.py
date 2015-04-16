@@ -68,7 +68,7 @@ def showDickControl():
 
 nodes = pm.allNodeTypes()
 
-def completer(line):
+def completer(line, ns):
     # create node
     p = r"createNode\(['\"](\w*)$"
     m = re.search(p, line)

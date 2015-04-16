@@ -3,6 +3,7 @@ import os, sys, re
 main = __import__('__main__')
 ns = main.__dict__
 exec 'import nuke' in ns
+exec 'import nukescripts' in ns
 nuke = ns['nuke']
 import nukescripts
 from managers.nuke import nodes
@@ -60,10 +61,10 @@ def showWindow():
 
 ############ COMPLETER
 
-def completer(line):
+def completer(line, ns):
     # node types
     p1 = r"nuke\.createNode\(\w*['\"](\w*)$"
-    m = re.search(p1, line)# or re.search(p2, line)
+    m = re.search(p1, line)
     if m:
         name = m.group(1)
         l = len(name)
@@ -98,6 +99,21 @@ def completer(line):
             result = nodes
         l = len(name)
         return [contextCompleterClass(x, x[l:], True) for x in result], None
+    # node knobs
+    p4 = r"(\w)\[['\"]{1}(\w*)$"
+    m = re.search(p4, line)
+    if m:
+        node = m.group(1)
+        name = m.group(2)
+        if node in ns:
+            names = [x.name() for x in ns[node].allKnobs()]
+            if name:
+                result = [x for x in names if x.lower().startswith(name.lower())]
+            else:
+                result = names
+            l = len(name)
+            return [contextCompleterClass(x, x[l:], True) for x in result if x], None
+            # nuke.tprint(ns[node])
     return None, None
 
 ################  CONTEXT MENU
@@ -192,6 +208,3 @@ class selectDialog(QDialog):
         self.reject()
         super(selectDialog, self).closeEvent( *args, **kwargs)
 
-
-# p2 = r"nuke\.allNodes\(.*(filter=)*['\"](\w*)$"
-# re.search(p2, 'nuke.allNodes(filter="G').group(2)

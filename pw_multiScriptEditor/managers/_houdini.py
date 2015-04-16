@@ -69,7 +69,7 @@ def getAllDifinitions():
 roots = ['obj', 'shop', 'ch', 'vex', 'img', 'out']
 nodes = list(set(getAllDifinitions()))
 
-def completer(line):
+def completer(line, ns):
     # node types
     func = ['createNode', 'createInputNode', 'createOutputNode']
     for f in func:
