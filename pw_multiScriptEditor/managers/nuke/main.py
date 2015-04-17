@@ -246,6 +246,19 @@ Show or hide the knob.
     def animation(self, i):
         return AnimationCurve()
 
+    def animations(self,view):
+        """self.animations(view) -> AnimationCurve list.
+@param view: Optional view.
+@return: AnimationCurve list.
+Example:
+b = nuke.nodes.Blur()
+k = b['size']
+k.setAnimated(0)
+a = k.animations()
+a[0].setKey(0, 11)
+a[0].setKey(10, 20)
+"""
+        return [AnimationCurve(),]
 class Font_Knob(_Knob):
 
     def value(self):
@@ -2725,6 +2738,8 @@ selected        True if the point is selected in the curve editor
 x               The horizontal position of the point
 y               The vertical position of the point
     """
+    def __init__(self, time, val):
+        pass
     extrapolation= None
     #Controls how to set the left slope of the first point and the right slope of the last point
     interpolation=0
@@ -4958,7 +4973,7 @@ Otherwise this produces an error indicating that the command requries a knob con
 Also see the 'selected' argument to the animation command.
 See also: animation, animationStart, animationEnd, animationIncrement
 @return: A tuple of animatable things."""
-    return (None,)
+    return (AnimationCurve(),)
 
 def applyPreset(nodeName, presetName):
     """applyPreset(nodeName, presetName) -> None
