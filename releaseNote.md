@@ -1,3 +1,8 @@
+## v2.0.4
+### Fix
+  - comment/uncomment function
+  - optimised Nuke library
+
 ## v2.0.3
 ### What new
 

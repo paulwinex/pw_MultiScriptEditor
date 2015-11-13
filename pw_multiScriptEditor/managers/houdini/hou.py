@@ -1,4 +1,4 @@
-mport hmath
+import hmath
 
 class EnumValue(object):
     """
@@ -5282,7 +5282,7 @@ class ParmTemplateGroup(object):
               for index in indices[1:]:
                   parm_template = parm_template.parmTemplates()[index]
               return parm_template        """
-        return ParmTemplate(self):
+        return ParmTemplate(self)
 
     def containingFolderIndices(self, name_or_parm_template_or_indices):
         """
@@ -6337,7 +6337,7 @@ class DopData(object):
             dophassubdata function        """
         return DopData()
 
-    def findAllSubData(*self, data_spec, recurse=False):
+    def findAllSubData(self, data_spec, recurse=False):
         """
         findAllSubData(self, data_spec, recurse=False) -> dict of str to
         hou.DopData
@@ -9341,7 +9341,7 @@ class DopSimulation(object):
         """
         return (DopRelationship(),)
 
-    def findObject(self, obj_spec)):
+    def findObject(self, obj_spec):
         """
         findObject(self, obj_spec) -> hou.DopObject or None
 
@@ -12635,7 +12635,7 @@ class GeometrySelection(object):
         """
         return (Node(),)
 
-    def selectionStrings(self, empty_string_selects_all=True, bool
+    def selectionStrings(self, empty_string_selects_all=True, bool=True,
         force_numeric=False):
         """
         selectionStrings(self, empty_string_selects_all=True, bool
@@ -14435,6 +14435,7 @@ class hipFile(object):
     """
 
     def __init__(self): raise AttributeError, "No constructor defined"
+    @staticmethod
     def save(file_name=None, save_to_recent_files=True):
         """
         save(file_name=None, save_to_recent_files=True)
@@ -14460,8 +14461,8 @@ class hipFile(object):
 
         REPLACES
             mwrite command        """
-
-    def saveAndIncrementFileName(self):
+    @staticmethod
+    def saveAndIncrementFileName():
         """
         saveAndIncrementFileName()
 
@@ -14476,8 +14477,8 @@ class hipFile(object):
 
         REPLACES
             mwrite command        """
-
-    def saveAsBackup(self):
+    @staticmethod
+    def saveAsBackup():
         """
         saveAsBackup()
 
@@ -14497,16 +14498,16 @@ class hipFile(object):
 
         REPLACES
             mwrite command        """
-
-    def basename(self):
+    @staticmethod
+    def basename():
         """
         basename() -> str
 
         Return only the filename portion of the current hip file.
         """
         return ''
-
-    def name(self):
+    @staticmethod
+    def name():
         """
         name() -> str
 
@@ -14516,15 +14517,15 @@ class hipFile(object):
         get a full path, use hou.hipFile.path instead.
         """
         return ''
-
-    def path(self):
+    @staticmethod
+    def path():
         """
         path() -> str
 
         Return a full path to the current hip file.
         """
         return ''
-
+    @staticmethod
     def setName(file_name):
         """
         setName(file_name)
@@ -14537,7 +14538,7 @@ class hipFile(object):
         hip file.  To both set the name of the current session and save it to a
         hip file, use hou.hipFile.save.
         """
-
+    @staticmethod
     def clear(suppress_save_prompt=False):
         """
         clear(suppress_save_prompt=False)
@@ -14555,7 +14556,7 @@ class hipFile(object):
 
         REPLACES
             mnew command        """
-
+    @staticmethod
     def load(file_name, suppress_save_prompt=False, ignore_load_warnings=False):
         """
         load(file_name, suppress_save_prompt=False, ignore_load_warnings=False)
@@ -14584,7 +14585,7 @@ class hipFile(object):
 
         REPLACES
             mread command        """
-
+    @staticmethod
     def merge(file_name, node_pattern="*", overwrite_on_conflict=False,
         ignore_load_warnings=False):
         """
@@ -14609,7 +14610,7 @@ class hipFile(object):
 
         REPLACES
             mread command        """
-
+    @staticmethod
     def collisionNodesIfMerged(file_name, node_pattern="*"):
         """
         collisionNodesIfMerged(file_name, node_pattern="*") -> tuple of
@@ -14628,8 +14629,8 @@ class hipFile(object):
         message will reflect the failure reason.
         """
         return (Node(),)
-
-    def isLoadingHipFile(self):
+    @staticmethod
+    def isLoadingHipFile():
         """
         isLoadingHipFile() -> bool
 
@@ -14638,8 +14639,8 @@ class hipFile(object):
         REPLACES
             opisloading function        """
         return True
-
-    def isShuttingDown(self):
+    @staticmethod
+    def isShuttingDown():
         """
         isShuttingDown() -> bool
 
@@ -14648,8 +14649,8 @@ class hipFile(object):
         REPLACES
             opisquitting function        """
         return True
-
-    def hasUnsavedChanges(self):
+    @staticmethod
+    def hasUnsavedChanges():
         """
         hasUnsavedChanges() -> bool
 
@@ -23066,7 +23067,7 @@ class ShellIO(object):
 
     def __init__(self): raise AttributeError, "No constructor defined"
 
-    def readline(*args,  size=-1):
+    def readline(*args):
         """
         readline(self, size=-1) -> string
         """
@@ -24891,7 +24892,8 @@ class ui(object):
     """
 
     def __init__(self): raise AttributeError, "No constructor defined"
-    def shellIO(self):
+    @staticmethod
+    def shellIO():
         """
         shellIO() -> hou.ShellIO
 
@@ -24900,8 +24902,8 @@ class ui(object):
         shouldn't need to access the ShellIO directly.
         """
         return ShellIO()
-
-    def curDesktop(self):
+    @staticmethod
+    def curDesktop():
         """
         curDesktop() -> hou.Desktop
 
@@ -24910,8 +24912,8 @@ class ui(object):
         REPLACES
             desk command        """
         return Desktop()
-
-    def desktops(self):
+    @staticmethod
+    def desktops():
         """
         desktops() -> tuple of hou.Desktop
 
@@ -24922,8 +24924,8 @@ class ui(object):
         REPLACES
             desk command        """
         return (Desktop(),)
-
-    def paneTabs(self):
+    @staticmethod
+    def paneTabs():
         """
         paneTabs(self) -> tuple of hou.PaneTab
 
@@ -24933,8 +24935,8 @@ class ui(object):
         See also hou.Desktop.paneTabs.
         """
         return (PaneTab(),)
-
-    def paneTabOfType(self, type, index=0):
+    @staticmethod
+    def paneTabOfType( type, index=0):
         """
         paneTabOfType(self, type, index=0) -> hou.PaneTab or None
 
@@ -24953,8 +24955,8 @@ class ui(object):
         See also hou.Desktop.paneTabOfType.
         """
         return PaneTab()
-
-    def findPaneTab(self, name):
+    @staticmethod
+    def findPaneTab(name):
         """
         findPaneTab(self, name) -> hou.PaneTab or None
 
@@ -24965,8 +24967,8 @@ class ui(object):
         See also hou.Desktop.findPaneTab.
         """
         return PaneTab()
-
-    def floatingPaneTabs(self):
+    @staticmethod
+    def floatingPaneTabs():
         """
         floatingPaneTabs(self) -> tuple of hou.PaneTab
 
@@ -24975,8 +24977,8 @@ class ui(object):
         See also hou.Desktop.floatingPaneTabs.
         """
         return PaneTab()
-
-    def floatingPanels(self):
+    @staticmethod
+    def floatingPanels():
         """
         floatingPanels(self) -> tuple of hou.FloatingPanel
 
@@ -24985,8 +24987,8 @@ class ui(object):
         See also hou.Desktop.floatingPanels.
         """
         return FloatingPanel()
-
-    def orientationUpAxis(self):
+    @staticmethod
+    def orientationUpAxis():
         """
         orientationUpAxis(self) -> hou.orientUpAxis enum value
 
@@ -24994,7 +24996,7 @@ class ui(object):
         axis.
         """
         return orientUpAxis()
-
+    @staticmethod
     def displayMessage(text, buttons=('OK',), severity=hou.severityType.Message,
         default_choice=0, close_choice=None, help=None, title=None,
         details=None,  details_expanded=False):
@@ -25049,7 +25051,7 @@ class ui(object):
 
         REPLACES
             message command        """
-
+    @staticmethod
     def readInput(message, buttons=('OK',), severity=hou.severityType.Message,
         default_choice=0, close_choice=None, help=None, title=None,
         initial_contents=None):
@@ -25102,12 +25104,12 @@ class ui(object):
         See also hou.ui.readMultiInput
         """
         return (0, '')
-
+    @staticmethod
     def readMultiInput(message, input_labels, password_input_indices=(),
         buttons=('OK',), severity=hou.severityType.Message, default_choice=0,
-        close_choice=None, help=None, title=None, initial_contents=(0,)) ->
-        (int, tuple of str):
+        close_choice=None, help=None, title=None, initial_contents=(0,)):
         """
+        -> (int, tuple of str):
         readMultiInput(message, input_labels, password_input_indices=(),
         buttons=('OK',), severity=hou.severityType.Message, default_choice=0,
         close_choice=None, help=None, title=None, initial_contents=(0,)) ->
@@ -25169,7 +25171,7 @@ class ui(object):
         See also hou.ui.readInput
         """
         return (0, ('',))
-
+    @staticmethod
     def selectFromList(hoices, default_choices=(0,), exclusive=False,
         message=None, title=None, column_header=None, num_visible_rows=10):
         """
@@ -25212,7 +25214,7 @@ class ui(object):
         REPLACES
             listchooser command        """
         return (0,)
-
+    @staticmethod
     def selectFromTree(choices, picked=(), exclusive=False, message=None,
         title=None):
         """
@@ -25243,7 +25245,7 @@ class ui(object):
         REPLACES
             treechooser command        """
         return ('',)
-
+    @staticmethod
     def selectFile(start_directory=None, title=None, collapse_sequences=False,
         file_type=hou.fileType.None, pattern=None, default_value=None,
         multiple_select=False, image_chooser=False,
@@ -25293,7 +25295,7 @@ class ui(object):
         REPLACES
             filechooser command        """
         return ''
-
+    @staticmethod
     def selectNode(relative_to_node=None, initial_node=None,
         node_type_filter=None):
         """
@@ -25335,7 +25337,7 @@ class ui(object):
           >>> setParmOnNode(hou.parm("/obj/box_object1/shop_materialpath"), hou.nodeTypeFilter.Shop)
         """
         return ''
-
+    @staticmethod
     def displayFileDependencyDialog(rop_node=None, uploaded_files=(),
         forced_unselected_patterns=(), project_dir_variable='HIP',
         is_standalone=true):
@@ -25345,7 +25347,7 @@ class ui(object):
         is_standalone=true) -> (bool, tuple of str)
         """
         return (True, ('',))
-
+    @staticmethod
     def displayNodeHelp(node_type):
         """
         displayNodeHelp(node_type)
@@ -25362,7 +25364,7 @@ class ui(object):
 
         REPLACES
             ophelp command        """
-
+    @staticmethod
     def openTypePropertiesDialog(node_or_node_type, promote_spare_parms=False,
         immediately_save=False):
         """
@@ -25384,23 +25386,23 @@ class ui(object):
         REPLACES
             otedit command
             propertyedit command        """
-
-    def updateMode(self):
+    @staticmethod
+    def updateMode():
         """
         updateMode() -> hou.updateMode enum value
 
         This method is deprecated in favor of hou.updateModeSetting.
         """
         return updateMode()
-
+    @staticmethod
     def setUpdateMode(mode):
         """
         setUpdateMode(mode)
 
         This method is deprecated in favor of hou.setUpdateMode.
         """
-
-    def triggerUpdate(self):
+    @staticmethod
+    def triggerUpdate():
         """
         reloadViewportColorSchemes()
 
@@ -25412,8 +25414,8 @@ class ui(object):
         you can map to a hotkey or call it in the Python console so you can
         check your changes.
         """
-
-    def reloadViewportColorSchemes(self): return
+    @staticmethod
+    def reloadViewportColorSchemes(): return
     def _getTabMenuIconSize(self):
         """
         _getTabMenuIconSize() -> (int, int)
@@ -25421,6 +25423,7 @@ class ui(object):
         Used internally by Houdini to get the current icon size in the tab menu.
         """
         return (0,0)
+    @staticmethod
     def createDialog(ui_file_name):
         """
         createDialog(ui_file_name) -> hou.Dialog
@@ -25442,7 +25445,7 @@ class ui(object):
         None.
         """
         return Dialog()
-
+    @staticmethod
     def findDialog(ui_file_name):
         """
         findDialog(ui_file_name) -> hou.Dialog
@@ -25456,16 +25459,17 @@ class ui(object):
         Raises hou.TypeError if ui_file_name is None.
         """
         return Dialog()
-
-    def dialogs(self):
+    @staticmethod
+    def dialogs():
         """
         dialogs() -> tuple of hou.Dialog
 
         Return all dialogs created by hou.ui.createDialog.
         """
         return (Dialog(),)
-
-    def opaqueWaitUntil(self): return
+    @staticmethod
+    def opaqueWaitUntil(): return
+    @staticmethod
     def writePythonShellHistoryFile(filename=None):
         """
         writePythonShellHistoryFile(filename=None)
@@ -25479,7 +25483,7 @@ class ui(object):
         Raises hou.OperationFailed if no Python Shell has been opened. Raises
         hou.OperationFailed if filename cannot be created.
         """
-
+    @staticmethod
     def readPythonShellHistoryFile(filename=None):
         """
         readPythonShellHistoryFile(filename=None)
@@ -25493,7 +25497,7 @@ class ui(object):
         Raises hou.OperationFailed if no Python Shell has been opened. Raises
         hou.OperationFailed if filename does not exist or cannot be read.
         """
-
+    @staticmethod
     def setStatusMessage(message, severity=hou.severityType.Message):
         """
         setStatusMessage(message, severity=hou.severityType.Message)
@@ -25506,9 +25510,11 @@ class ui(object):
 
         To clear the status bar, call hou.ui.setStatusMessage("").
         """
-
-    def openAssetUploadDialog(self): return
-    def openAssetDependenciesDialog(self): return
+    @staticmethod
+    def openAssetUploadDialog(): return
+    @staticmethod
+    def openAssetDependenciesDialog(): return
+    @staticmethod
     def hasDragSourceData(label, index):
         """
         getDragSourceData(label, index)
@@ -25519,8 +25525,9 @@ class ui(object):
         Raises hou.NotAvailable if no drag operation is currently active.
         """
         return True
-
-    def getDragSourceData(self): return
+    @staticmethod
+    def getDragSourceData(): return
+    @staticmethod
     def createQtIcon(name, width=32, height=32):
         """
         createQtIcon(name, width=32, height=32)
@@ -25534,15 +25541,15 @@ class ui(object):
           help_button.setIcon(icon)
         """
         return QIcon()
-
-    def qtStyleSheet(self):
+    @staticmethod
+    def qtStyleSheet():
         """
         qtStyleSheet()
 
         Returns the style sheet that Houdini is using to style Qt widgets.
         """
         return ''
-
+    @staticmethod
     def addEventLoopCallback(callback):
         """
         addEventLoopCallback(callback)
@@ -25565,7 +25572,7 @@ class ui(object):
         into Houdini's event loop.  See the PyQt and wxPython cookbook examples
         for example usages.
         """
-
+    @staticmethod
     def removeEventLoopCallback(callback):
         """
         removeEventLoopCallback(callback)
@@ -25577,8 +25584,8 @@ class ui(object):
         Raises hou.OperationFailed if the callback was not previously
         registered.
         """
-
-    def eventLoopCallbacks(self):
+    @staticmethod
+    def eventLoopCallbacks():
         """
         eventLoopCallbacks() -> tuple of callback
 
@@ -25586,7 +25593,7 @@ class ui(object):
         with hou.ui.addEventLoopCallback.
         """
         return (object,)
-
+    @staticmethod
     def waitUntil(condition_callback):
         """
         waitUntil(condition_callback)
@@ -26864,7 +26871,7 @@ class VexContext(object):
         """
         pathsToLoadedVexFunctions(self) -> dict of names to paths
         """
-        return ('':'')
+        return {'':''}
 
 class ViewerState(object):
     """
@@ -27366,7 +27373,7 @@ class VopNode(Node):
         """
         return {'':VopNode()}
 
-    def deleteIndependentInputNodes(self, input_index):, make_parm_node,
+    def deleteIndependentInputNodes(self, input_index, make_parm_node,
         reference_input_defaults):
         """
         deleteIndependentInputNodes(self, input_index):, make_parm_node,
@@ -27424,7 +27431,8 @@ class VopNode(Node):
         """
         return ''
 
-    def shaderType(self): return
+    def shaderType(self):
+        return
     def currentSignatureName(self):
         """
         currentSignatureName(self) -> str
@@ -32401,7 +32409,7 @@ def matchin():
 
 
     """
-  return 0.0)
+  return 0.0
 
 def matchout():
   """
@@ -33492,3 +33500,4 @@ def nodeTypeCategories ():
 
 def vexContexts ():
     return (VexContexts(),)
+

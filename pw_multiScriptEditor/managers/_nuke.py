@@ -75,16 +75,18 @@ def completer(line, ns):
         return [contextCompleterClass(x, x[l:], True) for x in auto], None
 
     # p2 = r"nuke\.allNodes\(.*(filter=)*['\"](\w*)$"
-    p2 = r"nuke\.allNodes\(\w*(filter=)*['\"]{1}(\w*)$"
-    m = re.search(p2, line)# or re.search(p2, line)
-    if m:
-        name = m.group(2)
-        l = len(name)
-        if name:
-            auto = [x for x in nuke_nodes if x.lower().startswith(name.lower())]
-        else:
-            auto = nuke_nodes
-        return [contextCompleterClass(x, x[l:], True) for x in auto], None
+    funcs = ['allNodes', 'selectedNodes']
+    for f in funcs:
+        p2 = r"nuke\."+f+"\(\w*(filter=)*['\"]{1}(\w*)$"
+        m = re.search(p2, line)# or re.search(p2, line)
+        if m:
+            name = m.group(2)
+            l = len(name)
+            if name:
+                auto = [x for x in nuke_nodes if x.lower().startswith(name.lower())]
+            else:
+                auto = nuke_nodes
+            return [contextCompleterClass(x, x[l:], True) for x in auto], None
 
     # exists nodes
     p3 = r"nuke\.toNode\(\w*['\"](\w*)$"
@@ -100,11 +102,12 @@ def completer(line, ns):
         l = len(name)
         return [contextCompleterClass(x, x[l:], True) for x in result], None
     # node knobs
-    p4 = r"(\w)\[['\"]{1}(\w*)$"
+    p4 = r"(\w+)\[['\"]{1}(\w*)$"
     m = re.search(p4, line)
     if m:
         node = m.group(1)
         name = m.group(2)
+
         if node in ns:
             names = [x.name() for x in ns[node].allKnobs()]
             if name:
@@ -150,7 +153,9 @@ class nukeContextMenu(QMenu):
                 for k in pyKnobs:
                     result[k.name()] = k
                 if result:
-                    dial = selectDialog(result.keys(), title)
+                    curr = self.par.tab.currentTabName()
+                    selected = curr.split('|')[-1].strip()
+                    dial = selectDialog(result.keys(), title, selected)
                     if dial.exec_():
                         name = dial.list.currentItem().text()
                         knob = result[name]
@@ -173,7 +178,7 @@ class nukeContextMenu(QMenu):
             knob.setValue(text)
 
     def nodesFromClipboard(self):
-        nuke.tprint(str(self.par))
+        # nuke.tprint(str(self.par))
         text = QApplication.clipboard().text()
         nodes = []
         if text:
@@ -186,7 +191,7 @@ class nukeContextMenu(QMenu):
             self.par.tab.addToCurrent('nuke.toNode("%s")\n' % n)
 
 class selectDialog(QDialog):
-    def __init__(self, items, title):
+    def __init__(self, items, title, sel=None):
         super(selectDialog, self).__init__()
         self.setWindowTitle(title)
         self.setWindowFlags(Qt.Tool)
@@ -195,14 +200,20 @@ class selectDialog(QDialog):
         self.ly = QVBoxLayout(self)
         self.setLayout(self.ly)
         self.ly.addWidget(self.list)
-
         self.btn = QPushButton('Select')
         self.ly.addWidget(self.btn)
         self.btn.clicked.connect(self.accept)
+        selected = None
         for i in items:
             item = QListWidgetItem(i)
             item.setData(32, i)
             self.list.addItem(item)
+            if i == sel:
+                selected = item
+        if selected:
+            self.list.setCurrentIndex(self.list.indexFromItem(selected))
+
+
 
     def closeEvent(self, *args, **kwargs):
         self.reject()

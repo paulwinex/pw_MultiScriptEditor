@@ -20,7 +20,7 @@ indentLen = 4
 minimumFontSize = 10
 escapeButtons = [Qt.Key_Return, Qt.Key_Enter, Qt.Key_Left, Qt.Key_Right, Qt.Key_Home, Qt.Key_End, Qt.Key_PageUp, Qt.Key_PageDown,
                  Qt.Key_Delete, Qt.Key_Insert, Qt.Key_Escape]
-
+font_name = 'Lucida Console'
 
 class inputClass(QTextEdit):
     executeSignal = Signal()
@@ -33,7 +33,7 @@ class inputClass(QTextEdit):
         self.p = parent
         self.desk = desk
         self.setWordWrapMode(QTextOption.NoWrap)
-        self.document().setDefaultFont(QFont("monospace", minimumFontSize, QFont.Normal))
+        self.document().setDefaultFont(QFont(font_name, minimumFontSize, QFont.Normal))
         metrics = QFontMetrics(self.document().defaultFont())
         self.setTabStopWidth(4 * metrics.width(' '))
         self.setAcceptDrops(True)
@@ -43,7 +43,7 @@ class inputClass(QTextEdit):
         # self.customContextMenuRequested.connect(self.openMenu)
         data = settingsManager.scriptEditorClass().readSettings()
         self.applyHightLighter(data.get('theme'))
-        self.changeFontSize(False)
+        # self.changeFontSize(False)
         self.changeFontSize(True)
 
     def focusOutEvent(self, event):
@@ -92,7 +92,7 @@ class inputClass(QTextEdit):
                         context_completer = True
                         self.completer.updateCompleteList(comp, extra)
                 if not context_completer:
-                    if re.match('[a-zA-Z0-9.]', text[pos-1]):
+                    if re.match('[a-zA-Z0-9_.]', text[pos-1]):
                         offs = 0
                         if managers.context in managers.autoImport:
                             autoImp = managers.autoImport.get(managers.context, '')
@@ -288,9 +288,12 @@ class inputClass(QTextEdit):
     def addRemoveComments(self, text):
         result = text
         ofs = 0
-        if text:
+        if text.strip():
             lines = text.split('\n')
-            if lines[0].strip()[0] == '#': # remove comment
+            ind = 0
+            while not lines[ind].strip():
+                ind += 1
+            if lines[ind].strip()[0] == '#': # remove comment
                 result = '\n'.join([x.replace('#','',1) for x in lines])
                 ofs = -1
             else:   # add comment
@@ -456,13 +459,15 @@ class inputClass(QTextEdit):
             else:
                 size = max(8, size - 1)
             f.setPointSize(size)
+            f.setFamily(font_name)
             self.setFont(f)
 
     def setTextEditFontSize(self, size):
         style = self.styleSheet() +'''QTextEdit
     {
         font-size: %spx;
-    }''' % size
+        font-family: %s;
+    }''' % (size, font_name)
         self.setStyleSheet(style)
 
     def insertFromMimeData (self, source ):
@@ -516,3 +521,4 @@ class inputClass(QTextEdit):
 
     def replaceAll(selfold, new):
         pass
+

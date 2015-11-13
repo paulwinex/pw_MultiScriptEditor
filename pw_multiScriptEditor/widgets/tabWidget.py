@@ -37,9 +37,12 @@ class tabWidgetClass(QTabWidget):
 
     def closeTab(self, i):
         if self.count() > 1:
-            if QMessageBox.question(self, 'Close Tab',
-                                   'Close this tab?\n'+self.tabText(i),
-                                   QMessageBox.Yes|QMessageBox.No) == QMessageBox.Yes:
+            if self.getCurrentText(i).strip():
+                if QMessageBox.question(self, 'Close Tab',
+                                       'Close this tab without saving?\n'+self.tabText(i),
+                                       QMessageBox.Yes|QMessageBox.No) == QMessageBox.Yes:
+                    self.removeTab(i)
+            else:
                 self.removeTab(i)
 
     def openMenu(self):
@@ -81,8 +84,9 @@ class tabWidgetClass(QTabWidget):
         text = self.widget(i).edit.getSelection()
         return text
 
-    def getCurrentText(self):
-        i = self.currentIndex()
+    def getCurrentText(self, i=None):
+        if i is None:
+            i = self.currentIndex()
         text = self.widget(i).edit.toPlainText()
         return text
 
@@ -150,6 +154,11 @@ class container(QWidget):
             self.edit.addText(text)
         # if not context == 'hou':
             # line number
+        if context == 'hou':
+            import hou
+            if hou.applicationVersion()[0] > 14:
+                hbox.addWidget(self.edit)
+                return
         self.lineNum = numBarWidget.lineNumberBarClass(self.edit, self)
         hbox.addWidget(self.lineNum)
         hbox.addWidget(self.edit)

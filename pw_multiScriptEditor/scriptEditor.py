@@ -243,6 +243,8 @@ class scriptEditorClass(QMainWindow, ui.Ui_scriptEditor):
 
     def updateNamespace(self, namespace):
         self.namespace.update(namespace)
+        # md = __import__('__main__').__dict__
+        # md['mse'] = self.namespace
 
     def executeCommand(self, cmd):
         self.out.showMessage(cmd)

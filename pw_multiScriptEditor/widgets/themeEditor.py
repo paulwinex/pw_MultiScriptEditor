@@ -29,6 +29,7 @@ class themeEditorClass(QDialog, ui.Ui_themeEditor):
         self.updateUI()
         self.updateColors()
         self.preview_twd.completer.updateCompleteList()
+        self.namespace={}
 
 
     def fillUI(self, restore=None):

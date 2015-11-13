@@ -7,9 +7,10 @@ class outputClass(QTextBrowser):
     def __init__(self):
         super(outputClass, self).__init__()
         self.setWordWrapMode(QTextOption.NoWrap)
+        self.fs = 14
+        self.document().setDefaultFont(QFont("monospace", self.fs, QFont.Normal))
         metrics = QFontMetrics(self.document().defaultFont())
         self.setTabStopWidth(4 * metrics.width(' '))
-        self.fs = 14
 
     def showMessage(self, msg):
         self.moveCursor(QTextCursor.End)
