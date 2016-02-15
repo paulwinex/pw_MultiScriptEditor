@@ -48,6 +48,9 @@ The main pre condition - Should be used Python2.7.
   - Context completion for function PyNode with existing nodes in current scene
   - Context completion for function pm.createNode and cmds.createNode with existing Maya node types
 
+### 3DsMax features
+  - Works for now...
+
 
 # How to install
 
@@ -123,4 +126,12 @@ import pw_multiScriptEditor
 toolMenu.addCommand("Multi Script Editor", "pw_multiScriptEditor.showNuke()")
 # create new pane
 pw_multiScriptEditor.showNuke(panel=True)
+```
+
+### 3DsMax
+
+  - Create a menu, toolbar, etc with the following maxscript:
+
+```maxscript
+python.executefile("path\\to\\pw_multiScriptEditor\\run_3dsmax.py")
 ```

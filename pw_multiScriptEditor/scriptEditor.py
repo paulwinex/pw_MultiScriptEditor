@@ -106,6 +106,7 @@ class scriptEditorClass(QMainWindow, ui.Ui_scriptEditor):
             if nuke.NUKE_VERSION_MAJOR>8:
                 self.execSel_act.setShortcut('Ctrl+Return')
                 self.execSel_act.setShortcutContext(Qt.ApplicationShortcut)
+
         self.execSel_act.triggered.connect(self.executeSelected)
         self.execSel_act.setShortcut('Ctrl+Return')
         self.execSel_act.setShortcutContext(Qt.WidgetWithChildrenShortcut)
