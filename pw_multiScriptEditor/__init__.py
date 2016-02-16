@@ -28,3 +28,9 @@ def showMaya(dock=False):
     from .managers import _maya
     reload (_maya)
     _maya.show(dock)
+
+# 3DSMAX PLUS
+def show3DSMax():
+    from .managers import _3dsmax
+    reload (_3dsmax)
+    _3dsmax.show()
