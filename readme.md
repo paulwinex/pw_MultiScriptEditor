@@ -22,6 +22,7 @@ or embedded in another application. The main purpose for integration - the abili
   - Houdini 13 and 14 (using [hqt.py](http://github.com/paulwinex/hqt ) module)
   - Nuke 8,9
   - Maya 2014-2016
+  - 3DsMax 2014-2016
     
 If necessary, you can extend this to make your own integration module.
 The main pre condition - Should be used Python2.7.
