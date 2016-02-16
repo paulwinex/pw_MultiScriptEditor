@@ -125,6 +125,10 @@ class houdiniMenuClass(hqt.QMenu):
         self.setWindowTitle('MSE %s Houdini' % self.par.ver)
         self.addAction(hqt.QAction('Read From Node', parent, triggered=self.readFromNode))
         self.addAction(hqt.QAction('Save To Node', parent, triggered=self.saveToNode))
+        self.addSeparator()
+        self.addAction(hqt.QAction('Read from hou.session Sourse', parent, triggered=self.readFromSession))
+        self.addAction(hqt.QAction('Save to hou.session', parent, triggered=self.saveToSession))
+
 
 
     def readFromNode(self):
@@ -173,7 +177,6 @@ class houdiniMenuClass(hqt.QMenu):
         else:
             hou.ui.displayMessage('Select One Node')
 
-
     def getSectionsFromNode(self, node):
         default = ['Help', 'TypePropertiesOptions', 'ExtraFileOptions',  'Tools.shelf', 'InternalFileOptions', 'Contents.gz', 'CreateScript', 'DialogScript']
         res = {}
@@ -187,6 +190,15 @@ class houdiniMenuClass(hqt.QMenu):
         if pySop:
             res['PythonSOP'] = pySop
         return res
+
+    def readFromSession(self):
+        source = hou.sessionModuleSource()
+        self.par.tab.addNewTab('hou.session', source)
+
+    def saveToSession(self):
+        text = self.par.tab.getCurrentText()
+        hou.setSessionModuleSource(text)
+
 
 
 def wrapDroppedText(namespace, text, event):

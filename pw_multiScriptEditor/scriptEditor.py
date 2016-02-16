@@ -40,7 +40,8 @@ class scriptEditorClass(QMainWindow, ui.Ui_scriptEditor):
 
         #variables
         self.s = settingsManager.scriptEditorClass()
-        self.namespace = {}
+        # self.namespace = {}
+        self.namespace = __import__('__main__').__dict__
         self.dial = None
 
         self.updateNamespace({'self_main':self,
@@ -271,6 +272,7 @@ class scriptEditorClass(QMainWindow, ui.Ui_scriptEditor):
                     result = eval(command, self.namespace, self.namespace)
                     if result != None:
                         self.out.showMessage(repr(result))
+
                 except SyntaxError:
                     exec command in self.namespace
             except SystemExit:
@@ -281,6 +283,7 @@ class scriptEditorClass(QMainWindow, ui.Ui_scriptEditor):
                     traceback_lines.pop(i)
                 self.out.showMessage('\n'.join(traceback_lines))
             sys.stdout = tmp_stdout
+            # __import__("__main__").__dict__.update(self.namespace)
 
     def clearHistory(self):
         self.out.setText('')

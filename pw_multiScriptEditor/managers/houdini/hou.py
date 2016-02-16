@@ -5754,7 +5754,6 @@ class PythonPanel(object):
     application thread.  You cannot call any method in this class from a
     separate thread (i.e. do not call from a Python Shell).
     """
-
     def __init__(self): raise AttributeError, "No constructor defined"
     def setInterface(self,interface):
         """
@@ -5766,14 +5765,12 @@ class PythonPanel(object):
         Raises hou.OperationFailed if interface is not an installed  Python
         Panel interface.
         """
-
     def showToolbar(self, show):
         """
         showToolbar(self, show)
 
         Show or hide the toolbar.  show must be either True or False.
         """
-
     def isToolbarShown(self):
         """
         isToolbarShown() -> bool
@@ -5781,7 +5778,6 @@ class PythonPanel(object):
         Return True if the toolbar is shown and False otherwise.
         """
         return True
-
     def expandToolbar(self, on): return
     def isToolbarExpanded(self):
         """
@@ -5790,6 +5786,25 @@ class PythonPanel(object):
         Return True if the toolbar is expanded and False otherwise.
         """
         return True
+    def activeInterface(self):
+        """
+        Returns the interface currently assigned to the Python Panel, or None if no interface has been assigned.
+        """
+        return  PythonPanelInterface()
+    def activeInterfaceRootWidget(self):
+        """
+        Returns a reference to the user-defined root widget created by the active interface in the Python Panel. Returns None if there is no active interface or widget.
+        """
+        from PySide.QtGui import QWidget
+        return QWidget()
+
+    def setActiveInterface(self, interface):
+        """
+        Show the specified interface in the Python Panel. interface is a hou.PythonPanelInterface object.
+        Raises /hom/hou/OperationFailed if interface is not an installed Python Panel interface.
+        """
+        pass
+
 
 class HelpBrowser(PaneTab):
     """
@@ -9799,6 +9814,33 @@ class FloatingPanel(object):
 
         Close the floating panel's window, closing all the pane tabs inside it.
         """
+    def position(*args):
+        """
+        Return the desktop position (in pixels) of the floating panel window.
+        """
+        return Vector2()
+
+    def setPosition(self, pos):
+        """
+        Move the floating panel window to the specified desktop position (in
+        pixels).
+        Raise if position does not contain exactly two values.
+        """
+        pass
+
+    def size(*args):
+        """
+        Return the floating panel window's size (in pixels).
+        """
+        return Vector2()
+
+    def setSize(self, size):
+        """
+        Resize the floating panel window (in pixels).
+        Raise if size does not contain exactly two values. Raise if size
+        contains a value that is less than or equal to zero.
+        """
+        pass
 
 class FloatParmTemplate(ParmTemplate):
     """
@@ -18515,6 +18557,14 @@ class Parm(object):
         """
         return
 
+    def setKeyframes(self, keyframes):
+        """
+    Sets multiple keyframe on this parameter. Calling this method is more efficient than calling hou.Parm.setKeyframe()
+    several times because it sends out only one update event to Houdini for the entire batch of keyframes that are set.
+    keyframes must be a tuple or list of hou.BaseKeyframe objects.
+    Raises /hom/hou/PermissionError if this parameter is not writable.
+    """
+
 class ParmTuple(object):
     """
     hou.ParmTuple
@@ -25631,6 +25681,18 @@ class ui(object):
 
               hou.ui.waitUntil(wrapper_callback)
         """
+    @staticmethod
+    def mainQtWindow():
+        """
+        Return a QWidget instance representing the main Houdini window.
+        This method is useful for when you want to parent a PySide or PyQt dialog to the main window.
+        Parenting to the main window keeps the dialog alive for the lifetime of the window so that the dialog
+        is not destroyed prematurely by Python. Parenting also causes the dialog to inherit the Houdini styles
+        set on the main window.
+        """
+        from PySide.QtGui import QWidget
+        return QWidget
+
 
 class undos(object):
     """
@@ -29764,7 +29826,6 @@ A tuple of two floats indicating how much the node should move. The first float 
     def setRenderFlag(self, val):
         pass
 
-
 class VexContext(object):
     def name(self):
         return ''
@@ -29775,6 +29836,205 @@ class VexContext(object):
         return {'':''}
     def shaderType(self):
         return shaderType()
+# New in h15
+class Selection(object):
+    """
+    hou.Selection
+
+    A class that represents a geometry component selection.
+
+    Component selections are not tied to any specific hou.Geometry.
+    Therefore most method on this class must be passed a Geometry object to
+    look up information about individual components. This explicit
+    separation allows the selection class to be used as a utility class for
+    processing geometry topology (growing the set of components, shrinking
+    it, finding the boundary, etc.). This separation also avoids any
+    expectations that changing the contents of a selection object might be
+    expected to update the selection visible on some goemetry in the
+    viewport. Setting the visible viewport selection must always be an
+    explicit operation on a hou.SopNode in order for Houdini to be able to
+    track changes properly.
+
+    If a selection object is returned from a call to
+    hou.Geometry.selection(), hou.GeometrySelection.selections(), or a
+    hou.SopNode.selection(), the selection cannot be modified. A copy of the
+    selection must be made first with the freeze() method. This new
+    selection can be modified, and passed back into a
+    hou.SopNode.setSelection() if desired. Because each SOP has a selection
+    for each component type, when you set a new selection it will replace
+    the existing selection of that component type. Note that this may not
+    result in the visible selection in the viewport changing if the viewport
+    is not currently configured to select that component type. The viewport
+    selection type can be controlled with the class. A selection created by
+    calling any of the hou.Selection() initializer methods are created in a
+    modifiable state, so a call to freeze() is not required.
+
+    A selection returned from a hou.Geometry or a hou.SopNode is a reference
+    to the source selection, and so will change if the selection on the
+    source geometry is changed. This seems like a departure from the
+    separation of selection objects from any particular geometry, however it
+    matches the behavior of the hou.Geometry class returned from a SOP node.
+    This is because the underlying selection data is shared with the SOP
+    rather than copied. The freeze() method can be used to force a copy of
+    the selection data that is disconnected from any particular SOP (as well
+    as allowing the selection contents to be modified).
+
+
+    """
+    thisown = False
+    def __init__(self, *args):
+        """
+        Creates a new edge component selection from the passed in sequence of
+        hou.Edge objects.
+        """
+        pass
+    def __repr__(*args): pass
+    def freeze(*args):
+        """
+        Returns a copy of the Selection object. This copy can be modified with
+        any of the functions that alter the selection.
+        """
+        return Selection()
+
+    def invert(self, geo):
+        """
+        Using the supplied hou.Geometry object for reference, inverts the
+        current selection. The selection will contain only those components that
+        were not in the selection before this method call.
+        """
+        pass
+
+    def convert(self, geo, selection_type):
+        """
+        Using the supplied hou.Geometry object for reference, converts the
+        current selection to the new .
+        """
+        pass
+
+    def boundary(self, geo, uv_connectivity = False):
+        """
+        Using the supplied hou.Geometry object for reference, changes the
+        selection to contain those components on the boundary of the current
+        selection. The uv_connectivity parameter controls whether to use
+        topology or uv attribute values to determine whether components are
+        connected.
+        """
+        pass
+
+    def grow(self, geo, uv_connectivity = False):
+        """
+        Using the supplied hou.Geometry object for reference, adds to the
+        selection any components connected to the current selection. The
+        uv_connectivity parameter controls whether to use topology or uv
+        attribute values to determine whether components are connected.
+        """
+        pass
+
+    def shrink(self, geo, uv_connectivity = False):
+        """
+        Using the supplied hou.Geometry object for reference, removes from the
+        selection any components on the boundary of the current selection. The
+        uv_connectivity parameter controls whether to use topology or uv
+        attribute values to determine whether components are connected.
+        """
+        pass
+
+    def combine(self, geo, selection, modifier):
+        """
+        Using the supplied hou.Geometry object for reference, combines this
+        selection with another.
+        geo
+            A hou.Geometry object that is used when doing any selection
+            conversions.
+        selection
+            A hou.Selection object that will be combined with the current
+            selection. If this selection does not have the same component type
+            as the current selection, an implicit conversion to the current
+            component type is performed before combining the selections.
+        modifier
+            A value that controls how the selections will be combined. This lets
+            you perform a union, intersection, or other operation on a pairs of
+            selections.
+        """
+        pass
+
+    def clear(*args):
+        """
+        Removes all components from the current selection.
+        """
+        return _hou.Selection_clear(*args)
+
+    def selectionType(*args):
+        """
+        Returns a value indicating the type of component referenced by this
+        selection.
+        """
+        pass
+
+    def numSelected(*args):
+        """
+        Returns the number of components in the selection.
+        """
+        pass
+
+    def prims(self, geo):
+        """
+        Returns a tuple of all primitives in the selection. If the selection
+        does not contain primitives, an implicit conversion to primitives is
+        performed to generate the return value.
+        """
+        return (Prim(),)
+
+    def points(self, geo):
+        """
+        Returns a tuple of all points in the selection. If the selection does
+        not contain points, an implicit conversion to points is performed to
+        generate the return value.
+        """
+        return (Point(),)
+
+    def vertices(self, geo):
+        """
+        Returns a tuple of all vertices in the selection. If the selection does
+        not contain vertices, an implicit conversion to vertices is performed to
+        generate the return value.
+        """
+        return (Vertex(),)
+
+    def edges(self, geo):
+        """
+        Returns a tuple of all edges in the selection. If the selection does not
+        contain edges, an implicit conversion to edges is performed to generate
+        the return value.
+        """
+        return (Edge(),)
+
+    def selectionString(self, geo, force_numeric = False, collapse_where_possible = True, asterisk_to_select_all = False):
+        """
+        Returns a string that specifies the selected components. The format of
+        this string is appropriate for use in SOP Group parameter fields.
+        geo
+            A hou.Geometry object that is used when generating the selection
+            string (such as determining if all components are selected).
+        force_numeric
+            Set this to True to force the generated string to contain only
+            numeric ranges, even if the selection was constructed with group or
+            attribute based selection.
+        collapse_where_possible
+            Set this to True to cause numeric ranges to be collapsed as much as
+            possible, regardless of the selection order. So for example if the
+            user selected primitive 3, then 2, then 1, the generated selection
+            string would either be '3 2 1' or '1-3' depending on this parameter.
+        asterisk_to_select_all
+            When this parameter is set to False, if a selection contains all
+            components in the supplied geometry, the resulting value is an empty
+            string. This is appropriate when using the resulting string in a SOP
+            node Group parameter. If this parameter is set to True, a full
+            selection will return a value of '*' instead.
+
+
+        """
+        return ''
 
 
 # Functions ############################################################################################################

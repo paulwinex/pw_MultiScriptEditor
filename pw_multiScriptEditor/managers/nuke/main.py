@@ -470,7 +470,7 @@ Split the view away from the current knob value.
 """
         pass
 
-    def setValue(self,value, index, time, view):
+    def setValue(self,value, index=0, time=0, view=None):
         """self.setValue(value, index, time, view) -> True if value changed, False otherwise. Safe to ignore.
 Set index to value at time and view.
 @param value: Floating point value.

@@ -94,7 +94,7 @@ def completer(line, ns):
     if m:
         name = m.group(1)
         # nuke.tprint(name)
-        nodes = [x.name() for x in nuke.allNodes()] #recurseGroups=True
+        nodes = [x.name() for x in nuke.allNodes()] + ['preferences', 'root'] #recurseGroups=True
         if name:
             result = [x for x in nodes if x.lower().startswith(name.lower())]
         else:
@@ -109,13 +109,14 @@ def completer(line, ns):
         name = m.group(2)
 
         if node in ns:
-            names = [x.name() for x in ns[node].allKnobs()]
-            if name:
-                result = [x for x in names if x.lower().startswith(name.lower())]
-            else:
-                result = names
-            l = len(name)
-            return [contextCompleterClass(x, x[l:], True) for x in result if x], None
+            if hasattr(ns[node], 'allKnobs'):
+                names = [x.name() for x in ns[node].allKnobs()]
+                if name:
+                    result = [x for x in names if x.lower().startswith(name.lower())]
+                else:
+                    result = names
+                l = len(name)
+                return [contextCompleterClass(x, x[l:], True) for x in result if x], None
             # nuke.tprint(ns[node])
     return None, None
 
