@@ -136,3 +136,7 @@ pw_multiScriptEditor.showNuke(panel=True)
 ```maxscript
 python.executefile("path\\to\\pw_multiScriptEditor\\run_3dsmax.py")
 ```
+
+# License
+
+This project is licensed under the MIT License
