@@ -1,5 +1,10 @@
-from PySide.QtCore import *
-from PySide.QtGui import *
+try:
+    from PySide.QtCore import *
+    from PySide.QtGui import *
+except:
+    from PySide2.QtCore import *
+    from PySide2.QtGui import *
+    from PySide2.QtWidgets import *
 
 from managers import context
 
@@ -11,6 +16,7 @@ class outputClass(QTextBrowser):
         self.document().setDefaultFont(QFont("monospace", self.fs, QFont.Normal))
         metrics = QFontMetrics(self.document().defaultFont())
         self.setTabStopWidth(4 * metrics.width(' '))
+        self.setMouseTracking(1)
 
     def showMessage(self, msg):
         self.moveCursor(QTextCursor.End)

@@ -1,5 +1,10 @@
-from PySide.QtCore import *
-from PySide.QtGui import *
+try:
+    from PySide.QtCore import *
+    from PySide.QtGui import *
+except:
+    from PySide2.QtCore import *
+    from PySide2.QtGui import *
+    from PySide2.QtWidgets import *
 import re
 import jedi
 from pythonSyntax import syntaxHighLighter
@@ -18,13 +23,13 @@ addEndBracket = True
 
 indentLen = 4
 minimumFontSize = 10
-escapeButtons = [Qt.Key_Return, Qt.Key_Enter, Qt.Key_Left, Qt.Key_Right, Qt.Key_Home, Qt.Key_End, Qt.Key_PageUp, Qt.Key_PageDown,
-                 Qt.Key_Delete, Qt.Key_Insert, Qt.Key_Escape]
+escapeButtons = [Qt.Key_Return, Qt.Key_Enter, Qt.Key_Left, Qt.Key_Right, Qt.Key_Home, Qt.Key_End, Qt.Key_PageUp, Qt.Key_PageDown, Qt.Key_Delete, Qt.Key_Insert, Qt.Key_Escape]
 font_name = 'Lucida Console'
 
 class inputClass(QTextEdit):
     executeSignal = Signal()
     saveSignal = Signal()
+    inputSignal = Signal()
     def __init__(self, parent, desk=None):
 
         # https://github.com/davidhalter/jedi
@@ -128,7 +133,8 @@ class inputClass(QTextEdit):
                 y = futureCompGeo.height()+self.completer.lineHeight if (futureCompGeo.height()-i.height())>0 else 0
 
         pt = self.mapToGlobal(rec.bottomRight()) + QPoint(10-x, -y)
-
+        # if managers.context == 'hou':
+        #     print self.mapToParent(self.geometry().topLeft())
         self.completer.move(pt)
 
     def charBeforeCursor(self, cursor):
@@ -154,6 +160,7 @@ class inputClass(QTextEdit):
         return result
 
     def keyPressEvent(self, event):
+        self.inputSignal.emit()
         parse = 0
         # apply complete
         if event.modifiers() == Qt.NoModifier and event.key() in [Qt.Key_Return , Qt.Key_Enter]:

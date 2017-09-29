@@ -1,5 +1,12 @@
-from PySide.QtCore import *
-from PySide.QtGui import *
+try:
+    from PySide.QtCore import *
+    from PySide.QtGui import *
+    qt = 1
+except:
+    from PySide2.QtCore import *
+    from PySide2.QtGui import *
+    from PySide2.QtWidgets import *
+    qt = 2
 import os
 import numBarWidget, inputWidget
 reload(inputWidget)
@@ -10,6 +17,7 @@ from managers import context
 style = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'style', 'completer.qss')
 if not os.path.exists(style):
     style=None
+
 
 class tabWidgetClass(QTabWidget):
     def __init__(self, parent=None):
@@ -38,10 +46,16 @@ class tabWidgetClass(QTabWidget):
     def closeTab(self, i):
         if self.count() > 1:
             if self.getCurrentText(i).strip():
-                if QMessageBox.question(self, 'Close Tab',
-                                       'Close this tab without saving?\n'+self.tabText(i),
-                                       QMessageBox.Yes|QMessageBox.No) == QMessageBox.Yes:
+                # if qt == 1:
+                if self.yes_no_question('Close this tab without saving?\n'+self.tabText(i)):
+                # if QMessageBox.question(self, 'Close Tab',
+                #                        'Close this tab without saving?\n'+self.tabText(i),
+                #                         self.buttons) == QMessageBox.Yes:
                     self.removeTab(i)
+                # else:
+                #     if QMessageBox.question(self, 'Close Tab',
+                #                            'Close this tab without saving?\n'+self.tabText(i)) == QMessageBox.Yes:
+                #         self.removeTab(i)
             else:
                 self.removeTab(i)
 
@@ -53,7 +67,7 @@ class tabWidgetClass(QTabWidget):
     def renameTab(self):
         index = self.currentIndex()
         text = self.tabText(index)
-        result = QInputDialog.getText( self, 'New name', 'Enter New Name', text =text)
+        result = QInputDialog.getText(self, 'New name', 'Enter New Name', text=text)
         if result[1]:
             self.setTabText(index, result[0])
 
@@ -141,6 +155,15 @@ class tabWidgetClass(QTabWidget):
     def comment(self):
         self.current().commentSelected()
 
+    def yes_no_question(self, question):
+        msg_box = QMessageBox(self)
+        msg_box.setText(question)
+        yes_button = msg_box.addButton("Yes", QMessageBox.YesRole)
+        no_button = msg_box.addButton("No", QMessageBox.NoRole)
+        msg_box.exec_()
+        return msg_box.clickedButton() == yes_button
+
+
 class container(QWidget):
     def __init__(self, text, parent, desk):
         super(container, self).__init__()
@@ -154,12 +177,15 @@ class container(QWidget):
             self.edit.addText(text)
         # if not context == 'hou':
             # line number
-        if context == 'hou':
-            import hou
-            if hou.applicationVersion()[0] > 14:
-                hbox.addWidget(self.edit)
-                return
+        # if context == 'hou':
+        #     import hou
+        #     if hou.applicationVersion()[0] > 14:
+        hbox.addWidget(self.edit)
+                # return
         self.lineNum = numBarWidget.lineNumberBarClass(self.edit, self)
+        self.edit.verticalScrollBar().valueChanged.connect(lambda :self.lineNum.update())
+        self.edit.inputSignal.connect(lambda :self.lineNum.update())
+
         hbox.addWidget(self.lineNum)
         hbox.addWidget(self.edit)
 

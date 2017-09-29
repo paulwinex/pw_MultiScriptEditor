@@ -1,5 +1,10 @@
-from PySide.QtCore import *
-from PySide.QtGui import *
+try:
+    from PySide.QtCore import *
+    from PySide.QtGui import *
+except:
+    from PySide2.QtCore import *
+    from PySide2.QtGui import *
+    from PySide2.QtWidgets import *
 import os, re
 from . pythonSyntax import design
 import managers
@@ -10,6 +15,9 @@ if not os.path.exists(style):
 
 class completeMenuClass(QListWidget):
     def __init__(self, parent=None, editor=None):
+        # if managers.context == 'hou':
+        #     super(completeMenuClass, self).__init__(managers.main_parent or parent)
+        # else:
         super(completeMenuClass, self).__init__(parent)
         self.setAlternatingRowColors(1)
         self.lineHeight = 18

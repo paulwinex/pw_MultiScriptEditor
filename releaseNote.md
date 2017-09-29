@@ -1,7 +1,12 @@
+## v2.0.5
+### Fix
+  - Support Houdini 16
+
 ## v2.0.4
 ### Fix
   - comment/uncomment function
   - optimised Nuke library
+  - fixed line number bar for Houdini
 
 ## v2.0.3
 ### What new

@@ -1,7 +1,13 @@
-from PySide.QtGui import *
-from PySide.QtCore import *
+try:
+    from PySide.QtCore import *
+    from PySide.QtGui import *
+    from shiboken import wrapInstance as wrp
+except:
+    from PySide2.QtCore import *
+    from PySide2.QtGui import *
+    from PySide2.QtWidgets import *
 import maya.OpenMayaUI as omui
-from shiboken import wrapInstance as wrp
+
 import os, sys, re
 from managers.completeWidget import contextCompleterClass
 
@@ -157,8 +163,9 @@ class mayaMenuClass(QMenu):
         self.addAction(a)
 
     def saveToShelfDialog(self):
-        dial = saveToShelfClass(self.par)
-        dial.exec_()
+        self.dial = saveToShelfClass(self.par)
+        # dial.exec_()
+        self.dial.show()
 
 
 class mayaIconsClass(QListWidget):
@@ -171,6 +178,7 @@ class mayaIconsClass(QListWidget):
         self.setEditTriggers(QAbstractItemView.NoEditTriggers)
         self.setResizeMode(QListWidget.ResizeMode.Adjust)
         self.fillIcons()
+        self.itemClicked.connect(self.print_name)
 
     def fillIcons(self):
         res, files = self.getIcons()
@@ -179,11 +187,13 @@ class mayaIconsClass(QListWidget):
             item = QListWidgetItem(self)
             item.setIcon(QIcon(':/'+ico))
             item.setData(32, ':/'+ico)
+            item.setToolTip(ico)
             self.addItem(item)
         for f in sorted(files, key=lambda x: os.path.splitext(x)[0]):
             item = QListWidgetItem(self)
             item.setIcon(QIcon(f))
             item.setData(32, f)
+            item.setToolTip(f)
             self.addItem(item)
 
 
@@ -204,6 +214,9 @@ class mayaIconsClass(QListWidget):
                 if os.path.splitext(f)[1] in ['.png', '.svg'] :
                     result.append(os.path.join(path, f).replace('\\','/'))
         return result
+
+    def print_name(self, item):
+        print item.data(32)
 
 class saveToShelfClass(QDialog):
     def __init__(self, parent):
@@ -256,4 +269,5 @@ class saveToShelfClass(QDialog):
             height=pm.shelfLayout(currentShelf, query=1, cellHeight=1)
             )
         self.accept()
+        self.close()
 

@@ -5018,7 +5018,7 @@ Run an instance of Nuke as a monitored sub process. Returns an integer that's us
 @return: Int."""
     return 0
 
-def executeInMainThread(call,args,kwargs):
+def executeInMainThread(call,*args,**kwargs):
     """ Execute the callable 'call' with optional arguments 'args' and named arguments 'kwargs' i
 n
       Nuke's main thread and return immediately. """
@@ -5989,7 +5989,7 @@ Saves the current window layout.
 """
     pass
 
-def scriptClear():
+def scriptClear(filename=None, ignoreUnsavedChanges=False):
     """Clears a Nuke script."""
     pass
 
@@ -6005,11 +6005,11 @@ def scriptNew():
     """Start a new script. Returns True if successful."""
     pass
 
-def scriptOpen():
+def scriptOpen(path):
     """Opens a new script containing the contents of the named file."""
     pass
 
-def scriptReadFile():
+def scriptReadFile(path):
     """Read nodes from a file."""
     pass
 

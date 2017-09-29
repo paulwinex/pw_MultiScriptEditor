@@ -2,12 +2,18 @@ import traceback
 import sys
 import webbrowser
 import os
-from PySide.QtCore import *
-from PySide.QtGui import *
+try:
+    from PySide.QtCore import *
+    from PySide.QtGui import *
+except:
+    from PySide2.QtCore import *
+    from PySide2.QtGui import *
+    from PySide2.QtWidgets import *
 from widgets import scriptEditor_UIs as ui, tabWidget, outputWidget, about, shortcuts
 from widgets.pythonSyntax import design
 reload(tabWidget)
 reload(outputWidget)
+reload(ui)
 import sessionManager
 import settingsManager
 from widgets import themeEditor, findWidget
@@ -21,11 +27,12 @@ if managers._s == 'w':
 import icons_rcs
 from icons import *
 
+
 class scriptEditorClass(QMainWindow, ui.Ui_scriptEditor):
     def __init__(self, parent=None):
         QMainWindow.__init__(self, parent)
         # ui
-        self.ver = '2.0.3'
+        self.ver = '2.0.4'
         self.setupUi(self)
         self.setWindowTitle('pw Multi Script Editor v%s' % self.ver)
         self.setObjectName('pw_scriptEditor')
@@ -405,7 +412,10 @@ class scriptEditorClass(QMainWindow, ui.Ui_scriptEditor):
         elif os.name =='os2':
             os.system('open "%s"' % path)
 
-QTextCodec.setCodecForCStrings(QTextCodec.codecForName("UTF-8"))
+try:
+    QTextCodec.setCodecForCStrings(QTextCodec.codecForName("UTF-8"))
+except:
+    pass
 
 if __name__ == '__main__':
     app = QApplication([])

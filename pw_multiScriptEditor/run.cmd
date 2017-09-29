@@ -1,1 +1,1 @@
-start c:\python27\pythonw.exe scriptEditor.py %*
+start c:\python27\python.exe scriptEditor.py %*
