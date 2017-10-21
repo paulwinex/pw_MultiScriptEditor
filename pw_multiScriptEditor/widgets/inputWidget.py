@@ -131,7 +131,7 @@ class inputClass(QTextEdit):
                 try:
                     i = currentScreen.intersect(futureCompGeo)
                 except:
-                    i = currentScreen.intersects(futureCompGeo)
+                    i = currentScreen.intersected(futureCompGeo)
                 x = futureCompGeo.width() - i.width()
                 y = futureCompGeo.height()+self.completer.lineHeight if (futureCompGeo.height()-i.height())>0 else 0
 
