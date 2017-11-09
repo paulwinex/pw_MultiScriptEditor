@@ -65,6 +65,7 @@ dropEvents = dict(
 autoImport = dict(
     hou='import hou\n',
     nuke='import nuke\n',
+    max='import MaxPlus\n'
 )
 mayaDragTempData = 'maya_temp_drag_empty_Data'
 
@@ -78,6 +79,9 @@ elif 'cmds' in main.__dict__:
     context = 'maya'
 elif 'nuke' in main.__dict__:
     context = 'nuke'
+elif 'MaxPlus' in main.__dict__:
+    context = 'max'
+
 
 
 

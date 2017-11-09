@@ -31,6 +31,7 @@ def showMaya(dock=False):
 
 # 3DSMAX PLUS
 def show3DSMax():
+    sys.argv = []
     from .managers import _3dsmax
     reload (_3dsmax)
     _3dsmax.show()

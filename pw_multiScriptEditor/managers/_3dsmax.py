@@ -5,7 +5,7 @@ from PySide import QtCore
 
 from pw_multiScriptEditor import scriptEditor
 reload(scriptEditor)
-
+import MaxPlus
 q3dsmax = QtGui.QApplication.instance()
 
 class MaxDialogEvents(QtCore.QObject):
@@ -19,7 +19,7 @@ class MaxDialogEvents(QtCore.QObject):
         return False
 
 def show():
-    se = scriptEditor.scriptEditorClass(parent=None)
+    se = scriptEditor.scriptEditorClass(parent=MaxPlus.GetQMaxWindow())
     se.installEventFilter(MaxDialogEvents())
     se.runCommand('import MaxPlus')
     se.MaxEventFilter = MaxDialogEvents()

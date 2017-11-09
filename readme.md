@@ -136,6 +136,20 @@ pw_multiScriptEditor.showNuke(panel=True)
 ```maxscript
 python.executefile("path\\to\\pw_multiScriptEditor\\run_3dsmax.py")
 ```
+or
+```
+macroScript MultiScriptEpitor
+	category:"scripts"
+	toolTip:"MultiScriptEditor"
+(
+	python.Execute "import sys"
+	python.Execute "sys.path.append('path/to/scripts/folder')"
+	python.Execute "import pw_multiScriptEditor"
+	python.Execute "reload(pw_multiScriptEditor)"
+	python.Execute "pw_multiScriptEditor.show3DSMax()"
+)
+
+```
 
 # License
 

@@ -166,14 +166,15 @@ class scriptEditorClass(QMainWindow, ui.Ui_scriptEditor):
             return menu
 
     def addArgs(self):
-        f = sys.argv[-1]
-        if os.path.exists(f):
-            if not os.path.basename(f) == os.path.basename(__file__):
-                if os.path.splitext(f)[-1] in ['.txt', '.py']:
-                    self.out.showMessage( os.path.splitext(f)[-1])
-                    self.out.showMessage('Open File: '+f)
-                    text = open(f).read()
-                    self.tab.addNewTab(os.path.basename(f), text)
+        if sys.argv:
+            f = sys.argv[-1]
+            if os.path.exists(f):
+                if not os.path.basename(f) == os.path.basename(__file__):
+                    if os.path.splitext(f)[-1] in ['.txt', '.py']:
+                        self.out.showMessage( os.path.splitext(f)[-1])
+                        self.out.showMessage('Open File: '+f)
+                        text = open(f).read()
+                        self.tab.addNewTab(os.path.basename(f), text)
 
     def fillThemeMenu(self):
         self.theme_menu.clear()
