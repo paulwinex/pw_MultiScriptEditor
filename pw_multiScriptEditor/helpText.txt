@@ -6,7 +6,7 @@
 		<h2>
 			Multi Script Editor v%s</h2>
 		<p>
-			By PaulWinex paulwinex.ru</p>
+			By PaulWinex paulwinex.com</p>
 		<h3>
 			Editor Variables:</h3>
 		<ul>

@@ -2,7 +2,7 @@
 <pythonPanelDocument>
   <interface name="interface2" label="Multi Script Editor" icon="MISC_python" help_url="">
     <script><![CDATA[# MultiScriptEditor for Houdini.
-# by PaulWinex. www.paulwinex.ru
+# by PaulWinex. www.paulwinex.com
 # python_panel for Houdini 15
 import sys
 path = 'D:/PW_DATA/rnd/pw_scriptEditor'

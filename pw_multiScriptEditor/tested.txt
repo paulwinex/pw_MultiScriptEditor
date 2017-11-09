@@ -2,6 +2,7 @@ Supported applications:
     Maya
     Houdini
     Nuke
+    3DsMax
 
 Tested on:
     Windows 7x64 Maya 2015
@@ -9,6 +10,7 @@ Tested on:
     Windows 7x64 Maya 2013
     Windows 7x64 Houdini 13
     Windows 7x64 Houdini 14
+    Windows 7x64 Houdini 15
     Windows 7x64 Nuke 8
     Windows 7x64 Nuke 9
     Kubuntu Houdini 13

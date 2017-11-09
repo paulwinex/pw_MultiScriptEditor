@@ -125,11 +125,14 @@ class scriptEditorClass(QMainWindow, ui.Ui_scriptEditor):
 
         self.clearHistory_act.triggered.connect(self.clearHistory)
 
+        # hide
+        self.donate_act.setVisible(False)
+
         #start
         self.loadSession()
         self.loadSettings()
         self.setWindowStyle()
-        self.out.showMessage('>>> pw Multi Script Editor v.%s\npaulwinex.ru' % self.ver)
+        self.out.showMessage('>>> Multi Script Editor v.%s\npaulwinex.com' % self.ver)
         self.tab.widget(0).edit.setFocus()
         self.appContextMenu()
         self.addArgs()
