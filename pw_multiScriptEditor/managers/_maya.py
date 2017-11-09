@@ -1,11 +1,14 @@
+_pyside_ver = 0
 try:
     from PySide.QtCore import *
     from PySide.QtGui import *
     from shiboken import wrapInstance as wrp
+    _pyside_ver = 1
 except:
     from PySide2.QtCore import *
     from PySide2.QtGui import *
     from PySide2.QtWidgets import *
+    _pyside_ver = 2
 import maya.OpenMayaUI as omui
 
 import os, sys, re
@@ -23,9 +26,13 @@ if compPath in sys.path:
 sys.path.insert(0, compPath)
 
 def getMayaWindow():
-    ptr = omui.MQtUtil.mainWindow()
-    if ptr is not None:
-        return wrp(long(ptr), QMainWindow)
+    if _pyside_ver == 1:
+        ptr = omui.MQtUtil.mainWindow()
+        if ptr is not None:
+            return wrp(long(ptr), QMainWindow)
+    elif _pyside_ver == 2:
+        from pymel.core import ui
+        return ui.Window('MayaWindow').asQtObject()
 
 def show(dock=False):
     if dock:
