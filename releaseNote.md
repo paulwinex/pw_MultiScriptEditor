@@ -7,6 +7,8 @@
   - comment/uncomment function
   - optimised Nuke library
   - fixed line number bar for Houdini
+  - update 3DsMax connector script
+  - fix connector for Maya 2017
 
 ## v2.0.3
 ### What new

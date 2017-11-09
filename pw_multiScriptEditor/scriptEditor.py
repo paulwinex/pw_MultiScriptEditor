@@ -132,7 +132,7 @@ class scriptEditorClass(QMainWindow, ui.Ui_scriptEditor):
         self.loadSession()
         self.loadSettings()
         self.setWindowStyle()
-        self.out.showMessage('>>> Multi Script Editor v.%s\npaulwinex.com' % self.ver)
+        # self.out.showMessage('Multi Script Editor v.%s Loaded\npaulwinex.com' % self.ver)
         self.tab.widget(0).edit.setFocus()
         self.appContextMenu()
         self.addArgs()
