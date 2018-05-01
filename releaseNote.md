@@ -1,6 +1,8 @@
 ## v2.0.5
 ### Fix
   - Support Houdini 16
+  - update Houdini auto completion
+  - fix connector for Maya 2017
 
 ## v2.0.4
 ### Fix
@@ -8,7 +10,6 @@
   - optimised Nuke library
   - fixed line number bar for Houdini
   - update 3DsMax connector script
-  - fix connector for Maya 2017
 
 ## v2.0.3
 ### What new

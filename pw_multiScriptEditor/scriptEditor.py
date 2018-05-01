@@ -277,6 +277,8 @@ class scriptEditorClass(QMainWindow, ui.Ui_scriptEditor):
                         self.write_func(stripped_text)
                         QCoreApplication.processEvents()
                     self.skip = not self.skip
+                def flush(self):
+                    pass
 
             sys.stdout = stdoutProxy(self.out.showMessage)
             try:

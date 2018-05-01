@@ -7,13 +7,19 @@ except:
     from PySide2.QtWidgets import *
 
 from managers import context
+font_name = 'Courier'
+
 
 class outputClass(QTextBrowser):
     def __init__(self):
         super(outputClass, self).__init__()
         self.setWordWrapMode(QTextOption.NoWrap)
+        font = QFont("Courier")
+        font.setStyleHint(QFont.Monospace)
+        font.setFixedPitch(True)
+        self.setFont(font)
         self.fs = 14
-        self.document().setDefaultFont(QFont("monospace", self.fs, QFont.Normal))
+        self.document().setDefaultFont(QFont(font_name, self.fs, QFont.Monospace))
         metrics = QFontMetrics(self.document().defaultFont())
         self.setTabStopWidth(4 * metrics.width(' '))
         self.setMouseTracking(1)

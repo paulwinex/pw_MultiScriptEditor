@@ -24,7 +24,8 @@ addEndBracket = True
 indentLen = 4
 minimumFontSize = 10
 escapeButtons = [Qt.Key_Return, Qt.Key_Enter, Qt.Key_Left, Qt.Key_Right, Qt.Key_Home, Qt.Key_End, Qt.Key_PageUp, Qt.Key_PageDown, Qt.Key_Delete, Qt.Key_Insert, Qt.Key_Escape]
-font_name = 'Lucida Console'
+# font_name = 'Lucida Console'
+font_name = 'Courier'
 
 class inputClass(QTextEdit):
     executeSignal = Signal()
@@ -38,7 +39,11 @@ class inputClass(QTextEdit):
         self.p = parent
         self.desk = desk
         self.setWordWrapMode(QTextOption.NoWrap)
-        self.document().setDefaultFont(QFont(font_name, minimumFontSize, QFont.Normal))
+        font = QFont("Courier")
+        font.setStyleHint(QFont.Monospace)
+        font.setFixedPitch(True)
+        self.setFont(font)
+        self.document().setDefaultFont(QFont(font_name, minimumFontSize, QFont.Monospace))
         metrics = QFontMetrics(self.document().defaultFont())
         self.setTabStopWidth(4 * metrics.width(' '))
         self.setAcceptDrops(True)
@@ -48,7 +53,9 @@ class inputClass(QTextEdit):
         # self.customContextMenuRequested.connect(self.openMenu)
         data = settingsManager.scriptEditorClass().readSettings()
         self.applyHightLighter(data.get('theme'))
+        self.setFont(font)
         # self.changeFontSize(False)
+
         self.changeFontSize(True)
 
     def focusOutEvent(self, event):

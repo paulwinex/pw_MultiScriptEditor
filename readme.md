@@ -24,6 +24,8 @@ or embedded in another application. The main purpose for integration - the abili
   - Maya 2014-2017
   - 3DsMax 2014-2017
     
+RV Integration in [nebukadhezer branch](https://github.com/nebukadhezer/pw_MultiScriptEditor)
+
 If necessary, you can extend this to make your own integration module.
 The main pre condition - Should be used Python2.7.
  
