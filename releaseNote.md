@@ -1,8 +1,9 @@
 ## v2.0.5
 ### Fix
-  - Support Houdini 16
+  - Support Houdini 16.5
   - update Houdini auto completion
   - fix connector for Maya 2017
+  - add hqt.py by default
 
 ## v2.0.4
 ### Fix
