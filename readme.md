@@ -19,12 +19,12 @@ or embedded in another application. The main purpose for integration - the abili
 
 ### Existing integration modules
 
-  - Houdini 13-16 (using [hqt.py](http://github.com/paulwinex/hqt ) module)
+  - Houdini 13-17
   - Nuke 8-10
   - Maya 2014-2017
   - 3DsMax 2014-2017
     
-RV Integration in [nebukadhezer branch](https://github.com/nebukadhezer/pw_MultiScriptEditor)
+RV Integration in [nebukadhezer branch](https://github.com/nebukadhezer/multi_script_editor)
 
 If necessary, you can extend this to make your own integration module.
 The main pre condition - Should be used Python2.7.
@@ -57,101 +57,35 @@ The main pre condition - Should be used Python2.7.
 
 # How to install
 
-### Standalone
-    
-  - install Python 2.7
-  - install PySide
-  - use run.cmd (Windows) or run.sh (Linux) to start
 
-### Houdini 13
-    
-  - download and install [hqt.py](http://github.com/paulwinex/hqt )
-  - install PySide to default Python interpreter
-  - create new tool on shelf
+[Standalone](https://github.com/nebukadhezer/multi_script_editor)
+[Houdini install](https://github.com/nebukadhezer/multi_script_editor)
+[Maya install](https://github.com/nebukadhezer/multi_script_editor)
+[Nuke install](https://github.com/nebukadhezer/multi_script_editor)
+[3DsMax install](https://github.com/nebukadhezer/multi_script_editor)
 
-```python
-import sys
-paths = ['path/to/folder/with/MultiScriptEditor_module','path/to/default/python27/lib/with/PySide']
-# example ['c:/houdini/python/lib', 'c:/python27/Lib/site-packages']
-for path in paths:
-    if not path in sys.path:
-        sys.path.append(path)
-import pw_multiScriptEditor
-pw_multiScriptEditor.showHoudini(ontop=1)
-```
-  
-### Houdini 14
+You can use single module installation for each case. Just extract module `multi_script_editor`
+to somewhere (no spaces and non ascii characters in path) and add this path to PYTHONPATH before start your app.
 
-  - download and install [hqt.py](http://github.com/paulwinex/hqt )
-  - create new tool on shelf
-  
-```python
-import sys
-path = 'path/to/folder/with/MultiScriptEditor_module'
-# example c:/houdini/python/lib
-if not path in sys.path:
-    sys.path.append(path)
-import pw_multiScriptEditor
-pw_multiScriptEditor.showHoudini(name='Multi Script Editor',replacePyPanel=1, hideTitleMenu=0)
-```
+For example:
 
-Also you can use .pypanel file without hqt module 
->/managers/houdini/pw_MultiScriptEditor.pypanel
+Extract to `'/home/username/myscripts/multi_script_editor'`
 
-### Maya
+Add this path to PYTHONPATH environment variable
 
-  - Create shelf button with code
-```python
-import sys
-path = 'path/to/folder/with/MultiScriptEditor_module'
-# example c:/maya/python/lib
-if not path in sys.path:
-    sys.path.append(path)
-import pw_multiScriptEditor
-pw_multiScriptEditor.showMaya(dock=True)
-```
+Windows:
 
-### Nuke
+`set PYTHONPATH=c:/users/username/myscripts`
 
-  - Add next code to menu.py
-  
-```python
-import nuke
-menubar = nuke.menu("Nuke")
-toolMenu = menubar.addMenu('&Tools')
-path = 'path/to/folder/with/MultiScriptEditor_module'
-# example c:/nuke/python/lib
-if not path in sys.path:
-    sys.path.append(path)
+Linux
 
-import pw_multiScriptEditor
-# add to menu
-toolMenu.addCommand("Multi Script Editor", "pw_multiScriptEditor.showNuke()")
-# create new pane
-pw_multiScriptEditor.showNuke(panel=True)
-```
+`export PYTHONPATH=/home/username/myscripts`
 
-### 3DsMax
+Python
 
-  - Create a menu, toolbar, etc with the following maxscript:
+`os.environ['PYTHONPATH'] = '/home/username/myscripts'`
 
-```maxscript
-python.executefile("path\\to\\pw_multiScriptEditor\\run_3dsmax.py")
-```
-or
-```
-macroScript MultiScriptEpitor
-	category:"scripts"
-	toolTip:"MultiScriptEditor"
-(
-	python.Execute "import sys"
-	python.Execute "sys.path.append('path/to/scripts/folder')"
-	python.Execute "import pw_multiScriptEditor"
-	python.Execute "reload(pw_multiScriptEditor)"
-	python.Execute "pw_multiScriptEditor.show3DSMax()"
-)
-
-```
+Do this for each app.
 
 # License
 

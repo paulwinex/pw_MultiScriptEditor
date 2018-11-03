@@ -1,3 +1,10 @@
+## v2.1
+### What new
+
+    - update all managers
+    - update auto completion fou Houdini ?
+
+
 ## v2.0.5
 ### Fix
   - Support Houdini 16.5

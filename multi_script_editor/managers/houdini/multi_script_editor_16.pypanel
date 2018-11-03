@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pythonPanelDocument>
+  <interface name="interface2" label="Multi Script Editor" icon="MISC_python" help_url="">
+    <script><![CDATA[# MultiScriptEditor for Houdini.
+# by PaulWinex. www.paulwinex.com
+# python_panel for Houdini 15 and up
+
+def createInterface():
+    from multi_script_editor import scriptEditor
+    reload(scriptEditor)
+    w = scriptEditor.scriptEditorClass()
+    w.setStyleSheet('')
+    import hqt
+    w.setStyleSheet( hqt.get_h14_style() )
+    return w
+]]></script>
+    <help><![CDATA[]]></help>
+  </interface>
+</pythonPanelDocument>
