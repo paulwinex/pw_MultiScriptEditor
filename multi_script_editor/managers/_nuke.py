@@ -10,8 +10,13 @@ from managers.nuke import nodes
 nuke_nodes = dir(nodes)
 from managers.completeWidget import contextCompleterClass
 
-from PySide.QtGui import *
-from PySide.QtCore import *
+try:
+    from PySide.QtGui import *
+    from PySide.QtCore import *
+except ImportError:
+    from PySide2.QtGui import *
+    from PySide2.QtCore import *
+    from PySide2.QtWidgets import *
 
 p = os.path.dirname(__file__).replace('\\','/')
 if not p in sys.path:
